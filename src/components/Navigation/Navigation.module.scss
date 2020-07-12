@@ -138,7 +138,7 @@
   }
 }
 
-@include media(LAPTOP) {
+@include media(laptop) {
   .nav {
     $self: &;
 
@@ -151,7 +151,7 @@
     }
 
     &__mobile {
-      @include transition(transform opacity, PAGE);
+      @include transition(transform opacity, page);
       display: block;
       #{ $self }--show & {
         opacity: 1;
@@ -162,11 +162,11 @@
     &__bar {
       &--top,
       &--bot {
-        @include transition(transform, PAGE);
+        @include transition(transform, page);
       }
 
       &--mid {
-        @include transition(transform opacity, PAGE);
+        @include transition(transform opacity, page);
       }
 
       #{ $self }--show & {

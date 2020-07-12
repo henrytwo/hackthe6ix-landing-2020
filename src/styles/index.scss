@@ -9,6 +9,7 @@
 @import '~@hackthe6ix/vue-ui/styles/fonts';
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600&display=swap');
 
 html, body {
   margin: 0;
@@ -16,7 +17,7 @@ html, body {
   color: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: $font;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.95rem;
   @include scroll;
 }

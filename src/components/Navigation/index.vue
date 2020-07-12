@@ -12,7 +12,6 @@
         </li>
       </ul>
     </a>
-    <!--
     <ul :class="$style.nav__items">
       <router-link
           tag="li"
@@ -33,7 +32,7 @@
           {{ applyButtonMessage }}
         </Button>
       </li>
-    </ul>-->
+    </ul>
     <!--
     <button :class="$style.nav__menu" v-on:click="() => (this.show = !this.show)">
       <div :class="$style.nav__bar $style.nav__bar--top" />
@@ -87,7 +86,7 @@
     props: {
       items: {
         type: Array,
-        default: () => [],
+        default: () => [{ displayName: 'wtf', name: 'wtf' }],
       },
       disableApply: Boolean,
       applyButtonMessage: String,
