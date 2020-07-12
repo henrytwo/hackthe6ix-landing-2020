@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navigation />
+    <Navigation :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <div :class="$style.layout">
       <slot/>
     </div>
@@ -23,6 +23,11 @@ export default {
   components: {
     Navigation,
     Footer
+  },
+  props: {
+    disableApply: Boolean,
+    applyButtonMessage: String,
+    applyLink: String
   }
 }
 </script>

@@ -67,9 +67,9 @@
           </li>
           <li>
             <Button
-                :class="$style.nav__mobile-button"
-                v-on:click.native="apply()"
-                :disabled="disableApply"
+              :class="$style['nav__mobile-button']"
+              v-on:click.native="apply()"
+              :disabled="disableApply"
             >{{ applyButtonMessage }}</Button
             >
           </li>
@@ -104,6 +104,9 @@
       close() {
         this.show = false;
       },
+      apply() {
+        document.location.href = this.applyLink;
+      }
     },
     props: {
       items: {
@@ -111,7 +114,8 @@
         default: () => [{ displayName: 'wtf', name: 'wtf' },  {displayName: 'wtf', name: 'wtf' },  {displayName: 'wtf', name: 'wtf' }],
       },
       disableApply: Boolean,
-      applyButtonMessage: String
+      applyButtonMessage: String,
+      applyLink: String
     },
   };
 </script>

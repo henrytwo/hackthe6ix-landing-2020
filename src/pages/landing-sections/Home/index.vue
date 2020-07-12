@@ -8,7 +8,10 @@
         <h1 :class="$style.home__title">HACK THE 6IX</h1>
         <h3 :class="$style.home__date">August 21 to 23, 2020</h3>
         <h2 :class="$style.home__inspiration">We hack to <span :class="$style['home__inspiration--highlight']">profit.</span></h2>
-        <Button>PLZ PRESS ME</Button>
+        <Button
+          :disabled="disableApply"
+          v-on:click.native="apply()"
+        >{{applyButtonMessage}}</Button>
         <h4>*Applications close on July 24 at 11:59PM EST</h4>
       </div>
       <div :class="$style['home__content--right']">
@@ -18,7 +21,6 @@
   </Container>
 </template>
 
-
 <script>
 import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
@@ -27,6 +29,16 @@ export default {
   components: {
     Container,
     Button
+  },
+  methods: {
+    apply() {
+      document.location.href = this.applyLink;
+    }
+  },
+  props: {
+    disableApply: Boolean,
+    applyButtonMessage: String,
+    applyLink: String
   }
 }
 </script>
