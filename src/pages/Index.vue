@@ -3,6 +3,7 @@
     <Home :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <TransitionHome />
     <About />
+    <TransitionAbout />
   </Layout>
 </template>
 
@@ -10,6 +11,7 @@
 import Home from './landing-sections/Home/index.vue';
 import About from './landing-sections/About/index.vue';
 import TransitionHome from '@components/Transitions/Home/index.vue';
+import TransitionAbout from '@components/Transitions/About/index.vue';
 import {
   applyButtonMessages,
   overrideApplicationState,
@@ -25,7 +27,8 @@ export default {
   components: {
     Home,
     About,
-    TransitionHome
+    TransitionHome,
+    TransitionAbout
   },
   data() {
     return {
