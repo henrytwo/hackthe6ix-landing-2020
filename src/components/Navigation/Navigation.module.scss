@@ -10,6 +10,14 @@
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
+  &__disclaimer {
+    margin-top: 80px;
+    background-color: $sand;
+    color: $font;
+    text-align: center;
+    padding: 2px 2px;
+  }
+
   &__justify {
     display: flex;
   }
