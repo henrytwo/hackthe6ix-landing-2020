@@ -4,6 +4,7 @@
     <div class="layout">
       <slot/>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -16,11 +17,12 @@ query {
 </static-query>
 
 <script>
-import Navigation from './Navigation';
+import {Navigation, Footer} from '@components';
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    Footer
   }
 }
 </script>

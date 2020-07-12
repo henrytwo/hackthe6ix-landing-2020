@@ -92,9 +92,9 @@
 </script>
 
 <style lang="scss">
-  @import '~@hackthe6ix/vue-ui/styles/mixins';
-  @import '~@hackthe6ix/vue-ui/styles/colors';
-  @import '~@hackthe6ix/vue-ui/styles/variables';
+  @import '../../node_modules/@hackthe6ix/vue-ui/styles/mixins';
+  @import '../../node_modules/@hackthe6ix/vue-ui/styles/colors';
+  @import '../../node_modules/@hackthe6ix/vue-ui/styles/variables';
 
   .nav {
     @include position(fixed, 0 auto auto, 0, auto, auto);
