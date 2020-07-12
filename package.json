@@ -7,7 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@hackthe6ix/vue-ui": "0.0.34",
+    "@hackthe6ix/vue-ui": "^0.1.0",
     "gridsome": "^0.7.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2"

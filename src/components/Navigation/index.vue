@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div :class="$style.nav__spacer"/>
     <Container :block="$style.nav" :as="$style.nav" :class="{'nav--show': this.show}">
       <div :class="$style.nav__justify">
 

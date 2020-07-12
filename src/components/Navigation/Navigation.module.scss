@@ -10,8 +10,16 @@
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
+  &__spacer {
+    height: 80px;
+    width: 100%;
+  }
+
   &__disclaimer {
-    margin-top: 80px;
+    @include position(fixed, 0 auto auto, 0, auto, auto);
+    z-index: 150;
+    width: 100%;
+    top: 80px;
     background-color: $sand;
     color: $font;
     text-align: center;
@@ -123,7 +131,6 @@
 
     &-container {
       @include flex(column, flex-end);
-      padding-top: 80px;
       margin: 0;
       align-self: flex-start;
       list-style-type: none;
