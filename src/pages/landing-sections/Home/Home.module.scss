@@ -4,6 +4,8 @@
 
 @import '@components/Navigation/Navigation.module';
 
+$home-breakpoint: 1280px;
+
 .home-links a {
   margin-right: 1rem;
 }
@@ -50,28 +52,9 @@
 
   }
 
-  &__person {
-    position: absolute;
-    right: 500px;
-    z-index: 50;
-    bottom: 50px;
-  }
-
-  &__left-leaf {
-    position: absolute;
-    left: 0;
-    bottom: 100px;
-  }
-
-  &__right-leaf {
-    position: absolute;
-    right: 0;
-    bottom: 100px;
-  }
-
   /* Container stuff */
   &__container {
-    @include flex(flex-end, flex-start);
+    @include flex(none);
     position: relative;
     align-self: stretch;
   }
@@ -85,32 +68,36 @@
     &--left {
       float: left;
       max-width: 500px;
-      margin-bottom: 256px;
     }
 
     &--right {
       float: right;
+      margin-bottom: 256px;
     }
   }
 }
 
 
-@include media(laptop) {
+@media only screen and (max-width: $home-breakpoint) {
   .home {
+    margin-top: 32px !important;
 
     justify-content: center;
 
     &__streetcar {
-      margin: auto;
+      max-width: 90vw;
+      transform: translateX(-50%);
     }
 
     &__content {
       &--left {
         width: 100%;
-        margin-bottom: 0;
+        max-width: 100%;
       }
       &--right {
-        width: 100%;
+        float: none;
+        margin-left: 50%;
+        margin-bottom: 128px;
       }
     }
   }

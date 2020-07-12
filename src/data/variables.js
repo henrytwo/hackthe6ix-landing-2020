@@ -1,1 +1,1 @@
-export const SHOW_DISCLAIMER = true;
+export const SHOW_DISCLAIMER = false;

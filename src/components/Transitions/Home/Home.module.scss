@@ -5,3 +5,32 @@
 
   transform: translateY(-50%);
 }
+
+.left-leaf {
+  position: absolute;
+  max-width: 20vw;
+
+  z-index: 50;
+
+  transform: translateY(-120%);
+}
+
+.right-leaf {
+  position: absolute;
+  max-width: 20vw;
+
+  z-index: 50;
+  right: 0;
+
+  transform: translateY(-125%);
+}
+
+.person {
+  position: absolute;
+  max-width: 80vw;
+
+  right: 20vw;
+  z-index: 55;
+
+  transform: translateY(-105%);
+}
