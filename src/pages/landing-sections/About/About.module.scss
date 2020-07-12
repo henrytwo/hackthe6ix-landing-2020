@@ -2,7 +2,7 @@
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
-$home-breakpoint: 1280px;
+$about-breakpoint: 1210px;
 
 .home-links a {
   margin-right: 1rem;
@@ -11,6 +11,23 @@ $home-breakpoint: 1280px;
 .about {
   min-height: 900px;
   margin: 0;
+
+  &__serious {
+    color: $yellow;
+  }
+
+  &__attracted {
+    color: $grey;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 50vw;
+    }
+  }
 
   /* Container stuff */
   &__container {
@@ -23,16 +40,44 @@ $home-breakpoint: 1280px;
     font-weight: bold;
     text-align: left;
     margin: 0;
-    max-width: 100%;
+    width: 100%;
 
     &--left {
       float: left;
-      max-width: 500px;
+      max-width: 550px;
+      color: $black;
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 24px;
+      }
     }
 
     &--right {
       float: right;
-      margin-bottom: 256px;
     }
   }
 }
+
+
+@media only screen and (max-width: $about-breakpoint) {
+  .about {
+    justify-content: center;
+
+    &__video-frame {
+      transform: translateX(-50%);
+    }
+
+    &__content {
+      &--left {
+        width: 100%;
+        max-width: 100%;
+      }
+      &--right {
+        float: none;
+        margin-left: 50%;
+      }
+    }
+  }
+}
+

@@ -1,16 +1,35 @@
 <template>
   <Container id="about" :block="$style.about" as="section">
     <div :class="$style.about__content">
-      <h2>ABOUT</h2>
-      <p>
-        Hack the 6ix is the largest summer student run, not for profit hackathon
-        located in the heart of Toronto. Every year, we select 400+ participants from
-        a pool of over 1500 remarkable developers, designers, and innovators. We
-        believe the diversity and talent of our hackers contribute greatly to the
-        success of our event. Now in its sixth iteration, Hack the 6ix has established
-        itself as a key player in the Toronto tech ecosystem and provides a platform
-        for students to present their ideas of the future.
-      </p>
+      <div :class="$style['about__content--left']">
+        <h2>ABOUT</h2>
+        <p>
+          Hack the 6ix is the largest summer student run, not for profit hackathon
+          located in the heart of Toronto. Every year, we select 400+ participants from
+          a pool of over 1500 remarkable developers, designers, and innovators. We
+          believe the diversity and talent of our hackers contribute greatly to the
+          success of our event. Now in its sixth iteration, Hack the 6ix has established
+          itself as a key player in the Toronto tech ecosystem and provides a platform
+          for students to present their ideas of the future.
+        </p>
+      </div>
+      <div :class="$style['about__content--right']">
+        <img :class="$style['about__video-frame']" src="@assets/03_About/Overlay_Past_Events_Video.svg">
+
+        <!--
+        <iframe style="width: 457px; height: 250px; position: absolute; transform: translate(calc(-100% - 8px), 43px)" src="https://www.youtube.com/embed/lWoENI9-Bl4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        -->
+      </div>
+    </div>
+    <div>
+      <h3 :class="$style.about__serious">We're serious about making great events.</h3>
+      <h4 :class="$style.about__attracted">LAST YEAR WE ATTRACTED</h4>
+    </div>
+    <div :class="$style.about__stats">
+      <img src="@assets/03_About/Container_400_Hackers.svg">
+      <img src="@assets/03_About/Container_1k_Applicants.svg">
+      <img src="@assets/03_About/Container_80_Projects.svg">
+      <img src="@assets/03_About/Container_30k_Prizes.svg">
     </div>
   </Container>
 </template>
