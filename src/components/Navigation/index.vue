@@ -111,7 +111,7 @@
     props: {
       items: {
         type: Array,
-        default: () => [{ displayName: 'wtf', name: 'wtf' },  {displayName: 'wtf', name: 'wtf' },  {displayName: 'wtf', name: 'wtf' }],
+        default: () => [],
       },
       disableApply: Boolean,
       applyButtonMessage: String,

@@ -1,23 +1,31 @@
 <template>
-  <Layout :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink">
+  <Layout :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" :items="items">
     <Home :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <TransitionHome />
+    <About />
   </Layout>
 </template>
 
 <script>
 import Home from './landing-sections/Home/index.vue';
+import About from './landing-sections/About/index.vue';
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import {
   applyButtonMessages,
   overrideApplicationState,
   APPS_OPEN_TIME,
-  APPLY_LINK
+  APPLY_LINK,
+  NAVBAR_ITEMS
 } from '@data';
 
 export default {
   metaInfo: {
     title: 'Hack the 6ix'
+  },
+  components: {
+    Home,
+    About,
+    TransitionHome
   },
   data() {
     return {
@@ -25,7 +33,8 @@ export default {
       disableApply: true,
       applyButtonMessage: 'APPLY NOW',
       refreshTimer: null,
-      applyLink: APPLY_LINK
+      applyLink: APPLY_LINK,
+      items: NAVBAR_ITEMS
     };
   },
   mounted() {
@@ -50,10 +59,6 @@ export default {
     this.applyButtonMessage = applyButtonMessages[this.applicationStage];
     this.disableApply =
         this.applicationStage === 0 || this.applicationStage === 2;
-  },
-  components: {
-    Home,
-    TransitionHome
   }
 }
 </script>

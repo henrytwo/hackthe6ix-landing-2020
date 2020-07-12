@@ -30,6 +30,28 @@ export const applyButtonMessages = [
   'APPLY NOW',
   'APPLICATIONS CLOSED',
 ];
-export const APPLY_LINK = "https://apply.hackthe6ix.com";
+export const APPLY_LINK = "https://hackthe6ix.com/apply";
 export const APPS_OPEN_TIME = new Date('2020-07-10T00:00:00-0400');
 export const SHOW_DISCLAIMER = false;
+export const NAVBAR_ITEMS = [
+  {
+    displayName: 'HOME',
+    path: '#'
+  },
+  {
+    displayName: 'ABOUT',
+    path: '#about'
+  },
+  {
+    displayName: 'WHY US?',
+    path: '#whyus'
+  },
+  {
+    displayName: 'SPONSORS',
+    path: '#sponsors'
+  },
+  {
+    displayName: 'FAQ',
+    path: '#faq'
+  }
+];

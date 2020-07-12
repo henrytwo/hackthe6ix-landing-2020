@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Navigation :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
+  <div :class="$style.app">
+    <Navigation :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" :items="items"/>
     <div :class="$style.layout">
       <slot/>
     </div>
@@ -27,7 +27,11 @@ export default {
   props: {
     disableApply: Boolean,
     applyButtonMessage: String,
-    applyLink: String
+    applyLink: String,
+    items: {
+      type: Array,
+      default: () => [],
+    },
   }
 }
 </script>

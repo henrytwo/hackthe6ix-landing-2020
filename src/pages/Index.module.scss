@@ -19,6 +19,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.95rem;
+  scroll-behavior: smooth;
   @include scroll;
 }
 
