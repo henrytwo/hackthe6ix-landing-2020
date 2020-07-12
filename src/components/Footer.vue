@@ -97,9 +97,9 @@
 </script>
 
 <style lang="scss">
-  @import '@hackthe6ix/vue-ui/styles/mixins';
-  @import '@hackthe6ix/vue-ui/styles/variables';
-  @import '@hackthe6ix/vue-ui/styles/colors';
+  @import '~@hackthe6ix/vue-ui/styles/mixins';
+  @import '~@hackthe6ix/vue-ui/styles/variables';
+  @import '~@hackthe6ix/vue-ui/styles/colors';
 
   .footer {
     background-color: #efefef;

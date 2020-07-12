@@ -5,10 +5,10 @@
   @include colors.load;
 }
 
-@import '@hackthe6ix/vue-ui/styles/colors';
-@import '@hackthe6ix/vue-ui/styles/fonts';
-@import '@hackthe6ix/vue-ui/styles/variables';
-@import '@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+@import '~@hackthe6ix/vue-ui/styles/fonts';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/mixins';
 
 html, body {
   margin: 0;
