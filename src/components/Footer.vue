@@ -215,7 +215,7 @@
     }
   }
 
-  @include media(TABLET) {
+  @include media(tablet) {
     .footer {
       &__logo {
         @include position(absolute, 60px auto auto);
@@ -235,7 +235,7 @@
     }
   }
 
-  @include media(PHONE) {
+  @include media(phone) {
     .footer {
       &__section--nav {
         padding: 0;
