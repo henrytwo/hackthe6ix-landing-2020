@@ -57,10 +57,10 @@
         <Container as="ul" :block="$style.nav__mobile" :class="$style.nav__mobile">
           <li>
             <a
-                :class="$style.nav__mobile-item"
-                active-class="nav__mobile-item--active"
+                :class="$style['nav__mobile-item']"
+                :active-class="$style['nav__mobile-item--active']"
                 v-for="item in items"
-                v-on:click.native="close"
+                onclick.native="close"
                 :href="item.path"
                 :key="item.path"
             >{{ item.displayName || item.name }}</a>

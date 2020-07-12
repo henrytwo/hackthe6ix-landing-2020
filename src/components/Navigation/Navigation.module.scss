@@ -176,15 +176,6 @@ $nav-height: 72px;
       display: none;
     }
 
-    &__mobile {
-      @include transition(transform opacity, page);
-      display: block;
-      #{ $self }--show & {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
     &__bar {
       &--top,
       &--bot {
@@ -193,21 +184,6 @@ $nav-height: 72px;
 
       &--mid {
         @include transition(transform opacity, page);
-      }
-
-      #{ $self }--show & {
-        &--top {
-          transform: translate3d(0, 9px, 0) rotate(315deg);
-        }
-
-        &--mid {
-          transform: translate3d(0, 0, 0) rotate(360deg);
-          opacity: 0;
-        }
-
-        &--bot {
-          transform: translate3d(0, -9px, 0) rotate(-315deg);
-        }
       }
     }
   }
