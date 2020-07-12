@@ -23,6 +23,4 @@ export default {
 }
 </style>
 
-<style lang="scss">
-  @import '~@styles/index.scss';
-</style>
+<style src="./Index.module.scss" lang="scss" module />

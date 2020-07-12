@@ -5,10 +5,10 @@
   @include colors.load;
 }
 
-@import '~@hackthe6ix/vue-ui/styles/colors';
-@import '~@hackthe6ix/vue-ui/styles/fonts';
-@import '~@hackthe6ix/vue-ui/styles/variables';
-@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '../../node_modules/@hackthe6ix/vue-ui/styles/colors';
+@import '../../node_modules/@hackthe6ix/vue-ui/styles/fonts';
+@import '../../node_modules/@hackthe6ix/vue-ui/styles/variables';
+@import '../../node_modules/@hackthe6ix/vue-ui/styles/mixins';
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600&display=swap');
 
 html, body {

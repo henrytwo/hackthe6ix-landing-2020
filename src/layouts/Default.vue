@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navigation />
-    <div class="layout">
+    <div :class="$style.layout">
       <slot/>
     </div>
     <Footer />
@@ -27,8 +27,4 @@ export default {
 }
 </script>
 
-<style>
-.layout {
-  margin: 100px auto;
-}
-</style>
+<style src="./Default.module.scss" lang="scss" module />
