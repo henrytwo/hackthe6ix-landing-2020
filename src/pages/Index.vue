@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Home from './landing-sections/Home.vue';
+import Home from './landing-sections/Home/index.vue';
 
 export default {
   metaInfo: {

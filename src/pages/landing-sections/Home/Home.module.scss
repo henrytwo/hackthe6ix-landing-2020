@@ -1,0 +1,54 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+.home-links a {
+  margin-right: 1rem;
+}
+
+.home {
+  height: 100vh;
+  min-height: 950px;
+  margin-bottom: -1px;
+  background-repeat: no-repeat;
+  background-size: 50vw;
+  background-position: center left;
+  background-image: url('~@assets/02_Home/Background_Photo_Frames.svg');
+
+  &__inspiration-highlight {
+    color: $yellow;
+  }
+
+  &__inspiration {
+    color: $grey;
+  }
+
+  &__date {
+    color: $grey;
+  }
+
+  &__title {
+  }
+
+  &__container {
+    @include flex(flex-end, flex-start);
+    position: relative;
+    align-self: stretch;
+  }
+
+  &__content {
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    width: 550px;
+    margin: 88px 0 auto;
+    max-width: 100%;
+  }
+}
+
+
+@include media(tablet) {
+  .home {
+    background-size: 100vw;
+  }
+}

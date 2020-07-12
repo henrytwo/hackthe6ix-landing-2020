@@ -8,12 +8,12 @@
         <a :class="$style.nav__logo_link" href="#">
           <ul :class="$style.nav__logo_list">
             <li>
-              <img src="logo.svg" :class="$style.nav__logo"/>
+              <img src="@assets/logo.svg" :class="$style.nav__logo"/>
             </li>
             <li>
-              <h1 :class="$style.nav__logo_text">
+              <h3 :class="$style.nav__logo_text">
                 HT6 <span :class="$style.nav__digital">DIGITAL</span>
-              </h1>
+              </h3>
             </li>
           </ul>
         </a>

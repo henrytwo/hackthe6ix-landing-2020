@@ -4,7 +4,9 @@
     <div :class="$style.layout">
       <slot/>
     </div>
+    <!--
     <Footer />
+    -->
   </div>
 </template>
 

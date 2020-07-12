@@ -9,7 +9,7 @@
 @import '../../node_modules/@hackthe6ix/vue-ui/styles/fonts';
 @import '../../node_modules/@hackthe6ix/vue-ui/styles/variables';
 @import '../../node_modules/@hackthe6ix/vue-ui/styles/mixins';
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap');
 
 html, body {
   margin: 0;
@@ -28,4 +28,39 @@ a {
   &:hover {
     color: $teal;
   }
+}
+
+h1 {
+  line-height: 72px;
+  font-weight: 900;
+  font-size: 68px;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  line-height: 48px;
+  font-weight: bold;
+  font-size: 42px;
+  letter-spacing: 0.05em;
+}
+
+h3 {
+  line-height: 48px;
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 0.05em;
+}
+
+h4 {
+  line-height: 24px;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+p {
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 0.05em;
 }
