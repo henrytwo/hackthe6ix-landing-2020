@@ -104,6 +104,7 @@
   .footer {
     background-color: #efefef;
     position: relative;
+    z-index: 100;
 
     &__container {
       @include flex(column);

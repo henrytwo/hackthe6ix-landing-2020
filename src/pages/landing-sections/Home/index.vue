@@ -16,6 +16,9 @@
       </div>
     </div>
     <img :class="$style.home__person" src="@assets/02_Home/Main_Person_Laptop.svg">
+    <img :class="$style['home__left-leaf']" src="@assets/02_Home/Foreground_Left_Plants.svg">
+    <img :class="$style['home__right-leaf']" src="@assets/02_Home/Foreground_Right_Plants.svg">
+    <img :class="$style['home__right-leaf']" src="@assets/02_Home/Monstera Plant 1.svg">
   </Container>
 </template>
 

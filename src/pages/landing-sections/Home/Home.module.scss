@@ -9,7 +9,6 @@
 }
 
 .home {
-  height: calc(100vh - #{$nav-height});
   min-height: 900px;
   margin: 0;
   background-repeat: no-repeat;
@@ -55,9 +54,22 @@
     position: absolute;
     right: 500px;
     z-index: 50;
-    bottom: 0;
+    bottom: 50px;
   }
 
+  &__left-leaf {
+    position: absolute;
+    left: 0;
+    bottom: 100px;
+  }
+
+  &__right-leaf {
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+  }
+
+  /* Container stuff */
   &__container {
     @include flex(flex-end, flex-start);
     position: relative;
@@ -73,6 +85,7 @@
     &--left {
       float: left;
       max-width: 500px;
+      margin-bottom: 256px;
     }
 
     &--right {
@@ -94,6 +107,7 @@
     &__content {
       &--left {
         width: 100%;
+        margin-bottom: 0;
       }
       &--right {
         width: 100%;
