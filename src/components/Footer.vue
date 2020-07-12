@@ -73,8 +73,8 @@
     },
     data() {
       return {
-        social_media,
-        email,
+        social_media: [],
+        email: "wow@coolbeans.damn",
       };
     },
     methods: {

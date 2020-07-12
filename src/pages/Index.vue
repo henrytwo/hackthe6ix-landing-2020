@@ -9,7 +9,7 @@ import Home from './landing-sections/Home.vue';
 
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Hack the 6ix'
   },
   components: {
     Home
