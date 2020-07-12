@@ -28,11 +28,6 @@ export default {
 </script>
 
 <style>
-body {
-  margin:0;
-  padding:0;
-}
-
 .layout {
   margin: 100px auto;
 }

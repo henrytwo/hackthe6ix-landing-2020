@@ -1,7 +1,7 @@
 <template>
   <Container block="nav" as="nav" :class="{'nav--show': this.show}">
     <a href="#">
-      blah blah logo
+      hacc the 6ix
     </a>
     </router-link>
     <ul class="nav__items">

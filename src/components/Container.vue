@@ -36,7 +36,7 @@
     box-sizing: border-box;
 
     &__content {
-      max-width: 1200px;
+      max-width: 1625px;
       box-sizing: border-box;
 
       margin: 0 auto;
