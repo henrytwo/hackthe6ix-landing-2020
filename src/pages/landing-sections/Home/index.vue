@@ -1,10 +1,14 @@
 <template>
   <Container :block="$style.home" as="section">
     <div :class="$style.home__content">
+      <div :class="$style['home__sponsor-badge']">
+        <img src="@assets/02_Home/Logo_Autocode.svg"> <h4>PRESENTS</h4>
+      </div>
       <h1 :class="$style.home__title">HACK THE 6IX</h1>
       <h3 :class="$style.home__date">August 21 to 23, 2020</h3>
-      <h2 :class="$style.home__inspiration">We hack to <span :class="$style['home__inspiration-highlight']">Get money.</span></h2>
-      <Button>this is a button</Button>
+      <h2 :class="$style.home__inspiration">We hack to <span :class="$style['home__inspiration-highlight']">profit.</span></h2>
+      <Button>PLZ PRESS ME</Button>
+      <h4>*Applications close on July 24 at 11:59PM EST</h4>
     </div>
   </Container>
 </template>

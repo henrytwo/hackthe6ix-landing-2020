@@ -2,32 +2,47 @@
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
+@import '@components/Navigation/Navigation.module';
+
 .home-links a {
   margin-right: 1rem;
 }
 
 .home {
-  height: 100vh;
-  min-height: 950px;
+  height: calc(100vh - #{$nav-height});
+  min-height: 900px;
   margin-bottom: -1px;
   background-repeat: no-repeat;
   background-size: 50vw;
   background-position: center left;
   background-image: url('~@assets/02_Home/Background_Photo_Frames.svg');
 
-  &__inspiration-highlight {
-    color: $yellow;
+  &__sponsor-badge {
+    display: flex;
+    margin: 0 0 16px 0;
+
+    h4 {
+      margin-left: 24px;
+      color: $grey;
+    }
   }
 
-  &__inspiration {
-    color: $grey;
+  &__title {
+    margin: 0 0 16px 0;
   }
 
   &__date {
     color: $grey;
+    margin: 0 0 24px 0;
   }
 
-  &__title {
+  &__inspiration {
+    color: $black;
+    margin: 0 0 32px 0;
+  }
+
+  &__inspiration-highlight {
+    color: $yellow;
   }
 
   &__container {
@@ -39,7 +54,6 @@
   &__content {
     font-weight: bold;
     text-align: left;
-    text-transform: uppercase;
     width: 550px;
     margin: 88px 0 auto;
     max-width: 100%;
