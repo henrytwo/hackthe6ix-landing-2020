@@ -2,17 +2,9 @@
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
-$whyus-breakpoint: 1250px;
-$arm-body-ratio: 109/219;
-$body-discord-ratio: 219/401;
-
 .whyus {
   min-height: 900px;
   margin: 0;
-
-  &__discord {
-    max-width: 40vw;
-  }
 
   /* Container stuff */
   &__container {
@@ -21,53 +13,10 @@ $body-discord-ratio: 219/401;
     align-self: stretch;
   }
 
-  &__group {
-    font-weight: bold;
-    text-align: left;
-    margin: 0;
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  &__leftimg {
-    &--left {
-      z-index: 100;
-    }
-
-    &--right {
-
-    }
-  }
-
-  &__rightimg {
-    &--left {
-
-    }
-
-    &--right {
-
-    }
-  }
-
   &__content {
     font-weight: bold;
     text-align: left;
     margin: 0;
     width: 100%;
-  }
-}
-
-@media only screen and (max-width: $whyus-breakpoint) {
-  .whyus {
-    &__discord {
-      margin-right: 50%;
-      transform: translateX(100%);
-    }
-
-    &__group {
-      grid-template-columns: repeat(1, 1fr);
-    }
   }
 }

@@ -1,0 +1,29 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+$whyus-breakpoint: 1250px;
+
+.reason {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__text {
+    max-width: 500px;
+
+    &--bottom {
+      margin-top: auto;
+    }
+  }
+
+  &__img {
+    max-width: 40vw;
+  }
+}
+
+@media only screen and (max-width: $whyus-breakpoint) {
+  .reason {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
