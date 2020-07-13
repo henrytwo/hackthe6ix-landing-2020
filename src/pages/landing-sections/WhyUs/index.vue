@@ -13,6 +13,7 @@
         <div :class="$style['whyus__leftimg--right']">
           <img src="@assets/04_a_Why_Us_Meet_People/Guy 1.svg">
           <img :class="$style.whyus__discord" src="@assets/04_a_Why_Us_Meet_People/Container_Meet_New_Friends.svg">
+          <img :class="$style.whyus__arm" src="@assets/04_a_Why_Us_Meet_People/Arm (Guy).svg">
         </div>
       </div>
     </div>

@@ -12,6 +12,10 @@ $whyus-breakpoint: 1250px;
   min-height: 900px;
   margin: 0;
 
+  &__arm {
+    transform: translate(-300%, -368%);
+  }
+
   &__discord {
     margin-top: -100%;
     transform: translateX(41%);
