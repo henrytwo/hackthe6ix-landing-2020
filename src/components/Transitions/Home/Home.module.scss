@@ -1,3 +1,5 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+
 .transition {
   position: absolute;
   width: 100%;
@@ -29,8 +31,14 @@
   position: absolute;
   max-width: 80vw;
 
-  right: 20vw;
+  right: 35vw;
   z-index: 55;
 
-  transform: translateY(-105%);
+  transform: translateY(-110%);
+}
+
+@include media(tablet) {
+  .person {
+    right: 15vw;
+  }
 }

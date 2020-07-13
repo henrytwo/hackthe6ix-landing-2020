@@ -2,7 +2,7 @@
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
-$about-breakpoint: 1210px;
+$about-breakpoint: 1300px;
 
 .home-links a {
   margin-right: 1rem;
@@ -10,6 +10,8 @@ $about-breakpoint: 1210px;
 
 .about {
   min-height: 900px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   margin: 0;
 
   &__serious {
@@ -21,12 +23,36 @@ $about-breakpoint: 1210px;
   }
 
   &__stats {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    &--left {
+      margin: auto;
+    }
+
+    &--right {
+      margin: auto;
+    }
 
     img {
-      max-width: 50vw;
+      max-width: 40vw;
+      margin: 5px;
     }
+  }
+
+  &__video-frame {
+    max-width: 90vw;
+    float: right;
+  }
+
+  &__video-embed {
+    max-width: 90vw;
+    width: 457px;
+    height: 260px;
+    position: absolute;
+    /*transform: translate(calc(22% + 8px), 43px);*/
+    border-radius: 0 0 16px 16px;
+    float: right;
   }
 
   /* Container stuff */
@@ -36,14 +62,16 @@ $about-breakpoint: 1210px;
     align-self: stretch;
   }
 
-  &__content {
+  &__top {
     font-weight: bold;
     text-align: left;
     margin: 0;
     width: 100%;
 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
     &--left {
-      float: left;
       max-width: 550px;
       color: $black;
 
@@ -54,30 +82,53 @@ $about-breakpoint: 1210px;
     }
 
     &--right {
-      float: right;
+
     }
   }
-}
 
+  &__content {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+}
 
 @media only screen and (max-width: $about-breakpoint) {
   .about {
     justify-content: center;
 
-    &__video-frame {
-      transform: translateX(-50%);
-    }
+    &__top {
+      grid-template-columns: repeat(1, 1fr);
 
-    &__content {
       &--left {
-        width: 100%;
         max-width: 100%;
       }
       &--right {
-        float: none;
-        margin-left: 50%;
+      }
+    }
+
+    &__video-frame {
+      margin-right: 50%;
+      transform: translateX(50%);
+    }
+
+    &__video-embed {
+      /*transform: translate(calc(60%), 43px);*/
+    }
+
+    &__stats {
+      grid-template-columns: repeat(2, 1fr);
+
+      &--left {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      &--right {
+        margin-right: auto;
+        margin-left: 0;
       }
     }
   }
 }
-

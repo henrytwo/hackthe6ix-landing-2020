@@ -1,8 +1,8 @@
 <template>
   <Container block="footer" as="footer">
-    <button class="footer__top" v-on:click="toTop">
+    <a class="footer__top" href="#">
       <icon icon="arrow-up" /> Back to Top
-    </button>
+    </a>
     <div class="footer__content">
       <Logo class="footer__logo" />
       <div class="footer__section footer__section--nav">
@@ -80,9 +80,6 @@
     methods: {
       apply() {
         this.$router.push('/apply');
-      },
-      toTop() {
-        window.scrollTo({top: 0, behavior: 'smooth'});
       },
     },
     props: {

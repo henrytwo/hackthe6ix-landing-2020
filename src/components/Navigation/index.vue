@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class="$style.nav__spacer"/>
-    <Container :block="$style.nav" :as="$style.nav" :class="{'nav--show': this.show}">
+    <Container :block="$style.nav" :as="$style.nav" :class="{'nav--show': show}">
       <div :class="$style.nav__justify">
 
         <!-- Logo -->
@@ -40,9 +40,7 @@
           </li>
 
           <!-- MLH banner -->
-          <!--
           <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%"></a>
-          -->
         </ul>
 
 
