@@ -23,7 +23,7 @@
       transform: translate(-20vw, 400px);
     }
     &--2 {
-      transform: translate(20vw, 500px);
+      transform: translate(20vw, 410px);
     }
     &--3 {
       transform: translate(10vw, 100px);
@@ -50,5 +50,18 @@
     text-align: left;
     margin: 0;
     width: 100%;
+  }
+}
+
+@include media(phone) {
+  .apply {
+    &__cloud {
+      &--2 {
+        display: none;
+      }
+      &--3 {
+        display: none;
+      }
+    }
   }
 }

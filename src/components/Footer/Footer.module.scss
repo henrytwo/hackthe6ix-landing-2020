@@ -1,0 +1,148 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+.footer {
+  background: url("~@assets/07_FAQ/Transition_04_End.svg");
+  background-size: cover;
+  background-position: center bottom;
+  height: calc(100vw * 444/1440);
+  position: relative;
+  z-index: 100;
+
+  &__container {
+    @include flex(column);
+  }
+
+  &__top {
+    @include transition(color);
+    text-decoration: none;
+    font-family: $white;
+    font-weight: bold;
+    margin-left: auto;
+    background: none;
+    color: $white;
+    padding: 8px 0;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  &__content {
+    @include flex;
+    flex-wrap: wrap;
+
+    &--foot {
+      align-items: center;
+      padding: 30px 0 5px;
+    }
+  }
+
+  &__section {
+    &--nav {
+      padding-right: 60px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__logo {
+    @include transition(opacity, PAGE);
+    filter: grayscale(100%);
+    margin-right: 60px;
+    opacity: 0.2;
+    width: 60px;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__nav {
+    @include flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    @include transition(color);
+    width: 50%;
+    cursor: pointer;
+    color: $white;
+    margin-top: 10px;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  &__label {
+    font-size: 1rem;
+    margin: 10px 0 -2px;
+  }
+
+  &__media {
+    @include flex(flex-start, center);
+    list-style-type: none;
+    font-size: 1.4rem;
+    padding: 0;
+    margin: 2px 0 0;
+
+    &-item {
+      @include transition(color);
+      cursor: pointer;
+      color: #5d5d5d;
+      margin-right: 10px;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__legal {
+    margin-left: auto;
+  }
+
+  &__button {
+    margin-top: 15px;
+    padding: 8px 20px;
+  }
+}
+
+@include media(tablet) {
+  .footer {
+    &__logo {
+      @include position(absolute, 60px auto auto);
+    }
+
+    &__legal,
+    &__text {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__legal {
+      margin: auto;
+      margin-top: -10px;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@include media(phone) {
+  .footer {
+    &__section--nav {
+      padding: 0;
+    }
+  }
+}
