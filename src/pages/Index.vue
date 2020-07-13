@@ -5,6 +5,8 @@
     <About />
     <TransitionAbout />
     <WhyUs />
+    <TransitionWhyUs />
+    <Sponsors />
   </Layout>
 </template>
 
@@ -12,8 +14,12 @@
 import Home from './landing-sections/Home/index.vue';
 import About from './landing-sections/About/index.vue';
 import WhyUs from './landing-sections/WhyUs/index.vue';
+import Sponsors from './landing-sections/Sponsors/index.vue';
+
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
+import TransitionWhyUs from '@components/Transitions/WhyUs/index.vue';
+
 import {
   applyButtonMessages,
   overrideApplicationState,
@@ -30,8 +36,10 @@ export default {
     Home,
     About,
     WhyUs,
+    Sponsors,
     TransitionHome,
-    TransitionAbout
+    TransitionAbout,
+    TransitionWhyUs
   },
   data() {
     return {

@@ -52,16 +52,6 @@ export default {
   components: {
     Container,
     Button
-  },
-  methods: {
-    apply() {
-      document.location.href = this.applyLink;
-    }
-  },
-  props: {
-    disableApply: Boolean,
-    applyButtonMessage: String,
-    applyLink: String
   }
 }
 </script>
