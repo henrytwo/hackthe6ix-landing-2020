@@ -4,12 +4,14 @@
     <TransitionHome />
     <About />
     <TransitionAbout />
+    <WhyUs />
   </Layout>
 </template>
 
 <script>
 import Home from './landing-sections/Home/index.vue';
 import About from './landing-sections/About/index.vue';
+import WhyUs from './landing-sections/WhyUs/index.vue';
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
 import {
@@ -27,6 +29,7 @@ export default {
   components: {
     Home,
     About,
+    WhyUs,
     TransitionHome,
     TransitionAbout
   },

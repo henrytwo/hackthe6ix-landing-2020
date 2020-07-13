@@ -13,9 +13,19 @@ $player-aspect-ratio: 4/7;
 
 .about {
   min-height: 900px;
-  padding-top: 150px;
-  padding-bottom: 150px;
   margin: 0;
+
+  &__cloud-1 {
+    position: absolute;
+    right: 0;
+  }
+
+  &__cloud-2 {
+    position: absolute;
+    z-index: -1;
+    margin-top: 200px;
+    right: 10%;
+  }
 
   &__serious {
     color: $yellow;
@@ -79,12 +89,6 @@ $player-aspect-ratio: 4/7;
 
     &--left {
       max-width: 550px;
-      color: $black;
-
-      h2 {
-        margin-top: 0;
-        margin-bottom: 24px;
-      }
     }
 
     &--right {
@@ -103,6 +107,10 @@ $player-aspect-ratio: 4/7;
 @media only screen and (max-width: $about-breakpoint) {
   .about {
     justify-content: center;
+
+    &__cloud-2 {
+      display: none;
+    }
 
     &__top {
       grid-template-columns: repeat(1, 1fr);

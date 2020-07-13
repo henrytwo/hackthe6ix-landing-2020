@@ -1,0 +1,66 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+$whyus-breakpoint: 1250px;
+
+.home-links a {
+  margin-right: 1rem;
+}
+
+.whyus {
+  min-height: 900px;
+  margin: 0;
+
+  &__discord {
+    margin-top: -100%;
+    transform: translateX(41%);
+  }
+
+  /* Container stuff */
+  &__container {
+    @include flex(none);
+    position: relative;
+    align-self: stretch;
+  }
+
+  &__group {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__leftimg {
+    &--left {
+
+    }
+
+    &--right {
+
+    }
+  }
+
+  &__content {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: $whyus-breakpoint) {
+  .whyus {
+    &__group {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__discord {
+      margin-top: -100%;
+      transform: translateX(-10%);
+    }
+  }
+}
