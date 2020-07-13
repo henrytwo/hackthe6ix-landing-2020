@@ -14,41 +14,67 @@
         BECOME A SPONSOR
       </Button>
     </div>
-    <div :class="$style.sponsors__box">
-      <!-- Placeholder stuff for spacing -->
-      <div :class="$style.sponsors__platinum">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Autocode.svg">
-      </div>
-      <div :class="$style.sponsors__gold">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Intact.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_RBC.svg">
-      </div>
-      <div :class="$style.sponsors__silver">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Capital_One.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Accenture.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Rotman.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Scotiabank.svg">
-      </div>
-      <div :class="$style.sponsors__bronze">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_1517.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Balsamiq.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_FDM.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Geotab.svg">
-        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Rogers.svg">
-      </div>
-    </div>
+    <ul
+        :class="$style.sponsor__items"
+        v-for="(category, i) in categories"
+        v-bind:key="i"
+    >
+      <li
+          :class="$style.sponsor__item"
+          :style="
+          `max-width: ${100 - 20 * i}%; transition-delay: ${(i + 1) * 200}ms`
+        "
+          v-for="sponsor in category"
+          v-bind:key="sponsor.title"
+      >
+        <a :class="$style.sponsor__link" :href="sponsor.url" target="_blank">
+          <img
+              :class="$style.sponsor__image"
+              :alt="sponsor.title + ' logo'"
+              :src="sponsor.image"
+              :width="sponsor.size"
+          />
+        </a>
+        <a :href="sponsor.sublink"
+        ><h3 style="margin:0;" :class="$style.sponsor__text">
+          {{ sponsor.subtext }}
+        </h3></a
+        >
+      </li>
+    </ul>
   </Container>
 </template>
 
 <script>
 import {Container} from '@components';
+import {sponsors} from '@data';
 import Button from '@hackthe6ix/vue-ui/Button';
 
 export default {
   components: {
     Container,
     Button
-  }
+  },
+  data() {
+    return {
+      sponsors
+    }
+  },
+  computed: {
+    categories() {
+      let prev;
+      return this.sponsors.reduce((acc, curr) => {
+        if (prev !== curr.size) {
+          acc.push([]);
+          prev = curr.size;
+        }
+
+        const len = acc.length - 1;
+        acc[len].push(curr);
+        return acc;
+      }, []);
+    },
+  },
 }
 </script>
 

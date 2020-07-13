@@ -6,50 +6,6 @@
   min-height: 900px;
   margin: 0;
 
-  &__platinum {
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      max-width: 500px;
-      width: 50vw;
-    }
-  }
-
-  &__gold {
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      max-width: 300px;
-      width: 50vw;
-    }
-  }
-
-  &__silver {
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      max-width: 200px;
-      width: 50vw;
-    }
-  }
-
-  &__bronze {
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      max-width: 100px;
-      width: 50vw;
-    }
-  }
-
-  &__box {
-    padding: 16px;
-  }
-
   &__leaf {
     position: absolute;
     left: 0;
@@ -62,10 +18,82 @@
     align-self: stretch;
   }
 
+  &__items {
+    @include flex(center);
+    list-style-type: none;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 40px -20px 60px;
+  }
+
+  &__item {
+    @include transition(opacity transform, PAGE);
+    margin: 0 20px 20px;
+    width: fit-content;
+  }
+
+  &__link {
+    @include flex;
+    display: block;
+  }
+
+  &__image {
+    @include transition(opacity, SLOW);
+    max-width: 100%;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
   &__content {
     font-weight: bold;
     text-align: left;
     margin: 0;
     width: 100%;
+  }
+}
+
+
+.sponsor {
+  &__title {
+    opacity: 0;
+  }
+
+  &__item,
+  &__footer {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  &--show & {
+    &__title {
+      @include transition(opacity, PAGE);
+      opacity: 1;
+    }
+
+    &__footer {
+      @include transition(opacity transform, PAGE);
+    }
+
+    &__item,
+    &__footer {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@include media(PHONE) {
+  .sponsor {
+    &__title {
+      font-size: 2.4rem;
+    }
+
+    &__subtitle {
+      &--center {
+        font-size: 1.8rem;
+      }
+    }
   }
 }
