@@ -14,6 +14,29 @@
         BECOME A SPONSOR
       </Button>
     </div>
+    <div :class="$style.sponsors__box">
+      <!-- Placeholder stuff for spacing -->
+      <div :class="$style.sponsors__platinum">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Autocode.svg">
+      </div>
+      <div :class="$style.sponsors__gold">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Intact.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_RBC.svg">
+      </div>
+      <div :class="$style.sponsors__silver">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Capital_One.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Accenture.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Rotman.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Scotiabank.svg">
+      </div>
+      <div :class="$style.sponsors__bronze">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_1517.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Balsamiq.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_FDM.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Geotab.svg">
+        <img src="@assets/05_Sponsors/Sponsor Logos/Sponsor_Rogers.svg">
+      </div>
+    </div>
   </Container>
 </template>
 

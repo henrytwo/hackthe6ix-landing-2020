@@ -8,6 +8,7 @@
     <TransitionWhyUs />
     <Sponsors />
     <Apply :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
+    <FAQ />
   </Layout>
 </template>
 
@@ -17,6 +18,7 @@ import About from './landing-sections/About/index.vue';
 import WhyUs from './landing-sections/WhyUs/index.vue';
 import Sponsors from './landing-sections/Sponsors/index.vue';
 import Apply from './landing-sections/Apply/index.vue';
+import FAQ from './landing-sections/FAQ/index.vue';
 
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
@@ -29,7 +31,6 @@ import {
   APPLY_LINK,
   NAVBAR_ITEMS
 } from '@data';
-
 export default {
   metaInfo: {
     title: 'Hack the 6ix'
@@ -40,6 +41,7 @@ export default {
     WhyUs,
     Sponsors,
     Apply,
+    FAQ,
     TransitionHome,
     TransitionAbout,
     TransitionWhyUs

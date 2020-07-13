@@ -6,6 +6,50 @@
   min-height: 900px;
   margin: 0;
 
+  &__platinum {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 500px;
+      width: 50vw;
+    }
+  }
+
+  &__gold {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 300px;
+      width: 50vw;
+    }
+  }
+
+  &__silver {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 200px;
+      width: 50vw;
+    }
+  }
+
+  &__bronze {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 100px;
+      width: 50vw;
+    }
+  }
+
+  &__box {
+    padding: 16px;
+  }
+
   &__leaf {
     position: absolute;
     left: 0;
