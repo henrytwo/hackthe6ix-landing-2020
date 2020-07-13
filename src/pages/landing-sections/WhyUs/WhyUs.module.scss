@@ -10,20 +10,8 @@ $body-discord-ratio: 219/401;
   min-height: 900px;
   margin: 0;
 
-  &__guy {
-    position: absolute;
-    max-width: calc(40vw * #{$body-discord-ratio});
-  }
-
-  &__arm {
-    position: absolute;
-    max-width: calc(40vw * #{$body-discord-ratio} * #{$arm-body-ratio});
-    transform: translate(-305%, 185%);
-  }
-
   &__discord {
     max-width: 40vw;
-    transform: translateX(41%);
   }
 
   /* Container stuff */
@@ -73,15 +61,6 @@ $body-discord-ratio: 219/401;
 
 @media only screen and (max-width: $whyus-breakpoint) {
   .whyus {
-    &__guy {
-      transform: translateX(110%);
-    }
-
-    &__arm {
-      margin-top: 108px;
-      transform: translateX(-470%);
-    }
-
     &__discord {
       margin-right: 50%;
       transform: translateX(100%);
