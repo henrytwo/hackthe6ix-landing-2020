@@ -7,6 +7,7 @@
     <WhyUs />
     <TransitionWhyUs />
     <Sponsors />
+    <Apply :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
   </Layout>
 </template>
 
@@ -15,6 +16,7 @@ import Home from './landing-sections/Home/index.vue';
 import About from './landing-sections/About/index.vue';
 import WhyUs from './landing-sections/WhyUs/index.vue';
 import Sponsors from './landing-sections/Sponsors/index.vue';
+import Apply from './landing-sections/Apply/index.vue';
 
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
@@ -37,6 +39,7 @@ export default {
     About,
     WhyUs,
     Sponsors,
+    Apply,
     TransitionHome,
     TransitionAbout,
     TransitionWhyUs
@@ -76,11 +79,5 @@ export default {
   }
 }
 </script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>
 
 <style src="./Index.module.scss" lang="scss" module />
