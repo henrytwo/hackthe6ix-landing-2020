@@ -2,7 +2,10 @@
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
-$about-breakpoint: 1300px;
+$about-breakpoint: 1360px;
+
+$player-max-width: calc(90vw - 12px);
+$player-aspect-ratio: 4/7;
 
 .home-links a {
   margin-right: 1rem;
@@ -10,8 +13,8 @@ $about-breakpoint: 1300px;
 
 .about {
   min-height: 900px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 150px;
+  padding-bottom: 150px;
   margin: 0;
 
   &__serious {
@@ -46,11 +49,14 @@ $about-breakpoint: 1300px;
   }
 
   &__video-embed {
-    max-width: 90vw;
+    max-width: $player-max-width;
+    max-height: calc(#{$player-max-width} * #{$player-aspect-ratio});
     width: 457px;
     height: 260px;
-    position: absolute;
-    /*transform: translate(calc(22% + 8px), 43px);*/
+
+    margin-top: -268px;
+    margin-right: calc(50% - 52px);
+    transform: translateX(50%);
     border-radius: 0 0 16px 16px;
     float: right;
   }
@@ -114,7 +120,9 @@ $about-breakpoint: 1300px;
     }
 
     &__video-embed {
-      /*transform: translate(calc(60%), 43px);*/
+      margin-top: calc(max(#{$player-max-width} * -0.59, -268px));
+      margin-right: 50%;
+      transform: translateX(50%);
     }
 
     &__stats {
