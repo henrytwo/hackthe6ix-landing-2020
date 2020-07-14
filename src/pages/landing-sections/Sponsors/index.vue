@@ -15,28 +15,28 @@
       </Button>
     </div>
     <ul
-        :class="$style.sponsor__items"
+        :class="$style.sponsors__items"
         v-for="(category, i) in categories"
         v-bind:key="i"
     >
       <li
-          :class="$style.sponsor__item"
+          :class="$style.sponsors__item"
           :style="
           `max-width: ${100 - 20 * i}%; transition-delay: ${(i + 1) * 200}ms`
         "
           v-for="sponsor in category"
           v-bind:key="sponsor.title"
       >
-        <a :class="$style.sponsor__link" :href="sponsor.url" target="_blank">
+        <a :class="$style.sponsors__link" :href="sponsor.url" target="_blank">
           <img
-              :class="$style.sponsor__image"
+              :class="$style.sponsors__image"
               :alt="sponsor.title + ' logo'"
               :src="sponsor.image"
               :width="sponsor.size"
           />
         </a>
         <a :href="sponsor.sublink"
-        ><h3 style="margin:0;" :class="$style.sponsor__text">
+        ><h3 style="margin:0;" :class="$style.sponsors__text">
           {{ sponsor.subtext }}
         </h3></a
         >

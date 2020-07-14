@@ -8,6 +8,16 @@ $whyus-breakpoint: 1250px;
   min-height: 900px;
   margin: 0;
 
+  &__prizes {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    &--subtitle {
+      color: $yellow;
+    }
+  }
+
   /* Container stuff */
   &__container {
     @include flex(none);

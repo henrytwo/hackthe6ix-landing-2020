@@ -66,6 +66,14 @@
         />
       </ReasonGroup>
 
+      <h2>WIN PRIZES</h2>
+      <h3 :class="$style['whyus__prizes--subtitle']">There's something for everyone.</h3>
+
+      <div :class="$style['whys__prizes']">
+        blah bllah
+      </div>
+
+
     </div>
   </Container>
 </template>
