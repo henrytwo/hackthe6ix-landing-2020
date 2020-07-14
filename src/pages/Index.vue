@@ -9,7 +9,6 @@
     <Sponsors />
     <Apply :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <FAQ />
-    <TransitionFAQ />
   </Layout>
 </template>
 
@@ -24,7 +23,6 @@ import FAQ from './landing-sections/FAQ/index.vue';
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
 import TransitionWhyUs from '@components/Transitions/WhyUs/index.vue';
-import TransitionFAQ from '@components/Transitions/FAQ/index.vue';
 
 import {
   applyButtonMessages,
@@ -46,8 +44,7 @@ export default {
     FAQ,
     TransitionHome,
     TransitionAbout,
-    TransitionWhyUs,
-    TransitionFAQ
+    TransitionWhyUs
   },
   data() {
     return {
