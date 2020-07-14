@@ -7,9 +7,13 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-brands-svg-icons": "^5.13.1",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@hackthe6ix/vue-ui": "^0.1.5",
     "gridsome": "^0.7.0",
     "sass": "^1.26.10",
-    "sass-loader": "^9.0.2"
+    "sass-loader": "^9.0.2",
+    "vue-awesome": "^4.0.2"
   }
 }

@@ -1,52 +1,80 @@
 <template>
   <Container :block="$style.footer" :as="$style.footer">
-    <div class="footer__content">
-      <a :class="$style.footer__top" href="#">
-        <icon icon="arrow-up" /> Back to Top
-      </a>
+    <div :class="$style.footer__content">
 
-      <h3 :class="$style.footer__label">Follow us on social media</h3>
-      <ul :class="$style.footer__media">
-        <li v-for="media in social_media" v-bind:key="media.icon">
-          <a :href="media.link" target="_blank" :class="$style.footer__media-item">
-            <icon class="footer__icon" :icon="['fab', media.icon]" />
-          </a>
-        </li>
-      </ul>
+      <div>
+        <h3 :class="$style.footer__label">Follow us on social media</h3>
 
-      <div :class="[$style.footer__content, $style['footer__content--foot']]">
+        <ul :class="$style.footer__media">
+          <li v-for="media in social_media" v-bind:key="media.icon">
+            <a :href="media.link" target="_blank" :class="$style['footer__media-item']">
+              <Icon :class="$style.footer__icon" :name="`brands/${media.icon}`"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div :class="$style.footer__right">
+        <a :class="$style.footer__top" href="#">
+          <Icon name="arrow-up"/>
+          <h4>Back to Top</h4>
+        </a>
+      </div>
+
+      <div>
         <p :class="$style.footer__text">
           Copyright © 2020 <strong>Hack the 6ix</strong> | Made with
-          <icon icon="heart" /> in Toronto
+          <Icon name="heart"/>
+          in Toronto
         </p>
-        <div class="footer__legal">
-          <a href="/privacy" target="_blank">Privacy Policy</a>
-          {{ ' | ' }}
-          <a
-              href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
-              target="_blank"
-          >MLH Code of Conduct</a
-          >
-        </div>
       </div>
+
+
+      <div :class="$style.footer__legal">
+        <a href="/privacy" target="_blank">
+          <p :class="$style.footer__text">
+            Privacy Policy
+          </p>
+        </a>
+        <a
+            href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
+            target="_blank"
+        >
+          <p :class="$style.footer__text">
+            MLH Code of Conduct
+          </p>
+        </a>
+      </div>
+
+
     </div>
   </Container>
 </template>
 
 <script>
   import Button from '@hackthe6ix/vue-ui/Button';
-  import {Container} from '../index';
+  import { Container } from '../index';
+  import { email, social_media } from '@data';
+  import Icon from 'vue-awesome/components/Icon';
+
+  import 'vue-awesome/icons/brands/facebook';
+  import 'vue-awesome/icons/brands/instagram';
+  import 'vue-awesome/icons/brands/linkedin';
+  import 'vue-awesome/icons/brands/twitter';
+  import 'vue-awesome/icons/heart';
+  import 'vue-awesome/icons/arrow-up';
 
   export default {
     name: 'Footer',
     components: {
       Container,
       Button,
+      Icon
     },
     data() {
       return {
-        social_media: [],
-        email: "wow@coolbeans.damn",
+        social_media,
+        email,
       };
     },
     methods: {
@@ -65,4 +93,4 @@
   };
 </script>
 
-<style src="./Footer.module.scss" lang="scss" module />
+<style src="./Footer.module.scss" lang="scss" module/>

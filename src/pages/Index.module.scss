@@ -79,6 +79,17 @@ p {
   color: $black;
 }
 
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: $yellow;
+  }
+  &:visited {
+    color: $magenta;
+  }
+}
+
 @include media(phone) {
   h1 {
     font-size: 54px;
