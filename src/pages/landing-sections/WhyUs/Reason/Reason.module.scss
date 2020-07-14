@@ -8,6 +8,16 @@ $whyus-breakpoint: 1250px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
+  &__graphic {
+    display: flex;
+
+    &--right {
+      img {
+        margin-left: auto;
+      }
+    }
+  }
+
   &__text {
     max-width: 500px;
 

@@ -4,6 +4,11 @@
 
 .wave {
   width: 100%;
+
+  min-height: 100px;
+  max-height: 500px;
+  object-fit: cover;
+
   margin-bottom: calc(max(0px, (1400px - 100vw) * 1/10));
 }
 
@@ -15,7 +20,7 @@
 
   margin-top: -120px;
 
-  padding: 16px 0 32px 0;
+  padding: 16px 0 40px 0;
 
   a {
     color: $white;

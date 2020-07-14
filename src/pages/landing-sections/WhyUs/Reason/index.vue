@@ -7,7 +7,7 @@
           {{text}}
         </p>
       </div>
-      <div :class="$style.reason__graphic">
+      <div :class="[$style.reason__graphic, $style['reason__graphic--right']]">
         <img :class="[$style.reason__img, $style[`reason__img--${vjustify}`]]" :src="image">
       </div>
     </div>

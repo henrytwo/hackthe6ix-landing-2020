@@ -2,10 +2,7 @@
   <Container id="whyus" :block="$style.whyus" as="section">
     <div :class="$style.whyus__content">
 
-      <!-- Should make a component here -->
-
       <ReasonGroup>
-        <!-- Meet meet new friends -->
         <Reason
             title="MEET NEW FRIENDS"
             text="Physical distancing is serious, but meeting new people doesn't have to stop.
@@ -15,13 +12,54 @@
             image-x="right"
         />
 
-        <!-- Find a team -->
         <Reason
             title="FIND A TEAM"
             text="The most memorable part of a hackathon are the people we work with. Create
             your own team or find new people to work with. Don't know who to work with?
             We can help with that."
             image="04_a_Why_Us_Meet_People/Container_Find_A_Team.svg"
+            image-x="left"
+            vjustify="bottom"
+            :class="$style.reason__shiftup"
+        />
+      </ReasonGroup>
+
+      <ReasonGroup>
+        <Reason
+            title="MAKE MEMORIES"
+            text="Work hard, play hard. Share a few laughs with your teammates throughout the
+            weekend. We guarantee it ll increase your synergy +10."
+            image="04_b_Why_Us-Make_Connections/Container_Make_Memories.svg"
+            image-x="right"
+        />
+
+        <Reason
+            title="BUILD CONNECTIONS"
+            text="Hackathons are an amazing place to meet mentors and industry professionals
+            in the tech community. A pandemic won t stop us from fostering important
+            conversations."
+            image="04_b_Why_Us-Make_Connections/Container_Build_Connections.svg"
+            image-x="left"
+            vjustify="bottom"
+            :class="$style.reason__shiftup"
+        />
+      </ReasonGroup>
+
+      <ReasonGroup>
+        <Reason
+            title="LEARN, PRACTICE, CREATE"
+            text="We value sharing knowledge and applying the things we learned. We'll be
+            hosting live workshops all weekend to give you the inspiration you need to get
+            your project off the ground."
+            image="04_c_Why_Us_Learn_Create/Container_Attend_live_workshops.svg"
+            image-x="right"
+        />
+
+        <Reason
+            title="COMPLETE A PROJECT"
+            text="Show us. Show the world. We want to see what you're capable of and so does
+            everyone else!"
+            image="04_c_Why_Us_Learn_Create/Container_Complete_a_project.svg"
             image-x="left"
             vjustify="bottom"
             :class="$style.reason__shiftup"
