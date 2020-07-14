@@ -3,13 +3,11 @@
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
 .faq {
-  padding-top: 0;
   padding-bottom: 0;
   min-height: 900px;
   margin: 0;
 
   &__content {
-    margin-bottom: 20px;
     &-title {
       font-size: 2.1rem;
       color: $teal;
@@ -54,7 +52,7 @@
   }
 }
 
-@include media(TABLET) {
+@include media(tablet) {
   .faq {
     &__items {
       width: 100%;
@@ -63,7 +61,7 @@
   }
 }
 
-@include media(PHONE) {
+@include media(phone) {
   .faq {
     &__title {
       font-size: 2.4rem;

@@ -6,14 +6,14 @@
   width: 100%;
 
   min-height: 100px;
-  max-height: 500px;
+  max-height: 6000px;
   object-fit: cover;
 
   margin-bottom: calc(max(0px, (1400px - 100vw) * 1/10));
 }
 
 .footer {
-  background: #69cac4;
+  background: #61cbc4;
   min-height: 80px;
   position: relative;
   z-index: 100;
