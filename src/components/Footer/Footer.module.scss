@@ -28,12 +28,13 @@
     margin: 0 0 8px 0;
   }
 
-  &__icon {
+  &__text {
     color: $white;
   }
 
-  &__text {
+  &__icon {
     color: $white;
+    transform: scale(1.5);
   }
 
   &__top {
@@ -41,25 +42,20 @@
     text-decoration: none;
     margin-left: auto;
     background: none;
-    color: $white;
-    padding: 15px 0;
     cursor: pointer;
     border: none;
 
     &:visited {
       color: $white;
     }
-
-    h4 {
-      color: $white;
-      margin: 0 0 0 8px;
-
-      display: inline-block;
-    }
   }
 
-  &__right {
+  &__top-container {
     text-align: right;
+
+    h4 {
+      margin: 0 0 0 8px;
+    }
   }
 
   &__container {
@@ -75,13 +71,12 @@
     @include flex(flex-start, center);
     list-style-type: none;
     padding: 0;
-    margin: 2px 0 0;
+    margin: 8px 0 0;
 
     &-item {
       @include transition(color);
       cursor: pointer;
-      color: #5d5d5d;
-      margin-right: 10px;
+      margin-right: 24px;
     }
   }
 
@@ -96,13 +91,15 @@
 
 @include media(tablet) {
   .footer {
+    text-align: center;
+
+    &__media {
+      display: flex;
+      justify-content: center;
+    }
 
     &__content {
       display: block;
-    }
-
-    &__logo {
-      @include position(absolute, 60px auto auto);
     }
 
     &__legal,
@@ -113,8 +110,12 @@
 
     &__legal {
       margin: auto;
-      margin-top: -10px;
+      margin-top: 16px;
       padding-bottom: 20px;
+    }
+
+    &__top-container {
+      margin: 16px 0 16px 0;
     }
   }
 }

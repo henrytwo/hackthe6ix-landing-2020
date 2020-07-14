@@ -1,7 +1,6 @@
 <template>
   <Container :block="$style.footer" :as="$style.footer">
     <div :class="$style.footer__content">
-
       <div>
         <h3 :class="$style.footer__label">Follow us on social media</h3>
 
@@ -14,11 +13,13 @@
         </ul>
       </div>
 
-      <div :class="$style.footer__right">
-        <a :class="$style.footer__top" href="#">
-          <Icon name="arrow-up"/>
-          <h4>Back to Top</h4>
-        </a>
+      <div :class="$style['footer__top-container']">
+        <h4>
+          <a :class="$style.footer__top" href="#">
+            <Icon name="arrow-up"/>
+            Back to Top
+          </a>
+        </h4>
       </div>
 
       <div>
@@ -29,24 +30,19 @@
         </p>
       </div>
 
-
       <div :class="$style.footer__legal">
-        <a href="/privacy" target="_blank">
-          <p :class="$style.footer__text">
+        <p>
+          <a href="/privacy" target="_blank">
             Privacy Policy
-          </p>
-        </a>
-        <a
-            href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf"
-            target="_blank"
-        >
-          <p :class="$style.footer__text">
+          </a>
+        </p>
+
+        <p>
+          <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">
             MLH Code of Conduct
-          </p>
-        </a>
+          </a>
+        </p>
       </div>
-
-
     </div>
   </Container>
 </template>
