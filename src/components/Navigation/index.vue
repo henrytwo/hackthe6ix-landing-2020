@@ -32,7 +32,7 @@
           <li>
             <a
                 :class="$style.nav__item"
-                active-class="nav__item--active"
+                :active-class="$style['nav__item--active']"
                 v-for="item in items"
                 :href="item.path"
                 :key="item.path"
