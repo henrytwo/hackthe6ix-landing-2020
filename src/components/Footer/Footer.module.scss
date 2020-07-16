@@ -1,0 +1,133 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+.wave {
+  width: 100%;
+
+  min-height: 100px;
+  max-height: 6000px;
+  object-fit: cover;
+
+  margin-bottom: calc(max(0px, (1400px - 100vw) * 1/10));
+}
+
+.footer {
+  background: #61cbc4;
+  min-height: 80px;
+  position: relative;
+  z-index: 100;
+
+  margin-top: -120px;
+
+  padding: 16px 0 40px 0;
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  p {
+    margin: 8px 0 0 0;
+    display: inline-block;
+  }
+
+  &__label {
+    color: $white;
+    margin: 0 0 8px 0;
+  }
+
+  &__text {
+    color: $white;
+  }
+
+  &__icon {
+    color: $white;
+    transform: scale(1.5);
+  }
+
+  &__top {
+    @include transition(color);
+    text-decoration: none;
+    margin-left: auto;
+    background: none;
+    cursor: pointer;
+    border: none;
+
+    &:visited {
+      color: $white;
+    }
+  }
+
+  &__top-container {
+    text-align: right;
+
+    h4 {
+      margin: 0 0 0 8px;
+    }
+  }
+
+  &__container {
+    @include flex(column);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__media {
+    @include flex(flex-start, center);
+    list-style-type: none;
+    padding: 0;
+    margin: 8px 0 0;
+
+    &-item {
+      @include transition(color);
+      cursor: pointer;
+      margin-right: 24px;
+    }
+  }
+
+  &__legal {
+    margin-left: auto;
+
+    a {
+      margin-left: 24px;
+    }
+  }
+}
+
+@include media(tablet) {
+  .footer {
+    text-align: center;
+
+    &__media {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__content {
+      display: block;
+    }
+
+    &__legal,
+    &__text {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__legal {
+      margin: auto;
+      margin-top: 16px;
+      padding-bottom: 20px;
+    }
+
+    &__top-container {
+      margin: 16px 0 16px 0;
+    }
+  }
+}

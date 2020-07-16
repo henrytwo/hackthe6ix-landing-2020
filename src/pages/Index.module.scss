@@ -1,0 +1,103 @@
+@use '~@hackthe6ix/vue-ui/styles/colors';
+@use '~@hackthe6ix/vue-ui/styles/fonts';
+:global {
+  @include fonts.load('~@hackthe6ix/vue-ui/static/');
+  @include colors.load;
+}
+
+@import '~@hackthe6ix/vue-ui/styles/colors';
+@import '~@hackthe6ix/vue-ui/styles/fonts';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: $font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.95rem;
+  scroll-behavior: smooth;
+  @include scroll;
+}
+
+a {
+  @include transition(color);
+  color: $teal;
+  &:hover {
+    color: $teal;
+  }
+}
+
+section {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+h1 {
+  line-height: 72px;
+  font-weight: 900;
+  font-size: 68px;
+  letter-spacing: 0.1em;
+
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+h2 {
+  line-height: 48px;
+  font-weight: bold;
+  font-size: 42px;
+  letter-spacing: 0.05em;
+
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+h3 {
+  line-height: 48px;
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 0.05em;
+}
+
+h4 {
+  line-height: 24px;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+p {
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+
+  color: $black;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: $yellow;
+  }
+  &:visited {
+    color: $magenta;
+  }
+}
+
+@include media(phone) {
+  h1 {
+    font-size: 54px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+}

@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <Navigation />
-    <div class="layout">
+  <div :class="$style.app">
+    <Navigation :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" :items="items"/>
+    <div :class="$style.layout">
       <slot/>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -16,22 +17,23 @@ query {
 </static-query>
 
 <script>
-import Navigation from './Navigation';
+import {Navigation, Footer} from '@components';
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    Footer
+  },
+  props: {
+    disableApply: Boolean,
+    applyButtonMessage: String,
+    applyLink: String,
+    items: {
+      type: Array,
+      default: () => [],
+    },
   }
 }
 </script>
 
-<style>
-body {
-  margin:0;
-  padding:0;
-}
-
-.layout {
-  margin: 100px auto;
-}
-</style>
+<style src="./Default.module.scss" lang="scss" module />

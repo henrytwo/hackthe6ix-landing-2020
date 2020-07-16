@@ -1,0 +1,47 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+
+.transition {
+  position: absolute;
+  width: 100%;
+  min-height: 100px;
+  max-height: 400px;
+  object-fit: cover;
+  z-index: 60;
+
+  transform: translateY(-50%);
+}
+
+.left-leaf {
+  position: absolute;
+  max-width: 20vw;
+
+  z-index: 50;
+
+  transform: translateY(-120%);
+}
+
+.right-leaf {
+  position: absolute;
+  max-width: 20vw;
+
+  z-index: 50;
+  right: 0;
+
+  transform: translateY(-125%);
+}
+
+.person {
+  position: absolute;
+  max-width: 80vw;
+
+  right: 35vw;
+  z-index: 55;
+
+  transform: translateY(-110%);
+}
+
+@include media(tablet) {
+  .person {
+    right: 15vw;
+  }
+}

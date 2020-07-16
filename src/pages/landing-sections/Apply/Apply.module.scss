@@ -1,0 +1,68 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+.apply {
+  padding-bottom: 0;
+  min-height: 900px;
+  margin: 0;
+
+  &__button {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  &__rocket {
+    margin-bottom: 24px;
+  }
+
+  &__cloud {
+    z-index: -1;
+    position: absolute;
+
+    &--1 {
+      transform: translate(-20vw, 400px);
+    }
+    &--2 {
+      transform: translate(20vw, 410px);
+    }
+    &--3 {
+      transform: translate(10vw, 100px);
+    }
+    &--4 {
+      transform: translate(1vw, 50px);
+    }
+    &--5 {
+      transform: translate(-1vw, 75px);
+    }
+  }
+
+  text-align: center;
+
+  /* Container stuff */
+  &__container {
+    @include flex(none);
+    position: relative;
+    align-self: stretch;
+  }
+
+  &__content {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@include media(phone) {
+  .apply {
+    &__cloud {
+      &--2 {
+        display: none;
+      }
+      &--3 {
+        display: none;
+      }
+    }
+  }
+}

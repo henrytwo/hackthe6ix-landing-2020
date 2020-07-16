@@ -1,7 +1,0 @@
-@use '~@hackthe6ix/vue-ui/styles/colors';
-@use '~@hackthe6ix/vue-ui/styles/fonts';
-
-:global {
-  @include fonts.load('~@hackthe6ix/vue-ui/static/');
-  @include colors.load;
-}
