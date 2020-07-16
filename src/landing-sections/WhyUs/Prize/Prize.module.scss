@@ -13,12 +13,12 @@
 
   &__list {
     max-width: 45vw;
-    margin: min(30vw * 170/250, 180px) 5px 5px 5px;
+    margin: min(30vw * 200/250, 180px) 2px 2px 2px;
   }
 
   &__title {
     position: absolute;
-    margin: calc(min(192px, 21.7vw))  0 0 calc(max(-200px, 15vw - 50%));
+    margin: calc(min(192px, 25.3vw))  0 0 calc(max(-200px, 15vw - 50%));
   }
 
   &__items {
@@ -28,7 +28,7 @@
 
     li {
       color: $teal;
-      margin-bottom: calc(min(5.8vw, 45px));
+      margin-bottom: calc(min(6.2vw, 50px));
     }
   }
 }
@@ -36,7 +36,7 @@
 @include media(phone){
   .prize {
     &__items {
-      margin: calc(max(-195px, -31vw))  0 0 calc(min(32px, 1vw));
+      margin: calc(max(-195px, -31vw))  0 0 calc(min(32px, .01vw));
     }
   }
 }
