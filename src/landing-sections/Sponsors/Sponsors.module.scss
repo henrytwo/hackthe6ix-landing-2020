@@ -35,9 +35,13 @@ $leaf-breakpoint: 1220px;
 }
 
 .logoStack {
+  margin-top: 16px;
+  margin-bottom: 16px;
+
   @include mixins.media(phone) {
     div {
-      margin-right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
