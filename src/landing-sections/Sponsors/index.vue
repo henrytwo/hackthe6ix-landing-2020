@@ -12,18 +12,6 @@
       <TextComponent type='body1'>
         {{$static.data.edges[0].node.description}}
       </TextComponent>
-      <TextComponent type='body1' color='black'>
-        <strong>
-          Interested in sponsoring our event?
-        </strong>
-      </TextComponent>
-      <a href="Revised-Digital-HT6-Sponsorship-Package-2020.pdf" target="_blank">
-        <Button
-          :class='[$style.link]'
-        >
-          LEARN MORE
-        </Button>
-      </a>
     </Stack>
     <Stack
       :class='$style.logos'

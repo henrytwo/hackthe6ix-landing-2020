@@ -35,7 +35,7 @@
 
         <div :class="$style.footer__legal">
           <p>
-            <a href="/privacy" target="_blank">
+            <a href="privacy-policy.pdf" target="_blank">
               Privacy Policy
             </a>
           </p>
