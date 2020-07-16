@@ -11,7 +11,8 @@
 .prize {
   img {
     margin: 5px;
-    max-width: calc(min(40vw, 300px));
+    width: 40vw;
+    max-width: 300px;
   }
 
   &--left {
