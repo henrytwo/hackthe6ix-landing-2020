@@ -9,6 +9,7 @@
         :href='applyLink'
         rel='noopener noreferrer'
         as='a'
+        v-if="!disableApply"
       >
         {{ applyButtonMessage }}
       </TextComponent>
@@ -35,8 +36,8 @@
         Menu
       </Button>
     </Container>
-    <Container :class='$style.disclaimer' as='div'>
-      <Disclaimer v-if="SHOW_DISCLAIMER"/>
+    <Container :class='$style.disclaimer' as='div' v-if="SHOW_DISCLAIMER && !disclaimerDismissed" v-on:click.native="disclaimerDismissed = true">
+      <Disclaimer />
     </Container>
   </div>
 </template>
@@ -65,6 +66,7 @@ export default {
     return {
       scrollTo,
       show: false,
+      disclaimerDismissed: false,
       SHOW_DISCLAIMER: SHOW_DISCLAIMER,
     };
   },

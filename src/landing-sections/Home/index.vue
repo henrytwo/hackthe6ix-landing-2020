@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     apply() {
-      document.location.href = this.applyLink;
+      window.open(this.applyLink);
     }
   },
   props: {

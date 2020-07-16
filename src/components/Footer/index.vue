@@ -78,9 +78,6 @@
       };
     },
     methods: {
-      apply() {
-        this.$router.push('/apply');
-      },
       toTop() {
         window.scrollTo({top: 0, behavior: 'smooth'});
       },

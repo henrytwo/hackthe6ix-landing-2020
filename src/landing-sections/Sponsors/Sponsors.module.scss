@@ -9,9 +9,6 @@ $leaf-breakpoint: 1220px;
 
 .link {
   @extend .button;
-  @extend .button--color-teal;
-  @extend .button--variant-solid;
-  @extend .content--size-small;
   display: inline-block;
 
   // Bad CSS bleeding from elsewhere
