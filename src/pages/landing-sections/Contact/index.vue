@@ -3,9 +3,19 @@
     <h2>MORE QUESTIONS?</h2>
     <div :class="$style.contact__content">
       <div>
-        <Input :class="$style.contact__field" label="Name" name="name" required />
-        <Input :class="$style.contact__field" label="Email" name="email" required />
-        <TextArea :class="$style.contact__field" rows="12" label="Message" name="message" required />
+        <Input
+          :class="$style.contact__field"
+          label="Name"
+          name="name"
+          :validate="val => val.length === 0 && 'Name is required'"
+          required />
+        <Input
+          :class="$style.contact__field"
+          label="Email"
+          name="email"
+          :validate="val => (val.length === 0 && 'Email is required') || (validate(val, 'email') && 'Invalid email')"
+          required />
+        <TextArea :class="$style.contact__field" :rows="12" label="Message" name="message" required />
         <Button :class="$style.contact__field">
           Submit
         </Button>
@@ -19,7 +29,9 @@
 
 
 <script>
+import formProvider from '@hackthe6ix/vue-ui/utils/mixins/formProvider';
 import {Container} from '@components';
+import {validate} from '@utils/validate';
 import Button from '@hackthe6ix/vue-ui/Button';
 import Input from '@hackthe6ix/vue-ui/Input';
 import TextArea from '@hackthe6ix/vue-ui/Textarea';
@@ -31,6 +43,18 @@ export default {
     Input,
     TextArea
   },
+  data() {
+    return {
+      validate
+    }
+  },
+  mixins: [
+    formProvider({
+      'name': '',
+      'email': '',
+      'message': ''
+    })
+  ]
 };
 </script>
 

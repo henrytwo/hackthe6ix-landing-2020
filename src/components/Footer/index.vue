@@ -86,10 +86,7 @@
       },
     },
     props: {
-      items: {
-        type: Array,
-        default: () => [],
-      },
+      items: Object,
       disableApply: Boolean,
       applyButtonMessage: String,
     },

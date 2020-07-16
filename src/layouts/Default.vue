@@ -28,10 +28,7 @@ export default {
     disableApply: Boolean,
     applyButtonMessage: String,
     applyLink: String,
-    items: {
-      type: Array,
-      default: () => [],
-    },
+    items: Object,
   }
 }
 </script>

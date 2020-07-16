@@ -83,7 +83,7 @@
 
 <script>
   import {Container} from '@components';
-  import {scrollTo} from './utils';
+  import {scrollTo} from '@utils/scroll';
   import Button from '@hackthe6ix/vue-ui/Button';
   import {Disclaimer, SHOW_DISCLAIMER} from '@data';
 
@@ -115,10 +115,7 @@
       }
     },
     props: {
-      items: {
-        type: Array,
-        default: () => [],
-      },
+      items: Object,
       disableApply: Boolean,
       applyButtonMessage: String,
       applyLink: String
