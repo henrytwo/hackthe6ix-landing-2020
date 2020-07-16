@@ -100,7 +100,7 @@ $nav-height: 72px;
   }
 
   &__item {
-    @include transition(background-color);
+    @include transition((color, border));
     padding: 16px 20px 12px;
     text-transform: uppercase;
     margin-right: 6px;
@@ -113,18 +113,8 @@ $nav-height: 72px;
     }
 
     &:hover {
-      color: $grey;
-      background-color: #f2f2f2;
-    }
-
-    &--active {
       color: $teal;
-
-      &:visited {
-        color: $teal;
-      }
-
-      border-bottom: 2px solid;
+      border-bottom: 2px solid $teal;
     }
   }
 

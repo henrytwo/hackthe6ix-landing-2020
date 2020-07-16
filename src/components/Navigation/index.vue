@@ -54,7 +54,6 @@
           <li>
             <a
                 :class="$style['nav__mobile-item']"
-                :active-class="$style['nav__mobile-item--active']"
                 v-for="item in items"
                 onclick.native="close"
                 :href="item.id"
