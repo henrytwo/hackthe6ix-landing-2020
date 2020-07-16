@@ -18,6 +18,7 @@
     },
     computed: {
       elementClass() {
+        if (!this.block) return;
         const suffix = `${this.block.includes('__') ? '-' : '__'}container`;
         return {
           [this.block + suffix]: this.block,

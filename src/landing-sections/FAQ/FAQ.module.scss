@@ -1,74 +1,8 @@
-@import '~@hackthe6ix/vue-ui/styles/mixins';
-@import '~@hackthe6ix/vue-ui/styles/variables';
-@import '~@hackthe6ix/vue-ui/styles/colors';
+@use '~@hackthe6ix/vue-ui/styles/variables';
 
-.faq {
-  padding-bottom: 0;
-  min-height: 900px;
-  margin: 0;
-
-  &__content {
-    &-title {
-      font-size: 2.1rem;
-      color: $teal;
-      margin: 0 0 10px;
-    }
-  }
-
-  &__questions {
-    @include flex;
-    flex-wrap: wrap;
-  }
-
-  &__items {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    box-sizing: border-box;
-    width: 50%;
-
-    &--first {
-      padding-right: 40px;
-    }
-
-    &--second {
-      padding-left: 40px;
-    }
-  }
-
-  &__item {
-    margin-bottom: 40px;
-    box-sizing: border-box;
-
-    &-title {
-      font-size: 1.3rem;
-      margin: 0;
-    }
-
-    &-content {
-      line-height: 1.7;
-      margin: 10px 0;
-    }
-  }
-}
-
-@include media(tablet) {
-  .faq {
-    &__items {
-      width: 100%;
-      padding: 0;
-    }
-  }
-}
-
-@include media(phone) {
-  .faq {
-    &__title {
-      font-size: 2.4rem;
-    }
-
-    &__content-title {
-      font-size: 1.8rem;
-    }
-  }
+.questions {
+  margin-top: map-get(variables.$unit, container);
+  grid-gap: map-get(variables.$unit, container);
+  grid-template-columns: 1fr 1fr;
+  display: grid;
 }
