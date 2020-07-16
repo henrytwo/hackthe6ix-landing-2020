@@ -27,7 +27,7 @@
         <Reason
             title="MAKE MEMORIES"
             text="Work hard, play hard. Share a few laughs with your teammates throughout the
-            weekend. We guarantee it ll increase your synergy +10."
+            weekend. We guarantee it'll increase your synergy +10."
             image="04_b_Why_Us-Make_Connections/Container_Make_Memories.svg"
             image-x="right"
         />
@@ -35,7 +35,7 @@
         <Reason
             title="BUILD CONNECTIONS"
             text="Hackathons are an amazing place to meet mentors and industry professionals
-            in the tech community. A pandemic won t stop us from fostering important
+            in the tech community. A pandemic won't stop us from fostering important
             conversations."
             image="04_b_Why_Us-Make_Connections/Container_Build_Connections.svg"
             image-x="left"
