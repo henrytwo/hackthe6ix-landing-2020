@@ -13,18 +13,26 @@
         :disabled="disableApply"
         v-on:click.native="apply()"
     >{{applyButtonMessage}}</Button>
-    <p>Got questions? Check out our <a href="#faq">FAQ</a> section.</p>
+    <p>Got questions? Check out our <a v-on:click="scrollTo('faq', items['faq'].scrollOffset)">FAQ</a> section.</p>
   </Container>
 </template>
 
 <script>
 import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
+import {scrollTo} from '@components/Navigation/utils';
+import {NAVBAR_ITEMS} from '@data';
 
 export default {
   components: {
     Container,
     Button
+  },
+  data() {
+    return {
+      scrollTo,
+      items: NAVBAR_ITEMS
+    }
   },
   methods: {
     apply() {

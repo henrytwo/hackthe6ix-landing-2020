@@ -1,5 +1,5 @@
 <template>
-  <Container :block="$style.home" as="section">
+  <Container id="home" :block="$style.home" as="section">
     <div :class="$style.home__content">
       <div :class="$style['home__content--left']">
         <div :class="$style['home__sponsor-badge']">

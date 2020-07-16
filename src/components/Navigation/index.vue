@@ -5,7 +5,7 @@
       <div :class="$style.nav__justify">
 
         <!-- Logo -->
-        <a :class="$style.nav__logo_link" href="#">
+        <a :class="$style.nav__logo_link" v-on:click="scrollTo('home', items['home'].scrollOffset)">
           <ul :class="$style.nav__logo_list">
             <li>
               <img src="@assets/logo.svg" :class="$style.nav__logo"/>
@@ -32,9 +32,9 @@
             <a
                 :class="$style.nav__item"
                 :active-class="$style['nav__item--active']"
-                v-for="item in items"
-                :href="item.path"
-                :key="item.path"
+                v-for="(item, key) in items"
+                v-on:click="scrollTo(key, item.scrollOffset)"
+                :key="key"
             >{{ item.displayName || item.name }}</a>
           </li>
         </ul>
@@ -57,8 +57,8 @@
                 :active-class="$style['nav__mobile-item--active']"
                 v-for="item in items"
                 onclick.native="close"
-                :href="item.path"
-                :key="item.path"
+                :href="item.id"
+                :key="item.id"
             >{{ item.displayName || item.name }}</a>
           </li>
           <li>
@@ -83,6 +83,7 @@
 
 <script>
   import {Container} from '@components';
+  import {scrollTo} from './utils';
   import Button from '@hackthe6ix/vue-ui/Button';
   import {Disclaimer, SHOW_DISCLAIMER} from '@data';
 
@@ -99,6 +100,7 @@
     },
     data() {
       return {
+        scrollTo,
         show: false,
         disclaimerDismissed: false,
         SHOW_DISCLAIMER: SHOW_DISCLAIMER
