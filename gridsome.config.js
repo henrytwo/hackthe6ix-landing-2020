@@ -21,6 +21,13 @@ module.exports = {
       },
     },
   },
-  siteName: 'Gridsome',
-  plugins: []
+  siteName: 'Hack The 6ix',
+  plugins: [
+    {
+      use: `gridsome-plugin-netlify-cms`,
+      options: {
+        publicPath: `/admin`
+      }
+    },
+  ],
 }
