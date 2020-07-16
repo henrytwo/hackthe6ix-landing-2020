@@ -77,6 +77,7 @@ export default {
     clearForm() {
       for (let key of this.validateFields) {
         this.form_data[key] = '';
+        this.form_errors[key] = undefined;
       }
     }
   },
