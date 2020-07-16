@@ -35,6 +35,7 @@
         v-for='sponsors in $static.data.edges[0].node.categories'
         :style='`--width: ${sponsors.size}rem; --max-width: calc(90vw * ${sponsors.size} / 35)`'
         :key='sponsors.slug'
+        :class="$style.logoStack"
         spacing='section'
         justify='center'
         align='center'

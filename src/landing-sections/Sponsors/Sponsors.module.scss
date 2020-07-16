@@ -1,5 +1,6 @@
 @use '~@hackthe6ix/vue-ui/Button/Button.module.scss';
 @use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
 
 $leaf-breakpoint: 1220px;
 
@@ -31,6 +32,14 @@ $leaf-breakpoint: 1220px;
 
 .logos {
   margin-top: map-get(variables.$unit, section);
+}
+
+.logoStack {
+  @include mixins.media(phone) {
+    div {
+      margin-right: 0;
+    }
+  }
 }
 
 .leaf {
