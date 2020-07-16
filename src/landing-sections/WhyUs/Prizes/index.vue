@@ -18,10 +18,10 @@
     </Stack>
 
     <div :class="$style.prizes">
-      <Prize :class="$style['prizes--left']" graphic="04_d_Why_Us_Win_Prizes/Medal_First_Place.svg" placeName="First Place" :prizes="['Coming Soon']" />
-      <Prize :class="$style['prizes--right']" graphic="04_d_Why_Us_Win_Prizes/Medal_Second_Place.svg" placeName="Second Place" :prizes="['Coming Soon']" />
-      <Prize :class="$style['prizes--left']" graphic="04_d_Why_Us_Win_Prizes/Medal_Third_Place.svg" placeName="Third Place" :prizes="['Coming Soon']" />
-      <Prize :class="$style['prizes--right']" graphic="04_d_Why_Us_Win_Prizes/Medal_Participation.svg" placeName="Participation" :prizes="['Coming Soon']" />
+      <Prize :class="$style['prizes--left']" graphic="04_d_Why_Us_Win_Prizes/Medal_First_Place.svg" placeName="First Place" :prizes="['Coming Soon', '...', '...']" />
+      <Prize :class="$style['prizes--right']" graphic="04_d_Why_Us_Win_Prizes/Medal_Second_Place.svg" placeName="Second Place" :prizes="['Coming Soon', '...', '...']" />
+      <Prize :class="$style['prizes--left']" graphic="04_d_Why_Us_Win_Prizes/Medal_Third_Place.svg" placeName="Third Place" :prizes="['Coming Soon', '...', '...']" />
+      <Prize :class="$style['prizes--right']" graphic="04_d_Why_Us_Win_Prizes/Medal_Participation.svg" placeName="Participation" :prizes="['Physical swag bags (Canada)']" />
     </div>
   </div>
 </template>
