@@ -6,9 +6,11 @@
     <h3>
       Sorry, we couldn't find that resource :(
     </h3>
-    <Button v-on:click.native="home()">
-      Go back home
-    </Button>
+    <a href="/">
+      <Button>
+        Go back home
+      </Button>
+    </a>
   </Container>
 </template>
 
@@ -20,11 +22,6 @@
     components: {
       Button,
       Container
-    },
-    methods: {
-      home() {
-        document.location.href = '/';
-      }
     }
   }
 </script>

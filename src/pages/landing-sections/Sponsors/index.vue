@@ -10,9 +10,11 @@
       <p>
         Interested in sponsoring our event? Contact us at <a href="mailto:sponsors@hackthe6ix.com">sponsors@hackthe6ix.com</a>
       </p>
-      <Button>
-        BECOME A SPONSOR
-      </Button>
+      <a :href="SPONSOR_PACKAGE_PATH" target="_blank">
+        <Button>
+          BECOME A SPONSOR
+        </Button>
+      </a>
     </div>
     <ul
         :class="$style.sponsors__items"
@@ -47,7 +49,7 @@
 
 <script>
 import {Container} from '@components';
-import {sponsors} from '@data';
+import {sponsors, SPONSOR_PACKAGE_PATH} from '@data';
 import Button from '@hackthe6ix/vue-ui/Button';
 
 export default {
@@ -57,7 +59,8 @@ export default {
   },
   data() {
     return {
-      sponsors
+      sponsors,
+      SPONSOR_PACKAGE_PATH
     }
   },
   computed: {

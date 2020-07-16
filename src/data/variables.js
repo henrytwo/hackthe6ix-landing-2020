@@ -30,6 +30,7 @@ export const applyButtonMessages = [
   'APPLY NOW',
   'APPLICATIONS CLOSED',
 ];
+export const SPONSOR_PACKAGE_PATH = "Revised-Digital-HT6-Sponsorship-Package-2020.pdf";
 export const APPLY_LINK = "https://hackthe6ix.com/apply";
 export const APPS_OPEN_TIME = new Date('2020-07-10T00:00:00-0400');
 export const SHOW_DISCLAIMER = true;
