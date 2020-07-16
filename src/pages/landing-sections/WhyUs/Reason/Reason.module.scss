@@ -37,13 +37,22 @@ $whyus-breakpoint: 1250px;
   .reason {
     grid-template-columns: repeat(1, 1fr);
 
+    &__graphic {
+      &--left {
+        order: 2;
+      }
+    }
+
     &__text {
       max-width: 100%;
+
+      &--left {
+        margin-top: 64px;
+      }
     }
 
     &__img {
-      margin-left: 50%;
-      transform: translateX(-50%);
+      max-width: 100%;
     }
   }
 }

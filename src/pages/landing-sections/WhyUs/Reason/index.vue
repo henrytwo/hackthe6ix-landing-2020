@@ -12,10 +12,10 @@
       </div>
     </div>
     <div :class="$style.reason" v-if="imageX === 'left'">
-      <div :class="$style.reason__graphic">
+      <div :class="[$style.reason__graphic, $style['reason__graphic--left']]">
         <img :class="$style.reason__img" :src="image">
       </div>
-      <div :class="[$style.reason__text, $style[`reason__text--${vjustify}`]]">
+      <div :class="[$style.reason__text, $style['reason__text--left'], $style[`reason__text--${vjustify}`]]">
         <h2>{{title}}</h2>
         <p>
           {{text}}
