@@ -23,6 +23,7 @@ $nav-height: 72px;
   }
 
   &__disclaimer {
+    @include flex(center);
     @include position(fixed, 0 auto auto, 0, auto, auto);
     z-index: 150;
     width: 100%;
@@ -31,7 +32,17 @@ $nav-height: 72px;
     background-color: $sand;
     color: black;
     text-align: center;
-    vertical-align: center;
+
+    &--dismiss {
+      display: inline-block;
+      margin: -4px 0 0 8px;
+      color: $grey;
+      max-height: 38px;
+    }
+
+    &--message {
+      display: inline-block;
+    }
   }
 
   &__disclaimer p {

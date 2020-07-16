@@ -49,7 +49,6 @@
         <!-- MLH banner -->
         <a id="mlh-trust-badge" :class="$style.nav__mlh" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%"></a>
 
-
         <!-- Mobile menu -->
         <Container as="ul" :block="$style.nav__mobile" :class="$style.nav__mobile">
           <li>
@@ -73,8 +72,11 @@
         </Container>
       </div>
     </div>
-    <div :class="$style.nav__disclaimer" v-if="SHOW_DISCLAIMER">
-      <Disclaimer/>
+    <div :class="$style.nav__disclaimer" v-if="SHOW_DISCLAIMER && !disclaimerDismissed">
+      <Button :class="$style['nav__disclaimer--dismiss']" v-on:click.native="disclaimerDismissed = true" variant="ghost">
+        <Icon name="times" />
+      </Button>
+      <Disclaimer :class="$style['nav__disclaimer--message']"/>
     </div>
   </div>
 </template>
@@ -84,16 +86,21 @@
   import Button from '@hackthe6ix/vue-ui/Button';
   import {Disclaimer, SHOW_DISCLAIMER} from '@data';
 
+  import Icon from 'vue-awesome/components/Icon';
+  import 'vue-awesome/icons/times';
+
   export default {
     name: 'Navigation',
     components: {
       Container,
       Button,
       Disclaimer,
+      Icon
     },
     data() {
       return {
         show: false,
+        disclaimerDismissed: false,
         SHOW_DISCLAIMER: SHOW_DISCLAIMER
       };
     },
