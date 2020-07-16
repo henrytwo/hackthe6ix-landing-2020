@@ -4,10 +4,17 @@
 
 .mlh {
   display: block;
-  position: relative;
-  margin-top: -10px;
-  margin-bottom: -100px;
-  margin-left: 24px;
+  position: absolute;
+  top:  0;
+  right: 24px;
+
+  @include mixins.media(tablet) {
+    display: none;
+  }
+}
+
+.mlh-placeholder {
+  width: 110px;
 
   @include mixins.media(tablet) {
     display: none;

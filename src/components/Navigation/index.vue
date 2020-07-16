@@ -37,6 +37,7 @@
         />
       </Button>
 
+      <div :class="$style['mlh-placeholder']" />
       <a id="mlh-trust-badge" :class="$style.mlh" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%"></a>
     </Container>
     <Container :class='$style.disclaimer' as='div' v-if="SHOW_DISCLAIMER && !disclaimerDismissed" v-on:click.native="disclaimerDismissed = true">
