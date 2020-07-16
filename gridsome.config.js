@@ -21,6 +21,7 @@ module.exports = {
       },
     },
   },
-  siteName: 'Gridsome',
+  siteName: 'Hack the 6ix',
+  titleTemplate: 'Hack the 6ix',
   plugins: []
-}
+};

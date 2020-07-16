@@ -34,9 +34,6 @@ import {
   NAVBAR_ITEMS
 } from '@data';
 export default {
-  metaInfo: {
-    title: 'Hack the 6ix'
-  },
   components: {
     Home,
     About,
