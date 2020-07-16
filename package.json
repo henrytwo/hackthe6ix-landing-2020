@@ -12,6 +12,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@hackthe6ix/vue-ui": "^0.1.6",
     "gridsome": "^0.7.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
     "vue-awesome": "^4.0.2"

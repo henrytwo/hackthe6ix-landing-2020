@@ -13,10 +13,17 @@
           :class="$style.contact__field"
           label="Email"
           name="email"
-          :validate="val => (val.length === 0 && 'Email is required') || (validate(val, 'email') && 'Invalid email')"
+          :validate="val => (val.length === 0 && 'Email is required') || (!validate(val, 'email') && 'Invalid email')"
           required />
-        <TextArea :class="$style.contact__field" :rows="12" label="Message" name="message" required />
-        <Button :class="$style.contact__field">
+        <TextArea
+          :class="$style.contact__field"
+          :rows="12"
+          label="Message"
+          name="message"
+          :validate="val => val.length === 0 && 'Message is required'"
+          required />
+        <p>{{message}}</p>
+        <Button :class="$style.contact__field" :disabled="!formValid" v-on:click.native="submit()">
           Submit
         </Button>
       </div>
@@ -45,7 +52,13 @@ export default {
   },
   data() {
     return {
-      validate
+      message: '',
+      validate,
+      validateFields: [
+          'name',
+          'email',
+          'message'
+      ]
     }
   },
   mixins: [
@@ -54,7 +67,30 @@ export default {
       'email': '',
       'message': ''
     })
-  ]
+  ],
+  methods: {
+    submit() {
+      this.message = 'Thank you for sending us a message! We\'ll get back to you ASAP!';
+      this.clearForm();
+      alert('wow you submitted!')
+    },
+    clearForm() {
+      for (let key of this.validateFields) {
+        this.form_data[key] = '';
+      }
+    }
+  },
+  computed: {
+    formValid: function() {
+      for (let key of this.validateFields) {
+        if (this.form_errors[key] !== false) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+  }
 };
 </script>
 
