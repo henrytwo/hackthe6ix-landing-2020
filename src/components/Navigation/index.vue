@@ -31,7 +31,6 @@
           <li>
             <a
                 :class="$style.nav__item"
-                :active-class="$style['nav__item--active']"
                 v-for="(item, key) in items"
                 v-on:click="scrollTo(key, item.scrollOffset)"
                 :key="key"
@@ -50,13 +49,12 @@
         <a id="mlh-trust-badge" :class="$style.nav__mlh" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%"></a>
 
         <!-- Mobile menu -->
-        <Container as="ul" :block="$style.nav__mobile" :class="$style.nav__mobile">
+        <Container as="ul" :block="$style.nav__mobile" :class="$style.nav__mobile" v-if="show">
           <li>
             <a
                 :class="$style['nav__mobile-item']"
-                v-for="item in items"
-                onclick.native="close"
-                :href="item.id"
+                v-for="(item, key) in items"
+                v-on:click="scrollTo(key, item.scrollOffset); close();"
                 :key="item.id"
             >{{ item.displayName || item.name }}</a>
           </li>

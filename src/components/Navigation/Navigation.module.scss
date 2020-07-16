@@ -164,9 +164,12 @@ $nav-height: 72px;
 
   &__mobile {
     @include position(fixed, 0, 0);
+
+    /*
     display: none;
     transform: translate3d(0, -100%, 0);
-    opacity: 0;
+    opacity: 0;*/
+
     text-transform: uppercase;
     background-color: white;
     width: 100%;
@@ -177,6 +180,7 @@ $nav-height: 72px;
       margin: 0;
       align-self: flex-start;
       list-style-type: none;
+      list-style: none;
     }
 
     &-item {
@@ -223,6 +227,15 @@ $nav-height: 72px;
       display: none;
     }
 
+    &__mobile {
+      @include transition(transform opacity, PAGE);
+      display: block;
+      #{ $self }--show & {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
     &__bar {
       &--top,
       &--bot {
@@ -231,6 +244,21 @@ $nav-height: 72px;
 
       &--mid {
         @include transition(transform opacity, page);
+      }
+
+      &--show & {
+        &--top {
+          transform: translate3d(0, 9px, 0) rotate(315deg);
+        }
+
+        &--mid {
+          transform: translate3d(0, 0, 0) rotate(360deg);
+          opacity: 0;
+        }
+
+        &--bot {
+          transform: translate3d(0, -9px, 0) rotate(-315deg);
+        }
       }
     }
   }
