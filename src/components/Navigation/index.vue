@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class="$style.nav__spacer"/>
-    <div :class="[{'$style.nav--show': show}, $style.nav]">
+    <div :class="[show && $style['nav--show'], $style.nav]">
       <div :class="$style.nav__justify">
 
         <!-- Logo -->
