@@ -6,14 +6,22 @@
   grid-template-columns: repeat(4, 1fr);
 
   margin-top: 32px;
+}
+
+.prize {
+  img {
+    margin: 5px;
+    max-width: calc(min(40vw, 300px));
+  }
 
   &--left {
-    margin-left: auto;
+    margin: 0 0 0 auto;
   }
 
   &--right {
-    margin-right: auto;
+    margin: 0 auto 0 0;
   }
+
 }
 
 @include media(desktop) {
