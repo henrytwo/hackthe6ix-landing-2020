@@ -36,17 +36,17 @@ export const APPS_OPEN_TIME = new Date('2020-07-10T00:00:00-0400');
 export const SHOW_DISCLAIMER = true;
 export const NAVBAR_ITEMS = {
   'home': {
-    displayName: 'HOME',
+    displayName: 'Home',
     scrollOffset: -105
   },
   'about': {
-    displayName: 'ABOUT'
+    displayName: 'About'
   },
   'whyus': {
-    displayName: 'WHY US?'
+    displayName: 'Why Us?'
   },
   'sponsors': {
-    displayName: 'SPONSORS'
+    displayName: 'Sponsors'
   },
   'faq': {
     displayName: 'FAQ'
