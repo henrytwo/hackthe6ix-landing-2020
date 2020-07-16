@@ -11,7 +11,7 @@
         <img :class="[$style.reason__img, $style[`reason__img--${vjustify}`]]" :src="image">
       </div>
     </div>
-    <div :class="$style.reason" v-if="imageX === 'left'">
+    <div :class="[$style.reason, $style['reason--left']]" v-if="imageX === 'left'">
       <div :class="[$style.reason__graphic, $style['reason__graphic--left']]">
         <img :class="$style.reason__img" :src="image">
       </div>

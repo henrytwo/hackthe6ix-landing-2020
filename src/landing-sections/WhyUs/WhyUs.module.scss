@@ -44,14 +44,20 @@ $whyus-breakpoint: 1250px;
       left: 30%;
       z-index: -1;
     }
-  }
-
-  &__prizes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    &--subtitle {
-      color: $yellow;
+    &--8 {
+      margin-top: -60px;
+      left: 0;
+      z-index: -1;
+    }
+    &--9 {
+      margin-top: -70px;
+      right: 0;
+      z-index: -1;
+    }
+    &--10 {
+      margin-top: 600px;
+      right: 0;
+      z-index: -1;
     }
   }
 
@@ -70,24 +76,12 @@ $whyus-breakpoint: 1250px;
   }
 }
 
-.reason {
-  &__shiftup {
-    transform: translateY(-20%);
-  }
-}
-
 @media only screen and (max-width: $whyus-breakpoint) {
   .whyus {
-
     &__cloud {
-      &--3 {
+      &--3, &--6 {
         display: none;
       }
-    }
-  }
-  .reason {
-    &__shiftup {
-      transform: translateY(0);
     }
   }
 }

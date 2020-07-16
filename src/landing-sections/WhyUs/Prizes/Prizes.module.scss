@@ -1,0 +1,23 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+
+.prizes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: auto;
+
+  &--left {
+    margin-left: auto;
+  }
+
+  &--right {
+    margin-right: auto;
+  }
+}
+
+@include media(desktop) {
+  .prizes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,8 +1,6 @@
 <template>
   <Container id="whyus" :block="$style.whyus" as="section">
     <div :class="$style.whyus__content">
-
-
       <ReasonGroup>
         <Reason
             title="MEET NEW FRIENDS"
@@ -12,7 +10,6 @@
             image="04_a_Why_Us_Meet_People/GuyDiscord.svg"
             image-x="right"
         />
-
         <img :class="[$style['whyus__cloud--1'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Right_Sun_Cloud_01.svg">
         <Reason
             title="FIND A TEAM"
@@ -22,13 +19,10 @@
             image="04_a_Why_Us_Meet_People/Container_Find_A_Team.svg"
             image-x="left"
             vjustify="bottom"
-            :class="$style.reason__shiftup"
         />
-
         <img :class="[$style['whyus__cloud--2'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Left_Cloud_01.svg">
         <img :class="[$style['whyus__cloud--3'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Left_Cloud_02.svg">
       </ReasonGroup>
-
       <ReasonGroup>
         <Reason
             title="MAKE MEMORIES"
@@ -37,9 +31,7 @@
             image="04_b_Why_Us-Make_Connections/Container_Make_Memories.svg"
             image-x="right"
         />
-
         <img :class="[$style['whyus__cloud--4'], $style.whyus__cloud]" src="@assets/04_b_Why_Us-Make_Connections/Deco_Right_Cloud_03.svg">
-
         <Reason
             title="BUILD CONNECTIONS"
             text="Hackathons are an amazing place to meet mentors and industry professionals
@@ -48,13 +40,9 @@
             image="04_b_Why_Us-Make_Connections/Container_Build_Connections.svg"
             image-x="left"
             vjustify="bottom"
-            :class="$style.reason__shiftup"
         />
-
-
         <img :class="[$style['whyus__cloud--5'], $style.whyus__cloud]" src="@assets/04_b_Why_Us-Make_Connections/Deco_Right_Cloud_04.svg">
       </ReasonGroup>
-
       <ReasonGroup>
         <Reason
             title="LEARN, PRACTICE, CREATE"
@@ -64,10 +52,8 @@
             image="04_c_Why_Us_Learn_Create/Container_Attend_live_workshops.svg"
             image-x="right"
         />
-
         <img :class="[$style['whyus__cloud--6'], $style.whyus__cloud]" src="@assets/04_c_Why_Us_Learn_Create/Deco_Right_Cloud_05.svg">
         <img :class="[$style['whyus__cloud--7'], $style.whyus__cloud]" src="@assets/04_c_Why_Us_Learn_Create/Deco_Left_Cloud_03.svg">
-
         <Reason
             title="COMPLETE A PROJECT"
             text="Show us. Show the world. We want to see what you're capable of and so does
@@ -75,21 +61,13 @@
             image="04_c_Why_Us_Learn_Create/Container_Complete_a_project.svg"
             image-x="left"
             vjustify="bottom"
-            :class="$style.reason__shiftup"
         />
       </ReasonGroup>
 
-      <h2>WIN PRIZES</h2>
-      <h3 :class="$style['whyus__prizes--subtitle']">There's something for everyone.</h3>
-
-      <div :class="$style['whys__prizes']">
-        <div>
-          <img src="@assets/04_d_Why_Us_Win_Prizes/Medal_First_Place.svg">
-          <img src="@assets/04_d_Why_Us_Win_Prizes/Container_Prize_List.svg">
-        </div>
-      </div>
-
-
+      <img :class="[$style['whyus__cloud--8'], $style.whyus__cloud]" src="@assets/04_d_Why_Us_Win_Prizes/Deco_Left_Cloud_04.svg">
+      <img :class="[$style['whyus__cloud--9'], $style.whyus__cloud]" src="@assets/04_d_Why_Us_Win_Prizes/Deco_Right_Cloud_06.svg">
+      <img :class="[$style['whyus__cloud--10'], $style.whyus__cloud]" src="@assets/04_d_Why_Us_Win_Prizes/Deco_Right_Cloud_07.svg">
+      <Prizes />
     </div>
   </Container>
 </template>
@@ -97,6 +75,7 @@
 <script>
 import {Container} from '@components';
 import Reason from './Reason/index.vue';
+import Prizes from './Prizes/index.vue';
 import ReasonGroup from './ReasonGroup/index.vue';
 import Button from '@hackthe6ix/vue-ui/Button';
 
@@ -105,7 +84,8 @@ export default {
     Container,
     Button,
     Reason,
-    ReasonGroup
+    ReasonGroup,
+    Prizes
   }
 }
 </script>

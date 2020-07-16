@@ -2,11 +2,15 @@
 @import '~@hackthe6ix/vue-ui/styles/variables';
 @import '~@hackthe6ix/vue-ui/styles/colors';
 
-$whyus-breakpoint: 1250px;
+$reason-breakpoint: 960px;
 
 .reason {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  &--left {
+    transform: translateY(-20%);
+  }
 
   &__graphic {
     display: flex;
@@ -31,11 +35,13 @@ $whyus-breakpoint: 1250px;
   }
 }
 
-/*
-@media only screen and (max-width: $whyus-breakpoint) {*/
-@include media(tablet) {
+@media only screen and (max-width: $reason-breakpoint) {
   .reason {
     grid-template-columns: repeat(1, 1fr);
+
+    &--left {
+      transform: translateY(0);
+    }
 
     &__graphic {
       &--left {
