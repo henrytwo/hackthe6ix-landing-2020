@@ -7,7 +7,7 @@
             text="Physical distancing is serious, but meeting new people doesn't have to stop.
             Get geared up in your pajamas and chat away behind the safety of your digital
             screen. The only things we'll spread are heart reacts and lols."
-            image="04_a_Why_Us_Meet_People/GuyDiscord.svg"
+            image="04_a_Why_Us_Meet_People/Container_Meet_New_Friends.svg"
             image-x="right"
         />
         <img :class="[$style['whyus__cloud--1'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Right_Sun_Cloud_01.svg">

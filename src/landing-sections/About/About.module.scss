@@ -106,8 +106,10 @@ $player-aspect-ratio: 4/7;
   .about {
     justify-content: center;
 
-    &__cloud-2 {
-      display: none;
+    &__cloud {
+      &--2 {
+        display: none;
+      }
     }
 
     &__top {
