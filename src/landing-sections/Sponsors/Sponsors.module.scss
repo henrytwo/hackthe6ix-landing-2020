@@ -39,9 +39,7 @@ $leaf-breakpoint: 1220px;
 }
 
 @media only screen and (max-width: $leaf-breakpoint) {
-  .sponsors {
-    &__leaf {
-      display: none;
-    }
+  .leaf {
+    display: none;
   }
 }

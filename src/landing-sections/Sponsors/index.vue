@@ -17,18 +17,14 @@
           Interested in sponsoring our event?
         </strong>
       </TextComponent>
-      <TextComponent
-        :class='[$style.link]'
-        transform='uppercase'
-        color='background'
-        type='body2'
-        href='#'
-        as='a'
-      >
-        <strong>
+      <a href="Revised-Digital-HT6-Sponsorship-Package-2020.pdf" target="_blank">
+        <Button
+          :class='[$style.link]'
+          transform='uppercase'
+        >
           Learn more
-        </strong>
-      </TextComponent>
+        </Button>
+      </a>
     </Stack>
     <Stack
       :class='$style.logos'
