@@ -1,5 +1,5 @@
 <template>
-  <Stack align='center' as='g-link' to='/#'>
+  <Stack align='center' as='g-link' v-on:click.native="scrollTo('home', items['home'].scrollOffset)">
     <img src='@assets/logo.svg' width='16'/>
     <TextComponent
       type='heading3'
@@ -21,12 +21,21 @@
 <script>
 import TextComponent from '@hackthe6ix/vue-ui/Text';
 import Stack from '@hackthe6ix/vue-ui/Stack';
+import {scrollTo} from '@utils/scroll';
 
 export default {
   name: 'Logo',
   components: {
     TextComponent,
     Stack,
+  },
+  data() {
+    return {
+      scrollTo
+    }
+  },
+  props: {
+    items: Object
   }
 }
 </script>

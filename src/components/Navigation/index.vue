@@ -1,7 +1,7 @@
 <template>
   <div :class='$style.container'>
     <Container :class='$style.nav' as='nav'>
-      <Logo/>
+      <Logo :items="items" />
       <TextComponent
         :class='$style.apply'
         transform='uppercase'
@@ -13,11 +13,10 @@
         {{ applyButtonMessage }}
       </TextComponent>
       <ul :class='[$style.items, show && $style[`items--show`]]'>
-        <li v-for='(item, i) in items' @click='show = false' :key='i'>
+        <li v-for='(item, i) in items' @click='scrollTo(i, item.scrollOffset); show = false' :key='i'>
           <TextComponent
             transform='uppercase'
             :class='$style.item'
-            v-on:click="scrollTo(i, item.scrollOffset); close();"
             type='body2'
             as='g-link'
           >
