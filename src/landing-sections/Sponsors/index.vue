@@ -41,13 +41,14 @@
         align='center'
         wrap
       >
-        <img
-          v-for='(logo, i) in sponsors.logos'
-          :class='$style.logo'
-          :src='logo.file.url'
-          :alt='logo.title'
-          :key='i'
-        />
+        <a v-for='(logo, i) in sponsors.logos' :href='logo.description' target="_blank">
+          <img
+            :class='$style.logo'
+            :src='logo.file.url'
+            :alt='logo.title'
+            :key='i'
+          />
+        </a>
       </Stack>
     </Stack>
   </Container>

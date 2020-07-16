@@ -1,5 +1,5 @@
 <template>
-  <Container id="faq" as="section">
+  <Container id="faq" :block="$style.container" as="section">
     <TextComponent
       transform='uppercase'
       type='heading2'
