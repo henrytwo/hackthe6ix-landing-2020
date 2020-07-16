@@ -23,7 +23,7 @@
           :validate="val => val.length === 0 && 'Message is required'"
           required />
         <p>{{message}}</p>
-        <Button :class="$style.contact__field" :disabled="!formValid" v-on:click.native="submit()">
+        <Button :class="$style.contact__field" :disabled="!formValid || loading" v-on:click.native="submit()">
           Submit
         </Button>
       </div>
@@ -38,10 +38,11 @@
 <script>
 import formProvider from '@hackthe6ix/vue-ui/utils/mixins/formProvider';
 import {Container} from '@components';
-import {validate} from '@utils/validate';
+import {validate, query} from '@utils';
 import Button from '@hackthe6ix/vue-ui/Button';
 import Input from '@hackthe6ix/vue-ui/Input';
 import TextArea from '@hackthe6ix/vue-ui/Textarea';
+import {CONTACT} from '@graphql';
 
 export default {
   components: {
@@ -54,6 +55,7 @@ export default {
     return {
       message: '',
       validate,
+      loading: false,
       validateFields: [
           'name',
           'email',
@@ -69,10 +71,16 @@ export default {
     })
   ],
   methods: {
-    submit() {
-      this.message = 'Thank you for sending us a message! We\'ll get back to you ASAP!';
-      this.clearForm();
-      alert('wow you submitted!')
+    async submit() {
+      this.loading = true;
+      try {
+        await query(CONTACT, {email: this.form_data.email, name: this.form_data.name, message: this.form_data.message});
+        this.message = 'Thank you for sending us a message! We\'ll get back to you ASAP!';
+        this.clearForm();
+      } catch (err) {
+        alert(`Sorry, we couldn't process your message! Please email us at hello@hackthe6ix.com ${err}`);
+      }
+      this.loading = false;
     },
     clearForm() {
       for (let key of this.validateFields) {

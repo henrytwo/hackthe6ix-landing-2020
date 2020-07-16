@@ -76,7 +76,7 @@ $home-breakpoint: 1280px;
 
 @media only screen and (max-width: $home-breakpoint) {
   .home {
-    margin-top: 32px !important;
+    padding-top: 128px;
 
     justify-content: center;
 

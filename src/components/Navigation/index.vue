@@ -52,7 +52,7 @@ import Button from '@hackthe6ix/vue-ui/Button';
 import Stack from '@hackthe6ix/vue-ui/Stack';
 import {Container} from '@components';
 import 'vue-awesome/icons/bars';
-import {scrollTo} from '@utils/scroll';
+import {scrollTo} from '@utils';
 import Logo from './Logo';
 import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/bars';

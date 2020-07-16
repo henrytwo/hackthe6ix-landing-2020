@@ -21,7 +21,7 @@
 <script>
 import TextComponent from '@hackthe6ix/vue-ui/Text';
 import Stack from '@hackthe6ix/vue-ui/Stack';
-import {scrollTo} from '@utils/scroll';
+import {scrollTo} from '@utils';
 
 export default {
   name: 'Logo',

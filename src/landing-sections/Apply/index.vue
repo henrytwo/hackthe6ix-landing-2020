@@ -20,7 +20,7 @@
 <script>
 import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
-import {scrollTo} from '@utils/scroll';
+import {scrollTo} from '@utils';
 import {NAVBAR_ITEMS} from '@data';
 
 export default {
