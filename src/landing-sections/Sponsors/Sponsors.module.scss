@@ -1,0 +1,58 @@
+@use '~@hackthe6ix/vue-ui/Button/Button.module.scss';
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
+
+$leaf-breakpoint: 1220px;
+
+.container {
+  padding-bottom: 0;
+}
+
+.link {
+  @extend .button;
+  display: inline-block;
+
+  // Bad CSS bleeding from elsewhere
+  color: var(--background) !important;
+}
+
+.text {
+  max-width: 50rem;
+}
+
+.logo {
+  width: var(--width);
+  max-width: var(--max-width);
+  transition: 0.1s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.logos {
+  margin-top: map-get(variables.$unit, section);
+}
+
+.logoStack {
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  @include mixins.media(phone) {
+    div {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.leaf {
+  position: absolute;
+  left: 0;
+}
+
+@media only screen and (max-width: $leaf-breakpoint) {
+  .leaf {
+    display: none;
+  }
+}

@@ -1,0 +1,49 @@
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
+
+.container {
+  margin-bottom: map-get(variables.$unit, container);
+}
+
+.text {
+  margin-right: map-get(variables.$unit, component);
+}
+
+.button {
+  background-color: var(--background);
+  border-radius: variables.$radius;
+  align-items: center;
+  text-align: start;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+.icon {
+  @include mixins.transition(transform);
+  width: map-get(variables.$text, normal);
+  transform: rotate(0deg);
+  fill: var(--teal);
+  flex-shrink: 0;
+  height: auto;
+
+  &--expanded {
+    transform: rotate(180deg);
+  }
+}
+
+.content {
+  @include mixins.transition(max-height opacity);
+  padding-top: map-get(variables.$unit, element);
+  box-sizing: border-box;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+
+  &--expanded {
+    max-height: 20rem;
+    opacity: 1;
+  }
+}

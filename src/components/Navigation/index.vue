@@ -1,124 +1,88 @@
 <template>
-  <div>
-    <div :class="$style.nav__spacer"/>
-    <Container :block="$style.nav" :as="$style.nav" :class="{'nav--show': show}">
-      <div :class="$style.nav__justify">
+  <div :class='$style.container'>
+    <Container :class='$style.nav' as='nav'>
+      <Logo :items="items" />
+      <TextComponent
+        :class='$style.apply'
+        transform='uppercase'
+        target='_blank'
+        :href='applyLink'
+        rel='noopener noreferrer'
+        as='a'
+        v-if="!disableApply"
+      >
+        Apply
+      </TextComponent>
+      <ul :class='[$style.items, show && $style[`items--show`], disableApply && $style.right]'>
+        <li v-for='(item, i) in items' @click='scrollTo(i, item.scrollOffset); show = false' :key='i'>
+          <TextComponent
+            transform='uppercase'
+            :class='$style.item'
+            type='body2'
+            as='g-link'
+          >
+            {{ item.displayName }}
+          </TextComponent>
+        </li>
+      </ul>
+      <Button
+        :class='[$style.menu, disableApply && $style.right]'
+        @click='show = !show'
+        color='teal'
+        size='small'
+        variant='outline'
+      >
+        <Icon
+          name="bars"
+        />
+      </Button>
 
-        <!-- Logo -->
-        <a :class="$style.nav__logo_link" href="#">
-          <ul :class="$style.nav__logo_list">
-            <li>
-              <img src="@assets/logo.svg" :class="$style.nav__logo"/>
-            </li>
-            <li>
-              <h3 :class="$style.nav__logo_text">
-                HT6 <span :class="$style.nav__digital">DIGITAL</span>
-              </h3>
-            </li>
-          </ul>
-        </a>
-
-        <!-- Right side buttons -->
-        <ul :class="$style.nav__items">
-          <li>
-            <Button
-                :class="$style.nav__button"
-                v-on:click.native="apply()"
-                :disabled="disableApply"
-            >
-              {{ applyButtonMessage || "Apply" }}
-            </Button>
-          </li>
-          <li>
-            <a
-                :class="$style.nav__item"
-                :active-class="$style['nav__item--active']"
-                v-for="item in items"
-                :href="item.path"
-                :key="item.path"
-            >{{ item.displayName || item.name }}</a>
-          </li>
-
-          <!-- MLH banner -->
-          <!--
-          <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%"></a>
-          -->
-
-        </ul>
-
-
-        <!-- Hamburger -->
-        <button :class="$style.nav__menu" v-on:click="() => (this.show = !this.show)">
-          <div :class="[$style.nav__bar, $style['nav__bar--top']]" />
-          <div :class="[$style.nav__bar, $style['nav__bar--mid']]" />
-          <div :class="[$style.nav__bar, $style['nav__bar--bot']]" />
-        </button>
-
-        <!-- Mobile menu -->
-        <Container as="ul" :block="$style.nav__mobile" :class="$style.nav__mobile">
-          <li>
-            <a
-                :class="$style['nav__mobile-item']"
-                :active-class="$style['nav__mobile-item--active']"
-                v-for="item in items"
-                onclick.native="close"
-                :href="item.path"
-                :key="item.path"
-            >{{ item.displayName || item.name }}</a>
-          </li>
-          <li>
-            <Button
-              :class="$style['nav__mobile-button']"
-              v-on:click.native="apply()"
-              :disabled="disableApply"
-            >{{ applyButtonMessage }}</Button
-            >
-          </li>
-        </Container>
-      </div>
+      <div :class="$style['mlh-placeholder']" />
+      <a id="mlh-trust-badge" :class="$style.mlh" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%; max-width: 86px"></a>
     </Container>
-    <div :class="$style.nav__disclaimer" v-if="SHOW_DISCLAIMER">
-      <Disclaimer/>
-    </div>
+    <Container :class='$style.disclaimer' as='div' v-if="SHOW_DISCLAIMER && !disclaimerDismissed" v-on:click.native="disclaimerDismissed = true">
+      <Disclaimer />
+    </Container>
   </div>
 </template>
 
 <script>
-  import {Container} from '@components';
-  import Button from '@hackthe6ix/vue-ui/Button';
-  import {Disclaimer, SHOW_DISCLAIMER} from '@data';
+import {Disclaimer, SHOW_DISCLAIMER} from '@data';
+import TextComponent from '@hackthe6ix/vue-ui/Text';
+import Button from '@hackthe6ix/vue-ui/Button';
+import Stack from '@hackthe6ix/vue-ui/Stack';
+import {Container} from '@components';
+import 'vue-awesome/icons/bars';
+import {scrollTo} from '@utils';
+import Logo from './Logo';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/bars';
 
-  export default {
-    name: 'Navigation',
-    components: {
-      Container,
-      Button,
-      Disclaimer,
-    },
-    data() {
-      return {
-        show: false,
-        SHOW_DISCLAIMER: SHOW_DISCLAIMER
-      };
-    },
-    methods: {
-      close() {
-        this.show = false;
-      },
-      apply() {
-        document.location.href = this.applyLink;
-      }
-    },
-    props: {
-      items: {
-        type: Array,
-        default: () => [],
-      },
-      disableApply: Boolean,
-      applyButtonMessage: String,
-      applyLink: String
-    },
-  };
+export default {
+  name: 'Navigation',
+  components: {
+    TextComponent,
+    Disclaimer,
+    Container,
+    Button,
+    Stack,
+    Logo,
+    Icon
+  },
+  data() {
+    return {
+      scrollTo,
+      show: false,
+      disclaimerDismissed: false,
+      SHOW_DISCLAIMER: SHOW_DISCLAIMER,
+    };
+  },
+  props: {
+    items: Object,
+    disableApply: Boolean,
+    applyLink: String
+  },
+};
 </script>
 
 <style src="./Navigation.module.scss" lang="scss" module />

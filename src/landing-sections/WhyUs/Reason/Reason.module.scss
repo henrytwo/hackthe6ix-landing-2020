@@ -1,0 +1,64 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+$reason-breakpoint: 960px;
+
+.reason {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &--left {
+    transform: translateY(-20%);
+  }
+
+  &__graphic {
+    display: flex;
+
+    &--right {
+      img {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 500px;
+
+    &--bottom {
+      margin-top: auto;
+    }
+  }
+
+  &__img {
+    max-width: 40vw;
+  }
+}
+
+@media only screen and (max-width: $reason-breakpoint) {
+  .reason {
+    grid-template-columns: repeat(1, 1fr);
+
+    &--left {
+      transform: translateY(0);
+    }
+
+    &__graphic {
+      &--left {
+        order: 2;
+      }
+    }
+
+    &__text {
+      max-width: 100%;
+
+      &--left {
+        margin-top: 64px;
+      }
+    }
+
+    &__img {
+      max-width: 100%;
+    }
+  }
+}

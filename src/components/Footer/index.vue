@@ -18,10 +18,10 @@
 
         <div :class="$style['footer__top-container']">
           <h4>
-            <a :class="$style.footer__top" href="#">
+            <div :class="$style.footer__top" v-on:click="toTop">
               <Icon name="arrow-up"/>
               Back to Top
-            </a>
+            </div>
           </h4>
         </div>
 
@@ -35,7 +35,7 @@
 
         <div :class="$style.footer__legal">
           <p>
-            <a href="/privacy" target="_blank">
+            <a href="privacy-policy.pdf" target="_blank">
               Privacy Policy
             </a>
           </p>
@@ -78,15 +78,12 @@
       };
     },
     methods: {
-      apply() {
-        this.$router.push('/apply');
+      toTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
       },
     },
     props: {
-      items: {
-        type: Array,
-        default: () => [],
-      },
+      items: Object,
       disableApply: Boolean,
       applyButtonMessage: String,
     },

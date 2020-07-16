@@ -1,0 +1,17 @@
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
+
+.questions {
+  margin-top: map-get(variables.$unit, container);
+  grid-gap: map-get(variables.$unit, container);
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+
+  @include mixins.media(tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container {
+  padding-bottom: 0;
+}

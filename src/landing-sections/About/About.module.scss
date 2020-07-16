@@ -1,0 +1,150 @@
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+@import '~@hackthe6ix/vue-ui/styles/variables';
+@import '~@hackthe6ix/vue-ui/styles/colors';
+
+$about-breakpoint: 1360px;
+
+$player-max-width: calc(90vw - 12px);
+$player-aspect-ratio: 4/7;
+
+.about {
+  min-height: 900px;
+  margin: 0;
+
+  &__cloud {
+    position: absolute;
+    z-index: -1;
+
+    &--1 {
+      right: 0;
+    }
+    &--2 {
+      margin-top: 200px;
+      right: 10%;
+    }
+  }
+
+
+  &__serious {
+    color: $yellow;
+  }
+
+  &__attracted {
+    color: $grey;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    &--left {
+      margin: auto;
+    }
+
+    &--right {
+      margin: auto;
+    }
+
+    img {
+      max-width: 40vw;
+      margin: 5px;
+    }
+  }
+
+  &__video-frame {
+    max-width: 90vw;
+    float: right;
+  }
+
+  &__video-embed {
+    max-width: $player-max-width;
+    max-height: calc(#{$player-max-width} * #{$player-aspect-ratio});
+    width: 457px;
+    height: 260px;
+
+    margin-top: -268px;
+    margin-right: calc(50% - 52px);
+    transform: translateX(50%);
+    border-radius: 0 0 16px 16px;
+    float: right;
+  }
+
+  /* Container stuff */
+  &__container {
+    @include flex(none);
+    position: relative;
+    align-self: stretch;
+  }
+
+  &__top {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &--left {
+      max-width: 550px;
+    }
+
+    &--right {
+
+    }
+  }
+
+  &__content {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: $about-breakpoint) {
+  .about {
+    justify-content: center;
+
+    &__cloud {
+      &--2 {
+        display: none;
+      }
+    }
+
+    &__top {
+      grid-template-columns: repeat(1, 1fr);
+
+      &--left {
+        max-width: 100%;
+      }
+      &--right {
+      }
+    }
+
+    &__video-frame {
+      margin-right: 50%;
+      transform: translateX(50%);
+    }
+
+    &__video-embed {
+      margin-top: calc(max(#{$player-max-width} * -0.59, -268px));
+      margin-right: 50%;
+      transform: translateX(50%);
+    }
+
+    &__stats {
+      grid-template-columns: repeat(2, 1fr);
+
+      &--left {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      &--right {
+        margin-right: auto;
+        margin-left: 0;
+      }
+    }
+  }
+}

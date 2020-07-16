@@ -1,203 +1,127 @@
-@import '~@hackthe6ix/vue-ui/styles/mixins';
-@import '~@hackthe6ix/vue-ui/styles/colors';
-@import '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/Button/Button.module';
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
 
-$nav-height: 72px;
+.mlh {
+  display: block;
+  position: absolute;
+  top:  0;
+  right: 24px;
 
-.nav {
-  @include position(fixed, 0 auto auto, 0, auto, auto);
+  @include mixins.media(tablet) {
+    display: none;
+  }
+}
+
+.mlh-placeholder {
+  width: 110px;
+
+  @include mixins.media(tablet) {
+    display: none;
+  }
+}
+
+.container {
+  position: fixed;
   z-index: 200;
   width: 100%;
-  height: $nav-height;
-  background-color: white;
+  top: 0;
+}
+
+.nav {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+  padding: map-get(variables.$unit, element) 0;
+  background-color: var(--white);
 
-  &__spacer {
-    height: $nav-height;
-    width: 100%;
-  }
-
-  &__disclaimer {
-    @include position(fixed, 0 auto auto, 0, auto, auto);
-    z-index: 150;
-    width: 100%;
-    min-height: 32px;
-    top: $nav-height;
-    background-color: $sand;
-    color: black;
-    text-align: center;
-    vertical-align: center;
-  }
-
-  &__disclaimer p {
-    margin: 7px;
-  }
-
-  &__justify {
+  & > div {
     display: flex;
-  }
-
-  &__logo_link {
-    text-decoration: none !important;
-    display: inline-block;
-  }
-
-  &__digital {
-    color: $yellow;
-  }
-
-  &__logo {
-    height: 50px;
-    width: auto;
-    z-index: 1;
-    flex-shrink: 0;
-  }
-
-  &__logo_text {
-    z-index: 1;
-    flex-shrink: 0;
-    margin: auto 0 auto 30px;
-  }
-
-  &__logo_list {
-    @include flex(flex-start, center);
-    list-style-type: none;
-    padding: 0;
-    margin: auto 0 0 0;
     align-items: center;
-  }
 
-  &__container {
-    @include flex(flex-start, center);
-    line-height: 1;
-    padding: 15px 0;
-  }
-
-  &__items {
-    @include flex(flex-start, center);
-    list-style-type: none;
-    padding: 0;
-    margin: 0 0 0 auto;
-    align-items: center;
-  }
-
-  &__item {
-    @include transition(background-color);
-    padding: 16px 20px 12px;
-    text-transform: uppercase;
-    margin-right: 6px;
-    border-radius: 0;
-    cursor: pointer;
-    color: $grey;
-
-    &:visited {
-      color: $grey;
-    }
-
-    &:hover {
-      background-color: #f2f2f2;
-    }
-
-    &--active {
-      color: $teal;
-
-      &:visited {
-        color: $teal;
-      }
-
-      border-bottom: 2px solid;
-    }
-  }
-
-  &__button {
-    margin-right: 6px;
-    text-transform: uppercase;
-  }
-
-  &__menu {
-    @include flex(column, center);
-    @include transition(background-color);
-    border-radius: 4px;
-    flex-shrink: 0;
-    display: none;
-    z-index: 1;
-    cursor: pointer;
-    margin: 0 -12px 0 auto;
-    background: none;
-    padding: 8px 12px;
-    border: none;
-
-    &:hover {
-      background-color: #f2f2f2;
-    }
-  }
-
-  &__bar {
-    width: 30px;
-    height: 3px;
-    margin: 3px 0;
-    transform-origin: center;
-    background-color: $teal;
-  }
-
-  &__mobile {
-    @include position(fixed, 0, 0);
-    display: none;
-    transform: translate3d(0, -100%, 0);
-    opacity: 0;
-    text-transform: uppercase;
-    background-color: white;
     width: 100%;
-    height: 100%;
+    max-width: 100%;
+    margin: 0 24px 0 24px;
 
-    &-container {
-      @include flex(column, flex-end);
-      margin: 0;
-      align-self: flex-start;
-      list-style-type: none;
-    }
-
-    &-item {
-      @include transition(transform);
-      padding: 16px 0 12px 20px;
-      cursor: pointer;
-      margin-top: 16px;
-      font-size: 1.4rem;
-
-      &:hover {
-        transform: translateX(-10px);
-      }
-    }
-
-    & &-button {
-      font-size: 1.2rem;
-      margin-top: 20px;
-      text-transform: uppercase;
+    @include mixins.media(tablet) {
+      margin: 0 0px 0 0px;
     }
   }
 }
 
-@include media(laptop) {
-  .nav {
-    $self: &;
+.right {
+  margin-left: auto !important;
+}
 
-    &__menu {
-      display: flex;
+.apply {
+  @extend .button;
+  @extend .button--color-teal;
+  @extend .button--variant-solid;
+
+  padding: map-get(variables.$unit, element) map-get(variables.$unit, component);
+  margin: auto map-get(variables.$unit, component) auto auto;
+  color: var(--background) !important;
+}
+
+.items {
+  @include mixins.transition(opacity);
+  background-color: var(--background);
+  list-style-type: none;
+  display: flex;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+
+  @include mixins.media(laptop) {
+    @include mixins.position(fixed);
+    padding: map-get(variables.$unit, component) map-get(variables.$text, large);
+    flex-direction: column;
+    pointer-events: none;
+    text-align: end;
+    opacity: 0;
+
+    &--show {
+      pointer-events: all;
+      opacity: 1;
     }
+  }
+}
 
-    &__items {
-      display: none;
-    }
+.item {
+  @include mixins.transition(border-bottom-color color);
+  padding: map-get(variables.$unit, element) map-get(variables.$unit, component) * 1.5;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  color: var(--text) !important;
+  font-weight: bold;
+  display: inline-block;
 
-    &__bar {
-      &--top,
-      &--bot {
-        @include transition(transform, page);
-      }
+  &:hover, &:focus {
+    color: var(--teal) !important;
+    border-bottom-color: var(--teal);
+  }
 
-      &--mid {
-        @include transition(transform opacity, page);
-      }
-    }
+  @include mixins.media(laptop) {
+    font-size: map-get(variables.$text, larger) !important;
+    padding-right: 0;
+  }
+}
+
+.disclaimer {
+  padding: map-get(variables.$unit, tad);
+  background-color: var(--sand);
+}
+
+.menu {
+  display: none;
+  & svg {
+    @include mixins.transition(fill);
+    fill: var(--teal);
+  }
+
+  &:hover svg,  &:active svg, &:focus svg {
+    fill: var(--background);
+  }
+
+  @include mixins.media(laptop) {
+    display: block;
   }
 }

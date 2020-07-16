@@ -1,5 +1,5 @@
 <template>
-  <Layout :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" :items="items">
+  <Layout :disableApply="disableApply" :applyLink="applyLink" :items="items">
     <Home :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <TransitionHome />
     <About />
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import Home from './landing-sections/Home/index.vue';
-import About from './landing-sections/About/index.vue';
-import WhyUs from './landing-sections/WhyUs/index.vue';
-import Sponsors from './landing-sections/Sponsors/index.vue';
-import Apply from './landing-sections/Apply/index.vue';
-import FAQ from './landing-sections/FAQ/index.vue';
-import Contact from './landing-sections/Contact/index.vue';
+import Home from '../landing-sections/Home/index.vue';
+import About from '../landing-sections/About/index.vue';
+import WhyUs from '../landing-sections/WhyUs/index.vue';
+import Sponsors from '../landing-sections/Sponsors/index.vue';
+import Apply from '../landing-sections/Apply/index.vue';
+import FAQ from '../landing-sections/FAQ/index.vue';
+import Contact from '../landing-sections/Contact/index.vue';
 
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
@@ -35,7 +35,7 @@ import {
 } from '@data';
 export default {
   metaInfo: {
-    title: 'Hack the 6ix'
+    title: 'Home'
   },
   components: {
     Home,
@@ -77,6 +77,9 @@ export default {
     // 0 = Applications not open yet
     // 1 = Applications open
     // 2 = Applications closed
+
+    // Note: The apply btn message in the navbar is hardcoded to APPLY since it needs
+    // to be one word to avoid overflowing
 
     this.applyButtonMessage = applyButtonMessages[this.applicationStage];
     this.disableApply =
