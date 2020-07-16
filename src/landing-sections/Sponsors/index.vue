@@ -1,81 +1,102 @@
 <template>
-  <Container id="sponsors" :block="$style.sponsors" as="section">
-    <img :class="$style.sponsors__leaf" src="@assets/05_Sponsors/Deco_Plants_01.svg">
-    <div>
-      <h2>MEET OUR SPONSORS</h2>
-      <p>
-        Connect with our sponsors that made this event possible! We will provide a virtual space for both hackers
-        and sponsors to interact and get involved. Stay tuned for future sponsorship additions.
-      </p>
-      <p>
-        Interested in sponsoring our event? Contact us at <a href="mailto:sponsors@hackthe6ix.com">sponsors@hackthe6ix.com</a>
-      </p>
-      <Button>
-        BECOME A SPONSOR
-      </Button>
-    </div>
-    <ul
-        :class="$style.sponsors__items"
-        v-for="(category, i) in categories"
-        v-bind:key="i"
-    >
-      <li
-          :class="$style.sponsors__item"
-          :style="
-          `max-width: ${100 - 20 * i}%; transition-delay: ${(i + 1) * 200}ms`
-        "
-          v-for="sponsor in category"
-          v-bind:key="sponsor.title"
+  <Container id="sponsors" :block="$style.container" as="section">
+    <Stack direction='column' :class='$style.text'>
+      <img :class="$style.leaf" src="@assets/05_Sponsors/Deco_Plants_01.svg">
+      <TextComponent
+        transform='uppercase'
+        type='heading2'
+        as='h2'
       >
-        <a :class="$style.sponsors__link" :href="sponsor.url" target="_blank">
-          <img
-              :class="$style.sponsors__image"
-              :alt="sponsor.title + ' logo'"
-              :src="sponsor.image"
-              :width="sponsor.size"
-          />
-        </a>
-        <a :href="sponsor.sublink"
-        ><h3 style="margin:0;" :class="$style.sponsors__text">
-          {{ sponsor.subtext }}
-        </h3></a
-        >
-      </li>
-    </ul>
+        {{$static.data.edges[0].node.title}}
+      </TextComponent>
+      <TextComponent type='body1'>
+        {{$static.data.edges[0].node.description}}
+      </TextComponent>
+      <TextComponent type='body1' color='black'>
+        <strong>
+          Interested in sponsoring our event?
+        </strong>
+      </TextComponent>
+      <TextComponent
+        :class='[$style.link]'
+        transform='uppercase'
+        color='background'
+        type='body2'
+        href='#'
+        as='a'
+      >
+        <strong>
+          Learn more
+        </strong>
+      </TextComponent>
+    </Stack>
+    <Stack
+      :class='$style.logos'
+      direction='column'
+      spacing='element'
+      align='center'
+    >
+      <Stack
+        v-for='sponsors in $static.data.edges[0].node.categories'
+        :style='`--width: ${sponsors.size}rem`'
+        :key='sponsors.slug'
+        spacing='section'
+        justify='center'
+        align='center'
+        wrap
+      >
+        <img
+          v-for='(logo, i) in sponsors.logos'
+          :class='$style.logo'
+          :src='logo.file.url'
+          :alt='logo.title'
+          :key='i'
+        />
+      </Stack>
+    </Stack>
   </Container>
 </template>
 
 <script>
-import {Container} from '@components';
-import {sponsors} from '@data';
+import TextComponent from '@hackthe6ix/vue-ui/Text';
 import Button from '@hackthe6ix/vue-ui/Button';
+import Stack from '@hackthe6ix/vue-ui/Stack';
+import {Container} from '@components';
 
 export default {
   components: {
+    TextComponent,
     Container,
-    Button
-  },
-  data() {
-    return {
-      sponsors
-    }
-  },
-  computed: {
-    categories() {
-      let prev;
-      return this.sponsors.reduce((acc, curr) => {
-        if (prev !== curr.size) {
-          acc.push([]);
-          prev = curr.size;
-        }
-
-        const len = acc.length - 1;
-        acc[len].push(curr);
-        return acc;
-      }, []);
-    },
+    Button,
+    Stack,
   },
 }
 </script>
+
+<static-query>
+  {
+    data: allContentfulSponsors(filter: {
+      slug: { eq: "meet-our-sponsors" }
+    }) {
+      edges {
+        node {
+          title
+          description
+          categories {
+            slug
+            size
+            logos {
+              title
+              description
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</static-query>
 
 <style src="./Sponsors.module.scss" lang="scss" module />

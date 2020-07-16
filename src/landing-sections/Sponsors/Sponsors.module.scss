@@ -1,70 +1,37 @@
-@import '~@hackthe6ix/vue-ui/styles/mixins';
-@import '~@hackthe6ix/vue-ui/styles/variables';
-@import '~@hackthe6ix/vue-ui/styles/colors';
+@use '~@hackthe6ix/vue-ui/Button/Button.module.scss';
+@use '~@hackthe6ix/vue-ui/styles/variables';
 
-.sponsors {
-  min-height: 900px;
-  margin: 0;
+.container {
   padding-bottom: 0;
+}
 
-  &__leaf {
-    position: absolute;
-    left: 0;
-  }
+.link {
+  @extend .button;
+  @extend .button--color-teal;
+  @extend .button--variant-solid;
+  @extend .content--size-small;
+  display: inline-block;
 
-  /* Container stuff */
-  &__container {
-    @include flex(none);
-    position: relative;
-    align-self: stretch;
-  }
-
-  &__items {
-    @include flex(center);
-    list-style-type: none;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 40px -20px 60px;
-  }
-
-  &__item {
-    @include transition(opacity transform, PAGE);
-    margin: 0 20px 20px;
-    width: fit-content;
-  }
-
-  &__link {
-    @include flex;
-    display: block;
-  }
-
-  &__image {
-    @include transition(opacity, SLOW);
-    max-width: 100%;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-
-  &__content {
-    font-weight: bold;
-    text-align: left;
-    margin: 0;
-    width: 100%;
+  // Bad CSS bleeding from elsewhere
+  &:hover {
+    color: var(--background);
   }
 }
 
-@include media(phone) {
-  .sponsor {
-    &__title {
-      font-size: 2.4rem;
-    }
+.text {
+  max-width: 50rem;
+}
 
-    &__subtitle {
-      &--center {
-        font-size: 1.8rem;
-      }
-    }
-  }
+.logo {
+  width: var(--width);
+}
+
+.logos {
+  margin-top: map-get(variables.$unit, section);
+  margin-right: map
+}
+
+.leaf {
+  position: absolute;
+  left: 0;
 }

@@ -8,6 +8,14 @@ const { resolve, basename } = require('path');
 require('dotenv').config();
 
 module.exports = {
+  css: {
+    loaderOptions: {
+      css: {
+        modules: true,
+        importLoaders: 1,
+      },
+    },
+  },
   configureWebpack: {
     resolve: {
       alias: {

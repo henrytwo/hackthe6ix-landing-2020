@@ -1,59 +1,84 @@
 <template>
-  <Container id="faq" :block="$style.faq" as="section">
-    <h2>Frequently Asked Questions</h2>
-    <div :class="$style.faq__content" v-for="section in faq" v-bind:key="section.title">
-      <h3 :class="$style.faq__content-title">{{ section.title }}</h3>
-      <div :class="$style.faq__questions">
-        <ul :class="[$style.faq__items, $style['faq__items--first']]">
-          <li
-              :class="$style.faq__item"
-              v-for="(q, i) in first(section.items)"
-              :style="`transition-delay: ${(i + 1) * 100}ms`"
-              v-bind:key="q.title"
+  <Container id="faq" as="section">
+    <TextComponent
+      transform='uppercase'
+      type='heading2'
+    >
+      {{$static.data.edges[0].node.title}}
+    </TextComponent>
+    <Accordion :class='$style.questions'>
+      <AccordionItem
+        v-for='item in $static.data.edges[0].node.faqs'
+        :name='item.slug'
+        :key='item.slug'
+      >
+        <template v-slot:label>
+          <TextComponent
+            type='heading3'
+            color='black'
           >
-            <h4 :class="$style['faq__item-title']">{{ q.title }}</h4>
-            <p class="$style['faq__item-content']" v-html="q.content" />
-          </li>
-        </ul>
-        <ul :class="[$style.faq__items, $style['faq__items--second']]">
-          <li
-              :class="$style.faq__item"
-              v-for="(q, i) in second(section.items)"
-              :style="`transition-delay: ${(i + 1) * 200}ms`"
-              v-bind:key="q.title"
-          >
-            <h4 :class="$style['faq__item-title']">{{ q.title }}</h4>
-            <p class="$style['faq__item-content']" v-html="q.content" />
-          </li>
-        </ul>
-      </div>
-    </div>
+            {{ item.question }}
+          </TextComponent>
+        </template>
+        <template v-slot:content>
+          <Renderer :data='item.answer'/>
+        </template>
+      </AccordionItem>
+    </Accordion>
   </Container>
 </template>
 
-
 <script>
-import {Container} from '@components';
-import {faq} from '@data';
+import {Container, Accordion, AccordionItem} from '@components';
+import TextComponent from '@hackthe6ix/vue-ui/Text';
 
 export default {
   components: {
+    AccordionItem,
+    TextComponent,
+    Accordion,
     Container,
-  },
-  data() {
-    return {
-      faq
-    };
-  },
-  methods: {
-    first(list) {
-      return list.slice(0, Math.ceil(list.length / 2));
-    },
-    second(list) {
-      return list.slice(Math.ceil(list.length / 2));
-    },
+    Renderer: {
+      functional: true,
+      render: (h, ctx) => {
+        const links = [];
+        const text = ctx.props.data
+          .replace(/\[.*\]\(.*\)/g, i => {
+            links.push(i.slice(1, -1).split(']('));
+            return '%LINK%';
+          })
+          .split('%LINK%');
+
+        return h(TextComponent, { props: { type: 'body1' } },
+          text.map((t, i) => i ? [
+            h('span', t),
+            h('a', { attrs: { href: links[i-1][1] } }, links[i-1][0]),
+          ] : h('span', t)).flat(),
+        );
+      },
+    }
   },
 };
 </script>
+
+<static-query>
+  {
+    data: allContentfulFrequentlyAskedQuestions(
+      filter: { slug: { eq: "faq" } }
+    ) {
+      edges {
+        node {
+          title
+          slug
+          faqs {
+            question
+            answer
+            slug
+          }
+        }
+      }
+    }
+  }
+</static-query>
 
 <style src="./FAQ.module.scss" lang="scss" module />
