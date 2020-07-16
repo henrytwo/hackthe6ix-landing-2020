@@ -2,6 +2,18 @@
 @use '~@hackthe6ix/vue-ui/styles/variables';
 @use '~@hackthe6ix/vue-ui/styles/mixins';
 
+.mlh {
+  display: inline-block;
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: -100px;
+  margin-left: 24px;
+
+  @include mixins.media(tablet) {
+    display: none;
+  }
+}
+
 .container {
   position: fixed;
   z-index: 200;
@@ -17,6 +29,14 @@
   & > div {
     display: flex;
     align-items: center;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 0 24px 0 24px;
+
+    @include mixins.media(tablet) {
+      margin: 0 0px 0 0px;
+    }
   }
 }
 

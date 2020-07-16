@@ -28,13 +28,16 @@
       <Button
         :class='$style.menu'
         @click='show = !show'
-        :icon='{ left: `bars` }'
         color='teal'
         size='small'
         variant='outline'
       >
-        Menu
+        <Icon
+          name="bars"
+        />
       </Button>
+
+      <a id="mlh-trust-badge" :class="$style.mlh" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-yellow.svg" alt="Major League Hacking 2021 Hackathon Season" style="width:100%"></a>
     </Container>
     <Container :class='$style.disclaimer' as='div' v-if="SHOW_DISCLAIMER && !disclaimerDismissed" v-on:click.native="disclaimerDismissed = true">
       <Disclaimer />
@@ -51,6 +54,8 @@ import {Container} from '@components';
 import 'vue-awesome/icons/bars';
 import {scrollTo} from '@utils/scroll';
 import Logo from './Logo';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/bars';
 
 export default {
   name: 'Navigation',
@@ -61,6 +66,7 @@ export default {
     Button,
     Stack,
     Logo,
+    Icon
   },
   data() {
     return {
