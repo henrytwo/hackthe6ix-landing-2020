@@ -2,6 +2,7 @@
   <Container id="whyus" :block="$style.whyus" as="section">
     <div :class="$style.whyus__content">
 
+
       <ReasonGroup>
         <Reason
             title="MEET NEW FRIENDS"
@@ -12,6 +13,7 @@
             image-x="right"
         />
 
+        <img :class="[$style['whyus__cloud--1'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Right_Sun_Cloud_01.svg">
         <Reason
             title="FIND A TEAM"
             text="The most memorable part of a hackathon are the people we work with. Create
@@ -22,6 +24,9 @@
             vjustify="bottom"
             :class="$style.reason__shiftup"
         />
+
+        <img :class="[$style['whyus__cloud--2'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Left_Cloud_01.svg">
+        <img :class="[$style['whyus__cloud--3'], $style.whyus__cloud]" src="@assets/04_a_Why_Us_Meet_People/Deco_Left_Cloud_02.svg">
       </ReasonGroup>
 
       <ReasonGroup>
@@ -33,6 +38,8 @@
             image-x="right"
         />
 
+        <img :class="[$style['whyus__cloud--4'], $style.whyus__cloud]" src="@assets/04_b_Why_Us-Make_Connections/Deco_Right_Cloud_03.svg">
+
         <Reason
             title="BUILD CONNECTIONS"
             text="Hackathons are an amazing place to meet mentors and industry professionals
@@ -43,6 +50,9 @@
             vjustify="bottom"
             :class="$style.reason__shiftup"
         />
+
+
+        <img :class="[$style['whyus__cloud--5'], $style.whyus__cloud]" src="@assets/04_b_Why_Us-Make_Connections/Deco_Right_Cloud_04.svg">
       </ReasonGroup>
 
       <ReasonGroup>
@@ -54,6 +64,9 @@
             image="04_c_Why_Us_Learn_Create/Container_Attend_live_workshops.svg"
             image-x="right"
         />
+
+        <img :class="[$style['whyus__cloud--6'], $style.whyus__cloud]" src="@assets/04_c_Why_Us_Learn_Create/Deco_Right_Cloud_05.svg">
+        <img :class="[$style['whyus__cloud--7'], $style.whyus__cloud]" src="@assets/04_c_Why_Us_Learn_Create/Deco_Left_Cloud_03.svg">
 
         <Reason
             title="COMPLETE A PROJECT"

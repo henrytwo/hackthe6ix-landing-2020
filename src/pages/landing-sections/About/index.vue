@@ -1,7 +1,7 @@
 <template>
   <Container id="about" :block="$style.about" as="section">
-    <img :class="$style['about__cloud-1']" src="@assets/03_About/Deco_Right_Cloud_01.svg">
-    <img :class="$style['about__cloud-2']" src="@assets/03_About/Deco_Right_Cloud_02.svg">
+    <img :class="[$style.about__cloud, $style['about__cloud--1']]" src="@assets/03_About/Deco_Right_Cloud_01.svg">
+    <img :class="[$style.about__cloud, $style['about__cloud--2']]" src="@assets/03_About/Deco_Right_Cloud_02.svg">
     <div :class="$style.about__content">
       <div :class="$style.about__top">
         <div :class="$style['about__top--left']">

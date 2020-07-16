@@ -11,17 +11,19 @@ $player-aspect-ratio: 4/7;
   min-height: 900px;
   margin: 0;
 
-  &__cloud-1 {
-    position: absolute;
-    right: 0;
-  }
-
-  &__cloud-2 {
+  &__cloud {
     position: absolute;
     z-index: -1;
-    margin-top: 200px;
-    right: 10%;
+
+    &--1 {
+      right: 0;
+    }
+    &--2 {
+      margin-top: 200px;
+      right: 10%;
+    }
   }
+
 
   &__serious {
     color: $yellow;
