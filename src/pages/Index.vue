@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import Home from './landing-sections/Home/index.vue';
-import About from './landing-sections/About/index.vue';
-import WhyUs from './landing-sections/WhyUs/index.vue';
-import Sponsors from './landing-sections/Sponsors/index.vue';
-import Apply from './landing-sections/Apply/index.vue';
-import FAQ from './landing-sections/FAQ/index.vue';
-import Contact from './landing-sections/Contact/index.vue';
+import Home from '../landing-sections/Home/index.vue';
+import About from '../landing-sections/About/index.vue';
+import WhyUs from '../landing-sections/WhyUs/index.vue';
+import Sponsors from '../landing-sections/Sponsors/index.vue';
+import Apply from '../landing-sections/Apply/index.vue';
+import FAQ from '../landing-sections/FAQ/index.vue';
+import Contact from '../landing-sections/Contact/index.vue';
 
 import TransitionHome from '@components/Transitions/Home/index.vue';
 import TransitionAbout from '@components/Transitions/About/index.vue';
@@ -34,6 +34,9 @@ import {
   NAVBAR_ITEMS
 } from '@data';
 export default {
+  metaInfo: {
+    title: 'Home'
+  },
   components: {
     Home,
     About,
