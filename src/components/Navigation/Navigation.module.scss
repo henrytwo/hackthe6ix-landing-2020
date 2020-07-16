@@ -40,6 +40,10 @@
   }
 }
 
+.right {
+  margin-left: auto !important;
+}
+
 .apply {
   @extend .button;
   @extend .button--color-teal;

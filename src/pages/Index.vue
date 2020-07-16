@@ -1,5 +1,5 @@
 <template>
-  <Layout :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" :items="items">
+  <Layout :disableApply="disableApply" :applyLink="applyLink" :items="items">
     <Home :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <TransitionHome />
     <About />
@@ -77,6 +77,9 @@ export default {
     // 0 = Applications not open yet
     // 1 = Applications open
     // 2 = Applications closed
+
+    // Note: The apply btn message in the navbar is hardcoded to APPLY since it needs
+    // to be one word to avoid overflowing
 
     this.applyButtonMessage = applyButtonMessages[this.applicationStage];
     this.disableApply =

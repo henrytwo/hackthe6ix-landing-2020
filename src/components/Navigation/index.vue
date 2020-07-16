@@ -11,9 +11,9 @@
         as='a'
         v-if="!disableApply"
       >
-        {{ applyButtonMessage }}
+        Apply
       </TextComponent>
-      <ul :class='[$style.items, show && $style[`items--show`]]'>
+      <ul :class='[$style.items, show && $style[`items--show`], disableApply && $style.right]'>
         <li v-for='(item, i) in items' @click='scrollTo(i, item.scrollOffset); show = false' :key='i'>
           <TextComponent
             transform='uppercase'
@@ -26,7 +26,7 @@
         </li>
       </ul>
       <Button
-        :class='$style.menu'
+        :class='[$style.menu, disableApply && $style.right]'
         @click='show = !show'
         color='teal'
         size='small'
@@ -79,7 +79,6 @@ export default {
   props: {
     items: Object,
     disableApply: Boolean,
-    applyButtonMessage: String,
     applyLink: String
   },
 };
