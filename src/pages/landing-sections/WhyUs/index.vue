@@ -83,7 +83,10 @@
       <h3 :class="$style['whyus__prizes--subtitle']">There's something for everyone.</h3>
 
       <div :class="$style['whys__prizes']">
-        blah bllah
+        <div>
+          <img src="@assets/04_d_Why_Us_Win_Prizes/Medal_First_Place.svg">
+          <img src="@assets/04_d_Why_Us_Win_Prizes/Container_Prize_List.svg">
+        </div>
       </div>
 
 
