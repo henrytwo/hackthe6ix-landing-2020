@@ -10,6 +10,11 @@
     >
       {{placeName}}
     </TextComponent>
+    <ul :class="$style.prize__items">
+      <li v-for="item in prizes">
+        {{item}}
+      </li>
+    </ul>
   </div>
 </template>
 

@@ -1,22 +1,41 @@
+@import '~@hackthe6ix/vue-ui/styles/colors';
+@import '~@hackthe6ix/vue-ui/styles/mixins';
+
 .prize {
   display: flex;
-  align-items: end;
 
   &__medal {
     z-index: -1;
     position: absolute;
-    margin: 5px auto -32px auto;
-    max-width: 35vw;
-    transform: translateX(calc(min(30px, 3.5vw)));
+    margin: auto auto -32px calc(min(30px, 3.5vw));
+    max-width: 40vw;
   }
 
   &__list {
-    max-width: 40vw;
+    max-width: 45vw;
     margin: min(30vw * 170/250, 180px) 5px 5px 5px;
   }
 
   &__title {
     position: absolute;
-    margin: calc(min(192px, 21.7vw))  0 0 calc(max(-200px, 20vw - 48%));
+    margin: calc(min(192px, 21.7vw))  0 0 calc(max(-200px, 15vw - 50%));
+  }
+
+  &__items {
+    list-style: none;
+    position: absolute;
+    margin: calc(max(-195px, -29.5vw))  0 0 calc(min(32px, 3vw));
+
+    li {
+      color: $teal;
+    }
+  }
+}
+
+@include media(phone){
+  .prize {
+    &__items {
+      margin: calc(max(-195px, -31vw))  0 0 calc(min(32px, 1vw));
+    }
   }
 }
