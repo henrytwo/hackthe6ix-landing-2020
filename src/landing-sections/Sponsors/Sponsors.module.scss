@@ -21,6 +21,7 @@ $leaf-breakpoint: 1220px;
 
 .logo {
   width: var(--width);
+  max-width: var(--max-width);
   transition: 0.1s;
 
   &:hover {

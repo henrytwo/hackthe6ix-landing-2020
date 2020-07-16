@@ -20,9 +20,8 @@
       <a href="Revised-Digital-HT6-Sponsorship-Package-2020.pdf" target="_blank">
         <Button
           :class='[$style.link]'
-          transform='uppercase'
         >
-          Learn more
+          LEARN MORE
         </Button>
       </a>
     </Stack>
@@ -34,7 +33,7 @@
     >
       <Stack
         v-for='sponsors in $static.data.edges[0].node.categories'
-        :style='`--width: ${sponsors.size}rem`'
+        :style='`--width: ${sponsors.size}rem; --max-width: calc(90vw * ${sponsors.size} / 35)`'
         :key='sponsors.slug'
         spacing='section'
         justify='center'
