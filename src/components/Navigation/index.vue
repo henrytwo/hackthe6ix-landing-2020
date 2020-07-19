@@ -14,7 +14,7 @@
         Apply
       </TextComponent>
       <ul :class='[$style.items, show && $style[`items--show`], disableApply && $style.right]'>
-        <li v-for='(item, i) in items' @click='scrollTo(i, item.scrollOffset); show = false' :key='i'>
+        <li v-for='(item, i) in items' @click='handleClick(i, item)' :key='i'>
           <TextComponent
             transform='uppercase'
             :class='$style.item'
@@ -76,6 +76,17 @@ export default {
       disclaimerDismissed: false,
       SHOW_DISCLAIMER: SHOW_DISCLAIMER,
     };
+  },
+  methods: {
+    handleClick(key, data) {
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        scrollTo(key, data.scrollOffset)
+      }
+
+      this.show = false;
+    }
   },
   props: {
     items: Object,
