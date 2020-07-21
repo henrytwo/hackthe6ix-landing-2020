@@ -58,7 +58,6 @@ export const NAVBAR_ITEMS = {
 };
 export const INSPIRATION = [
   'collaborate.',
-  'create a project.',
   'network.',
   'learn.',
   'win.'

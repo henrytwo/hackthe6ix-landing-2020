@@ -3,21 +3,22 @@
     <div :class="$style.home__content">
       <div :class="$style['home__content--left']">
         <div :class="$style['home__sponsor-badge']">
-          <img src="@assets/02_Home/Logo_Autocode.svg"> <h4 :class="$style['home__sponsor-badge--and']">&</h4>
+          <img src="@assets/02_Home/Logo_Autocode.svg"> <h4 :class="$style['home__sponsor-badge--and']">+</h4>
           <img src="@assets/02_Home/Logo_Microsoft.svg"  :class="$style['home__sponsor-badge--microsoft']"> <h4 :class="$style['home__sponsor-badge--presents']">PRESENTS</h4>
         </div>
         <h1 :class="$style.home__title">HACK THE 6IX</h1>
         <h3 :class="$style.home__date">August 21 to 23, 2020</h3>
         <h2 :class="$style.home__inspiration">We hack to <vue-typer :class="$style['home__inspiration--highlight']" :text="this.inspirationWords"   :repeat='Infinity'
-                                                                   :shuffle='false'
-                                                                   initial-action='erasing'
-                                                                   :pre-type-delay='70'
-                                                                   :type-delay='70'
-                                                                   :pre-erase-delay='2000'
-                                                                   :erase-delay='50'
-                                                                   erase-style='backspace'
-                                                                   :erase-on-complete='false'
-                                                                   caret-animation='blink'></vue-typer></h2>
+                                                                    :shuffle='false'
+                                                                    initial-action='erasing'
+                                                                    :pre-type-delay='70'
+                                                                    :type-delay='70'
+                                                                    :pre-erase-delay='2000'
+                                                                    :erase-delay='50'
+                                                                    erase-style='backspace'
+                                                                    :erase-on-complete='false'
+                                                                    caret-animation='blink'></vue-typer>
+        </h2>
         <Button
           :disabled="disableApply"
           v-on:click.native="apply()"
@@ -35,7 +36,7 @@
 import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
 import {INSPIRATION} from "@data";
-import { VueTyper } from 'vue-typer'
+import {VueTyper} from 'vue-typer'
 
 export default {
   components: {

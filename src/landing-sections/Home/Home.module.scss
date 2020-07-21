@@ -86,6 +86,14 @@ $home-breakpoint: 1280px;
       span {
         color: $yellow !important;
       }
+
+      .caret {
+        background-color: $yellow !important;
+      }
+    }
+
+    @include media(phone) {
+      font-size: 24px;
     }
   }
 
