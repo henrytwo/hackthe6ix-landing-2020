@@ -8,7 +8,7 @@
         </div>
         <h1 :class="$style.home__title">HACK THE 6IX</h1>
         <h3 :class="$style.home__date">August 21 to 23, 2020</h3>
-        <h2 :class="$style.home__inspiration">We hack to <vue-typer :class="$style['home__inspiration--highlight']" :text="this.inspirationWords"   :repeat='Infinity'
+        <h2 :class="$style.home__inspiration">We hack to <ClientOnly><vue-typer :class="$style['home__inspiration--highlight']" :text="this.inspirationWords"   :repeat='Infinity'
                                                                     :shuffle='false'
                                                                     initial-action='erasing'
                                                                     :pre-type-delay='70'
@@ -18,6 +18,7 @@
                                                                     erase-style='backspace'
                                                                     :erase-on-complete='false'
                                                                     caret-animation='blink'></vue-typer>
+          </ClientOnly>
         </h2>
         <Button
           :disabled="disableApply"
@@ -36,13 +37,12 @@
 import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
 import {INSPIRATION} from "@data";
-import {VueTyper} from 'vue-typer'
 
 export default {
   components: {
     Container,
     Button,
-    VueTyper
+    VueTyper: () => import('vue-typer').then(m => m.VueTyper).catch()
   },
   methods: {
     apply() {
