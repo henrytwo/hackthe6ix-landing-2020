@@ -2,8 +2,8 @@
 
 name: Production deploy CI
 on:
-  deployment:
-    branches: [ master ]
+  repository_dispatch:
+    types: [ contentful ]
   push:
     branches: [ master ]
 jobs:
