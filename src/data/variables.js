@@ -56,3 +56,10 @@ export const NAVBAR_ITEMS = {
     displayName: 'FAQ'
   }
 };
+export const INSPIRATION = [
+  'collaborate.',
+  'create a project.',
+  'network.',
+  'learn.',
+  'win.'
+];
