@@ -47,6 +47,8 @@
   }
 
   &__icon {
+    @include transition((color, fill));
+
     color: $white;
     fill: $white;
     transform: scale(1.5);

@@ -20,9 +20,21 @@ $home-breakpoint: 1280px;
     display: flex;
     margin: 0 0 16px 0;
 
-    h4 {
+    &--and {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+
+    &--presents {
       margin-left: 24px;
+    }
+
+    h4 {
       color: $grey;
+    }
+
+    &--microsoft {
+      max-height: 32px;
     }
   }
 

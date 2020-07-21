@@ -3,7 +3,8 @@
     <div :class="$style.home__content">
       <div :class="$style['home__content--left']">
         <div :class="$style['home__sponsor-badge']">
-          <img src="@assets/02_Home/Logo_Autocode.svg"> <h4>PRESENTS</h4>
+          <img src="@assets/02_Home/Logo_Autocode.svg"> <h4 :class="$style['home__sponsor-badge--and']">&</h4>
+          <img src="@assets/02_Home/Logo_Microsoft.svg"  :class="$style['home__sponsor-badge--microsoft']"> <h4 :class="$style['home__sponsor-badge--presents']">PRESENTS</h4>
         </div>
         <h1 :class="$style.home__title">HACK THE 6IX</h1>
         <h3 :class="$style.home__date">August 21 to 23, 2020</h3>
