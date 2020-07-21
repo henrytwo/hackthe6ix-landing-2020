@@ -50,10 +50,20 @@
     color: $white;
     fill: $white;
     transform: scale(1.5);
+
+    &:hover {
+      color: $yellow;
+      fill:  $yellow;
+    }
+
+    &:visited {
+      color: $magenta;
+      fill:  $magenta;
+    }
   }
 
   &__top {
-    @include transition(color);
+    @include transition((color, fill));
     text-decoration: none;
     margin-left: auto;
     background: none;
@@ -63,8 +73,9 @@
     fill: $white;
     color: $white;
 
-    &:visited {
-      color: $white;
+    &:hover {
+      color: $yellow;
+      fill:  $yellow;
     }
   }
 
