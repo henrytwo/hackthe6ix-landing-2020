@@ -15,14 +15,57 @@ $home-breakpoint: 1280px;
   background-position: center left;
   background-image: url('~@assets/02_Home/Background_Photo_Frames.svg');
 
+  @include media(phone) {
+    background-size: 100vw;
+  }
+
   /* Left portion */
   &__sponsor-badge {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 0 16px 0;
 
-    h4 {
+    @include media(phone) {
+      img {
+        max-height: 25px;
+      }
+    }
+
+    /* iPhone 5 is special :( */
+    @media only screen and (max-width: 406px) {
+      img {
+        max-height: 15px !important;
+      }
+    }
+
+    &--and {
       margin-left: 24px;
+      margin-right: 24px;
+
+      @include media(phone) {
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+    }
+
+    &--presents {
+      margin-left: 24px;
+
+      @include media(phone) {
+        margin-left: 12px;
+      }
+    }
+
+    h4 {
       color: $grey;
+    }
+
+    &--microsoft {
+      height: 28px;
+    }
+
+    img {
+      margin: auto 0 auto 0;
     }
   }
 
@@ -36,11 +79,21 @@ $home-breakpoint: 1280px;
   }
 
   &__inspiration {
-    color: $black;
+    color: $copy;
     margin: 0 0 32px 0;
 
     &--highlight {
-      color: $yellow;
+      span {
+        color: $yellow !important;
+      }
+
+      .caret {
+        background-color: $yellow !important;
+      }
+    }
+
+    @include media(phone) {
+      font-size: 24px;
     }
   }
 
@@ -96,11 +149,5 @@ $home-breakpoint: 1280px;
         margin-bottom: 152px;
       }
     }
-  }
-}
-
-@include media(phone) {
-  .home {
-    background-size: 100vw;
   }
 }

@@ -18,10 +18,10 @@
 
         <div :class="$style['footer__top-container']">
           <h4>
-            <div :class="$style.footer__top" v-on:click="toTop">
+            <a :class="$style.footer__top" v-on:click="toTop">
               <Icon name="arrow-up"/>
               Back to Top
-            </div>
+            </a>
           </h4>
         </div>
 

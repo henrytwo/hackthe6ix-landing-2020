@@ -56,3 +56,9 @@ export const NAVBAR_ITEMS = {
     displayName: 'FAQ'
   }
 };
+export const INSPIRATION = [
+  'collaborate.',
+  'network.',
+  'learn.',
+  'win.'
+];
