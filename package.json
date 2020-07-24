@@ -8,17 +8,18 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.29",
-    "@fortawesome/free-brands-svg-icons": "^5.13.1",
-    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@gridsome/plugin-google-analytics": "^0.1.1",
     "@gridsome/source-contentful": "^0.5.3",
-    "@hackthe6ix/vue-ui": "^0.2.7",
+    "@hackthe6ix/vue-ui": "^0.2.8",
     "gridsome": "^0.7.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
-    "vue-awesome": "^4.0.2",
+    "vue-awesome": "^4.1.0",
     "vue-typer": "^1.2.0"
   }
 }
