@@ -24,7 +24,7 @@
           :disabled="disableApply"
           v-on:click.native="apply()"
         >{{applyButtonMessage}}</Button>
-        <h4>*Applications close on July 24 at 11:59PM EST</h4>
+        <h4>*Applications close on July 31 at 11:59PM EST</h4>
       </div>
       <div :class="$style['home__content--right']">
         <img :class="$style.home__streetcar" src="@assets/02_Home/Main_Window_Streetcar.gif">

@@ -30,9 +30,11 @@ import {
   applyButtonMessages,
   overrideApplicationState,
   APPS_OPEN_TIME,
+  APPS_CLOSE_TIME,
   APPLY_LINK,
   NAVBAR_ITEMS
 } from '@data';
+
 export default {
   metaInfo: {
     title: 'Home'
@@ -63,9 +65,25 @@ export default {
     if (overrideApplicationState !== -1) {
       this.applicationStage = overrideApplicationState;
     } else {
-      let diff = APPS_OPEN_TIME - new Date();
-      // If the app open date is in the future
-      this.applicationStage = diff > 0 ? 0 : 1;
+      let diff = 0;
+      let diffOpen = APPS_OPEN_TIME - new Date();
+      let diffClosed = APPS_CLOSE_TIME - new Date();
+
+      if (diffOpen > 0) { // Apps not open yet
+        diff = diffOpen;
+
+        this.applicationStage = 0;
+
+      } else if (diffClosed < 0) { // Apps closed
+        diff = -1; // No automatic refresh needed
+
+        this.applicationStage = 2;
+
+      } else { // Apps are open
+        diff = diffClosed;
+
+        this.applicationStage = 1;
+      }
 
       if (diff > 0) {
         this.refreshTimer = setTimeout(() => {
