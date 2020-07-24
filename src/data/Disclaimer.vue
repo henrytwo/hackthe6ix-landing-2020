@@ -4,7 +4,7 @@
     color='black'
     align='center'
   >
-    Hack the 6ix is going <b>digital!</b> 🎉 Join us from anywhere across the world, applications are open until July 24 at 11:59 EST.
+    Hack the 6ix is going <b>digital!</b> 🎉 Join us from anywhere across the world, applications are open until July 31 at 11:59 EST.
   </TextComponent>
 </template>
 
