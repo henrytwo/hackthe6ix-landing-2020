@@ -1,0 +1,59 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Production deploy CI
+on:
+  repository_dispatch:
+    types: [ contentful ]
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '14'
+
+    - name: Cache node
+      uses: actions/cache@v2
+      with:
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        path: |
+          ~/.npm
+
+    - name: Dry run build
+      env:
+        CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
+        CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
+        GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
+      run: |
+        npm ci
+        npm run build
+
+    - name: Upload to server
+      uses: appleboy/scp-action@master
+      with:
+        username: ${{ secrets.USERNAME }}
+        host: ${{ secrets.HOST }}
+        key: ${{ secrets.KEY }}
+        target: "/web/hackthe6ix-landing/${{ github.sha }}"
+        source: "dist/*"
+        strip_components: 1
+
+    - name: Deploy dist
+      uses: appleboy/ssh-action@master
+      env:
+          HASH: ${{ github.sha }}
+      with:
+        username: ${{ secrets.USERNAME }}
+        host: ${{ secrets.HOST }}
+        key: ${{ secrets.KEY }}
+        envs: HASH
+        script: |
+          cd /web/production
+          ln -fns ../hackthe6ix-landing/$HASH hackthe6ix-landing

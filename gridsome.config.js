@@ -40,5 +40,11 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_TOKEN,
       }
     },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: process.env.GOOGLE_ANALYTICS,
+      },
+    },
   ],
 }
