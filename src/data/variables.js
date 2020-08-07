@@ -49,10 +49,6 @@ export const NAVBAR_ITEMS = {
   'sponsors': {
     displayName: 'Sponsors'
   },
-  'mentors': {
-    displayName: 'Mentors',
-    url: 'https://bit.ly/ht6-2020-mentor'
-  },
   'faq': {
     displayName: 'FAQ'
   }
