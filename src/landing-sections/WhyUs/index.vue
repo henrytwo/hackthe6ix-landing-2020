@@ -51,8 +51,11 @@
             your project off the ground."
             image="04_c_Why_Us_Learn_Create/Container_Attend_live_workshops.svg"
             image-x="right"
+            :onclick="schedule"
         />
+        <a>
         <img :class="[$style['whyus__cloud--6'], $style.whyus__cloud]" src="@assets/04_c_Why_Us_Learn_Create/Deco_Right_Cloud_05.svg">
+        </a>
         <img :class="[$style['whyus__cloud--7'], $style.whyus__cloud]" src="@assets/04_c_Why_Us_Learn_Create/Deco_Left_Cloud_03.svg">
         <Reason
             title="COMPLETE A PROJECT"
@@ -78,6 +81,7 @@ import Reason from './Reason/index.vue';
 import Prizes from './Prizes/index.vue';
 import ReasonGroup from './ReasonGroup/index.vue';
 import Button from '@hackthe6ix/vue-ui/Button';
+import { SCHEDULE_PATH  } from '@data';
 
 export default {
   components: {
@@ -86,7 +90,13 @@ export default {
     Reason,
     ReasonGroup,
     Prizes
-  }
+  },
+  methods: {
+    schedule() {
+      window.open(SCHEDULE_PATH, '_blank');
+      //scrollTo('schedule')
+    }
+  },
 }
 </script>
 
