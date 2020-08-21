@@ -24,7 +24,7 @@ export const email = 'hello@hackthe6ix.com';
 // 0 = Applications not open yet
 // 1 = Applications open
 // 2 = Applications closed
-export const overrideApplicationState = -1;
+export const overrideApplicationState = 2;
 export const applyButtonMessages = [
   'APPLICATIONS COMING SOON',
   'APPLY NOW',
