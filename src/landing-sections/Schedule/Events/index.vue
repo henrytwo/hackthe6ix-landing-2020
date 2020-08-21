@@ -25,7 +25,9 @@
               <span :class="$style.dot"/>
               <TextComponent as='h4' type='body2'>{{ event.label }}</TextComponent>
             </div>
-            <TextComponent type='body2'>{{ formatTime(event.start) }} - {{ formatTime(event.end) }}</TextComponent>
+            <TextComponent type='body2'>
+              {{ formatTime(event.start) + (event.nonRange ? '' : ` - ${formatTime(event.end)}`)}}
+            </TextComponent>
           </div>
         </div>
       </div>
@@ -58,6 +60,8 @@ export default {
       functional: true,
       render: (h, ctx) => {
         const links = [];
+        const lines = ctx.props.data.split('\n');
+        console.log(lines);
         const text = ctx.props.data
           .replace(/\[.*\]\(.*\)/g, i => {
             links.push(i.slice(1, -1).split(']('));

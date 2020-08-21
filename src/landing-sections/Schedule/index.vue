@@ -119,6 +119,7 @@ export default {
           start
           end
           description
+          nonRange
         }
       }
     }
