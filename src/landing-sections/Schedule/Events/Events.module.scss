@@ -93,10 +93,14 @@ $_window: 38rem;
 
 :global {
   .vue-portal-target > div > div {
-    max-width: 40%;
-    min-width: 40%;
+    max-width: 35rem;
+    min-width: 35rem;
     @include mixins.media(tablet) {
       max-width: 90%;
     }
+  }
+
+  .schedule__section {
+    margin-bottom: map-get(variables.$unit, component);
   }
 }

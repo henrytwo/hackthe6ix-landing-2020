@@ -59,22 +59,42 @@ export default {
     Renderer: {
       functional: true,
       render: (h, ctx) => {
-        const links = [];
-        const lines = ctx.props.data.split('\n');
-        console.log(lines);
-        const text = ctx.props.data
-          .replace(/\[.*\]\(.*\)/g, i => {
-            links.push(i.slice(1, -1).split(']('));
-            return '%LINK%';
+        const context = [];
+        let count = 0;
+        return h('div', ctx.props.data.split('\n\n').map(par => h(
+          'div',
+          { attrs: { class: 'schedule__section' } },
+          par
+          // Parse bold
+          .replace(/__.*__/g, s => {
+            const i = context.length;
+            context.push([`BOLD`, s.slice(2, -2)]);
+            return `###${i}###`;
           })
-          .split('%LINK%');
-
-        return h(TextComponent, { props: { type: 'body1' } },
-          text.map((t, i) => i ? [
-            h('span', t),
-            h('a', { attrs: { href: links[i-1][1] } }, links[i-1][0]),
-          ] : h('span', t)).flat(),
-        );
+          // Parse link
+          .replace(/\[.*\]\(.*\)/g, s => {
+            const i = context.length;
+            context.push([`LINK`, s.slice(1, -1).split('](')]);
+            return `###${i}###`;
+          })
+          .split('\n')
+          .map(line => h(
+            TextComponent,
+            { props: { type: 'body1' } },
+            line.split(/###\d*###/g).map((l, i, { length }) => {
+              if (i === length - 1) return l;
+              const [ type, val ] = context[count++] || [0, 0];
+              switch(type) {
+                case `BOLD`:
+                  return [h('span', l), h('strong', val)];
+                case `LINK`:
+                  return [h('span', l), h('a', { attrs: { href: val[1] } }, val[0])];
+                default:
+                  return l;
+              }
+            })
+          ))
+        )));
       },
     },
   },

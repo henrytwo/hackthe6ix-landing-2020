@@ -74,13 +74,13 @@ export default {
   },
   data() {
     return {
+      date: new Date().toLocaleDateString(),
       eventTypes: {
         "workshop-event": `light`,
         activities: `magenta`,
         networking: `pink`,
         ht6: `yellow`,
       },
-      date: new Date().toLocaleDateString(),
     };
   },
   components: {
