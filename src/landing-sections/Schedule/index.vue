@@ -7,7 +7,7 @@
         <TextComponent type="heading4" as="span">{{ item.node.label }}</TextComponent>
       </li>
     </Stack>
-    <TextComponent type="heading4" as="span">Note: We are currently investigating issues with the schedule on Safari and iOS devices. Opening ceremonies will begin at 6pm EST.</TextComponent>
+    <TextComponent type="heading4" as="span">Note: We are currently investigating issues with the schedule on Safari and iOS devices. Opening ceremonies will begin at 6pm EST.</TextComponent><br><br>
     <div :class="$style.window">
       <div :class="$style.bar">
         <div :class="$style.dots">
