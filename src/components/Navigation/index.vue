@@ -80,7 +80,11 @@ export default {
   methods: {
     handleClick(key, data) {
       if (data.url) {
-        window.location.href = data.url;
+        if (data.newtab) {
+          window.open(data.url, '_blank');
+        } else {
+          window.location.href = data.url;
+        }
       } else {
         scrollTo(key, data.scrollOffset)
       }
