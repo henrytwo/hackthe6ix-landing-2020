@@ -34,7 +34,7 @@ export const SPONSOR_PACKAGE_PATH = "sponsorship-package.pdf";
 export const APPLY_LINK = "https://hackthe6ix.com/apply";
 export const APPS_OPEN_TIME = new Date('2020-07-10T00:00:00-0400');
 export const APPS_CLOSE_TIME = new Date('2020-07-31T23:59:59-0400');
-export const SHOW_DISCLAIMER = true;
+export const SHOW_DISCLAIMER = false;
 export const NAVBAR_ITEMS = {
   'home': {
     displayName: 'Home',

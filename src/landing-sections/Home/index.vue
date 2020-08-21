@@ -20,10 +20,14 @@
                                                                     caret-animation='blink'></vue-typer>
           </ClientOnly>
         </h2>
+        <!--
         <Button
           :disabled="disableApply"
           v-on:click.native="apply()"
-        >{{applyButtonMessage}}</Button>
+        >{{applyButtonMessage}}</Button>-->
+        <Button
+            v-on:click.native="schedule()"
+        >View Schedule</Button>
         <h4>*Applications close on July 31 at 11:59PM EST</h4>
       </div>
       <div :class="$style['home__content--right']">
@@ -37,6 +41,7 @@
 import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
 import {INSPIRATION} from "@data";
+import {scrollTo} from '@utils';
 
 export default {
   components: {
@@ -47,6 +52,9 @@ export default {
   methods: {
     apply() {
       window.open(this.applyLink);
+    },
+    schedule() {
+      scrollTo('schedule')
     }
   },
   data() {
