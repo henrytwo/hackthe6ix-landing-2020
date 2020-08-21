@@ -42,7 +42,7 @@ import {Container} from '@components';
 import Button from '@hackthe6ix/vue-ui/Button';
 import {INSPIRATION} from "@data";
 import {scrollTo} from '@utils';
-import { SCHEDULE_PATH  } from '@data';
+import { SCHEDULE_PATH } from '@data';
 
 export default {
   components: {
