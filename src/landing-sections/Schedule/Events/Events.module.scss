@@ -64,7 +64,8 @@ $_window: 38rem;
   height: map-get(variables.$unit, component) * 0.8;
   background-color: var(--color);
   border-radius: 999px;
-  margin-right: map-get(variables.$unit, tad);
+  margin-right: map-get(variables.$unit, element);
+  flex-shrink: 0;
 }
 
 .content {

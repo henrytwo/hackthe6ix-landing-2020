@@ -97,7 +97,7 @@ export default {
     formatTime,
     bigRipIndex(date) {
       const d = new Date(date);
-      return (d.getHours() * 2) + (d.getMinutes() / 30);
+      return (d.getHours() * 2) + (d.getMinutes() ? 1 : 0);
     },
     showDetails(data) {
       this.event = data;
