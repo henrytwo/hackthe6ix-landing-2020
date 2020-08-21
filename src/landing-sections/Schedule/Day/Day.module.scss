@@ -1,0 +1,38 @@
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
+@use '~@hackthe6ix/vue-ui/styles/colors';
+
+.container {
+  padding: map-get(variables.$unit, container) 0 map-get(variables.$unit, element);
+}
+
+.list {
+  list-style-type: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: map-get(variables.$unit, element);
+  padding: 0;
+  display: grid;
+
+  @include mixins.media(tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  padding: map-get(variables.$unit, component);
+  border: 2px solid var(--text);
+
+  @each $c in colors.$tags {
+    &--color-#{$c} {
+      border-color: var(--#{$c});
+    }
+  }
+
+  &--disabled {
+    opacity: 0.4;
+  }
+}
+
+.label {
+  margin-bottom: map-get(variables.$unit, element);
+}

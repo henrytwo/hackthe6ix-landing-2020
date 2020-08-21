@@ -36,8 +36,9 @@ module.exports = {
     {
       use: '@gridsome/source-contentful',
       options: {
-        space: process.env.CONTENTFUL_SPACE,
         accessToken: process.env.CONTENTFUL_TOKEN,
+        space: process.env.CONTENTFUL_SPACE,
+        host: process.env.CONTENTFUL_HOST,
       }
     },
     {

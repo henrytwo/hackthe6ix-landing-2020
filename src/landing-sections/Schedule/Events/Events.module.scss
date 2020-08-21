@@ -1,0 +1,101 @@
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
+@use '~@hackthe6ix/vue-ui/styles/colors';
+
+$_window: 38rem;
+
+.container {
+  @include mixins.scroll;
+  max-height: $_window;
+  position: relative;
+  --height: 8rem;
+  --width: 7rem;
+}
+
+.times {
+  border-bottom: 2px solid var(--teal-highlight);
+}
+
+.time {
+  padding: map-get(variables.$unit, tad) map-get(variables.$unit, component) map-get(variables.$unit, component);
+  border-right: 3px solid var(--teal-highlight-active);
+  max-width: var(--width);
+  box-sizing: border-box;
+  height: calc(var(--height) - 2px);
+}
+
+.events {
+  @include mixins.position(absolute, 0 0 0 auto);
+  width: calc(100% - var(--width));
+  padding: 0.1rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.box {
+  @include mixins.position(absolute, 0);
+  @each $c in colors.$tags {
+    &--color-#{$c} {
+      --color-highlight-active: var(--#{$c}-highlight-active);
+      --color-highlight: var(--#{$c}-highlight);
+      --color: var(--#{$c});
+    }
+  }
+  margin-top: calc(var(--height) * var(--offset));
+  height: calc(var(--height) * var(--lines));
+  width: calc(100% / var(--split));
+  margin-left: calc(100% / var(--split) * var(--slide));
+  border-radius: 0.8rem;
+  background-color: white;
+  padding: 0.1rem;
+  box-sizing: border-box;
+}
+
+.label {
+  & h4 { font-weight: bold; }
+  margin-right: map-get(variables.$unit, element);
+  align-items: center;
+  height: fit-content;
+  display: flex;
+}
+
+.dot {
+  width: map-get(variables.$unit, component) * 0.8;
+  height: map-get(variables.$unit, component) * 0.8;
+  background-color: var(--color);
+  border-radius: 999px;
+  margin-right: map-get(variables.$unit, tad);
+}
+
+.content {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.event {
+  border: 2px solid var(--color);
+  background-color: var(--color-highlight);
+  padding: map-get(variables.$unit, element) map-get(variables.$unit, component);
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  height: 100%;
+
+  &--clickable {
+    @include mixins.transition(background-color);
+    cursor: pointer;
+
+    &:hover, &:active, &:focus {
+      background-color: var(--color-highlight-active);
+    }
+  }
+}
+
+:global {
+  .vue-portal-target > div > div {
+    max-width: 40%;
+    min-width: 40%;
+    @include mixins.media(tablet) {
+      max-width: 90%;
+    }
+  }
+}

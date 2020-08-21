@@ -1,0 +1,99 @@
+@use '~@hackthe6ix/vue-ui/styles/variables';
+@use '~@hackthe6ix/vue-ui/styles/mixins';
+@use '~@hackthe6ix/vue-ui/styles/colors';
+
+.schedule {
+  padding-bottom: 0;
+}
+
+.items {
+  margin: map-get(variables.$unit, element) 0 map-get(variables.$unit, container);
+  list-style-type: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  height: map-get(variables.$unit, component) * 1.2;
+  width: map-get(variables.$unit, component) * 1.2;
+  margin-right: map-get(variables.$unit, element);
+  border-radius: 999px;
+
+  @each $c in colors.$tags {
+    &--color-#{$c} {
+      background-color: var(--#{$c});
+    }
+  }
+
+  &--small {
+    height: map-get(variables.$unit, component) * 0.8;
+    width: map-get(variables.$unit, component) * 0.8;
+  }
+}
+
+.frame {
+  border: 3px solid var(--teal-highlight-active);
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-width: 2rem;
+  border-top: none;
+}
+
+.bar {
+  background-color: var(--teal);
+  padding: map-get(variables.$unit, element) map-get(variables.$unit, component);
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  display: flex;
+}
+
+.dots {
+  @include mixins.position(absolute, 0 auto 0 map-get(variables.$unit, component));
+  align-items: center;
+  display: flex;
+}
+
+.tabs {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab {
+  @include mixins.transition(color background-color border-bottom-color);
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  padding: map-get(variables.$unit, element);
+  border-bottom: 2px solid var(--teal-highlight);
+  outline: none;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: var(--teal-highlight);
+    border-bottom-color: var(--teal-highlight-active);
+  }
+
+  &:active {
+    background-color: var(--teal-highlight-active);
+    border-bottom-color: var(--teal-highlight-active);
+  }
+
+  &--active {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+
+    &:hover, &:focus, &:active {
+      border-bottom-color: var(--teal);
+    }
+  }
+}

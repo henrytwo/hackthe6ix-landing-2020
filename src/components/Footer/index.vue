@@ -2,7 +2,7 @@
   <div>
     <img :class="$style.wave" src="@assets/07_FAQ/Transition_04_End.svg">
     <div :class="$style.solid"></div>
-    <Container :block="$style.footer" :as="$style.footer">
+    <Container :block="$style.footer" as="footer">
       <div :class="$style.footer__content">
         <div>
           <h3 :class="$style.footer__label">Follow us on social media</h3>

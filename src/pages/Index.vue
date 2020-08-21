@@ -4,6 +4,7 @@
     <TransitionHome />
     <About />
     <TransitionAbout />
+    <Schedule />
     <WhyUs />
     <TransitionWhyUs />
     <Sponsors />
@@ -17,6 +18,7 @@
 import Home from '../landing-sections/Home/index.vue';
 import About from '../landing-sections/About/index.vue';
 import WhyUs from '../landing-sections/WhyUs/index.vue';
+import Schedule from '../landing-sections/Schedule/index.vue';
 import Sponsors from '../landing-sections/Sponsors/index.vue';
 import Apply from '../landing-sections/Apply/index.vue';
 import FAQ from '../landing-sections/FAQ/index.vue';
@@ -44,6 +46,7 @@ export default {
     About,
     WhyUs,
     Sponsors,
+    Schedule,
     Apply,
     FAQ,
     Contact,

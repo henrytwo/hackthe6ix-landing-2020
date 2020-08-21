@@ -43,6 +43,9 @@ export const NAVBAR_ITEMS = {
   'about': {
     displayName: 'About'
   },
+  'schedule': {
+    displayName: 'Schedule',
+  },
   'whyus': {
     displayName: 'Why Us?'
   },
