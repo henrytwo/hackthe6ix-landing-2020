@@ -47,9 +47,7 @@ export const NAVBAR_ITEMS = {
     displayName: 'About'
   },
   'schedule': {
-    displayName: 'Schedule',
-    url: SCHEDULE_PATH,
-    newtab: true
+    displayName: 'Schedule'
   },
   'whyus': {
     displayName: 'Why Us?'

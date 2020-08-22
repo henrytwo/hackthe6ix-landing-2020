@@ -81,7 +81,7 @@ import Reason from './Reason/index.vue';
 import Prizes from './Prizes/index.vue';
 import ReasonGroup from './ReasonGroup/index.vue';
 import Button from '@hackthe6ix/vue-ui/Button';
-import { SCHEDULE_PATH  } from '@data';
+import {scrollTo} from '@utils';
 
 export default {
   components: {
@@ -93,8 +93,7 @@ export default {
   },
   methods: {
     schedule() {
-      window.open(SCHEDULE_PATH, '_blank');
-      //scrollTo('schedule')
+      scrollTo('schedule')
     }
   },
 }
