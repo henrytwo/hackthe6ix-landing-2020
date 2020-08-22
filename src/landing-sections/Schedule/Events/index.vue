@@ -42,6 +42,7 @@
 import TextComponent from "@hackthe6ix/vue-ui/Text";
 import Stack from "@hackthe6ix/vue-ui/Stack";
 import Modal from '@hackthe6ix/vue-ui/Modal';
+import moment from 'moment';
 
 const formatTime = (d) =>
   new Intl.DateTimeFormat(`en-US`, {
@@ -116,16 +117,16 @@ export default {
   methods: {
     formatTime,
     bigRipIndex(date) {
-      const d = new Date(date);
-      return (d.getHours() * 2) + (d.getMinutes() ? 1 : 0);
+      const d = moment(date);
+      return (d.hours() * 2) + (d.minutes() ? 1 : 0);
     },
     showDetails(data) {
       this.event = data;
       this.show = true;
     },
     getPosition({ start, end }) {
-      const s = new Date(start);
-      const e = new Date(end);
+      const s = moment(start);
+      const e = moment(end);
 
       const si = this.bigRipIndex(start);
       const ei = this.bigRipIndex(end) || 48;
