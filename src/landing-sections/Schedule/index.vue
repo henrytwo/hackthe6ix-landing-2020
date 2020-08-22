@@ -2,18 +2,15 @@
   <Container id="schedule" :block="$style.schedule" as="section">
     <TextComponent type="heading2" transform="uppercase">Schedule</TextComponent>
 
+    <!-- Temp until we fix the schedule
     <TextComponent type="heading4" as="span">Note: We are currently investigating issues with our interactive schedule on Safari and iOS devices. Here is a link to a pdf version of our schedule:</TextComponent><br><br>
-
-    <!-- Temp until we fix the schedule -->
     <div style="width: 100%; text-align: center;">
       <Button
           :class="$style.download__button"
           :disabled="disableApply"
           v-on:click.native="scheduleMe()"
       >Download Schedule</Button>
-    </div>
-
-    <!--
+    </div>-->
     <Stack :class="$style.items">
       <li v-for="item in $static.types.edges" :key="item.node.slug" :class="$style.item">
         <span :class="[$style.dot, $style[`dot--color-${eventTypes[item.node.slug]}`]]" />
@@ -45,17 +42,17 @@
         </div>
         <Events :eventTypes="eventTypes" :data="eventByDate[selected]"/>
       </div>
-    </div>-->
+    </div>
   </Container>
 </template>
 
 <script>
 import TextComponent from "@hackthe6ix/vue-ui/Text";
-import Stack from "@hackthe6ix/vue-ui/Stack";
 import Button from "@hackthe6ix/vue-ui/Button";
+import Stack from "@hackthe6ix/vue-ui/Stack";
 import { Container } from "@components";
-import Events from "./Events";
 import { SCHEDULE_PATH  } from '@data';
+import Events from "./Events";
 
 const formatDate = new Intl.DateTimeFormat(`en-US`, {
   weekday: "long",
