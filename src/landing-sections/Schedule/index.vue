@@ -1,30 +1,34 @@
 <template>
   <Container id="schedule" :block="$style.schedule" as="section">
-    <TextComponent type="heading2" transform="uppercase">Schedule</TextComponent>
-
-    <!-- Temp until we fix the schedule
-    <TextComponent type="heading4" as="span">Note: We are currently investigating issues with our interactive schedule on Safari and iOS devices. Here is a link to a pdf version of our schedule:</TextComponent><br><br>
-    <div style="width: 100%; text-align: center;">
-      <Button
-          :class="$style.download__button"
-          :disabled="disableApply"
-          v-on:click.native="scheduleMe()"
-      >Download Schedule</Button>
-    </div>-->
-    <Stack :class="$style.items">
-      <li v-for="item in $static.types.edges" :key="item.node.slug" :class="$style.item">
-        <span :class="[$style.dot, $style[`dot--color-${eventTypes[item.node.slug]}`]]" />
-        <TextComponent type="heading4" as="span">{{ item.node.label }}</TextComponent>
-      </li>
-    </Stack>
+    <div :class="$style.header">
+      <div :class="$style.heading">
+        <TextComponent type="heading2" transform="uppercase">Schedule</TextComponent>
+        <Stack :class="$style.items">
+          <li v-for="item in $static.types.edges" :key="item.node.slug" :class="$style.item">
+            <span :class="[$style.dot, $style[`dot--color-${eventTypes[item.node.slug]}`]]" />
+            <TextComponent type="heading4" as="span">{{ item.node.label }}</TextComponent>
+          </li>
+        </Stack>
+      </div>
+      <div :class="$style.text">
+        <TextComponent type="body2">* The schedule is in Eastern Time</TextComponent>
+        <a
+          href="https://calendar.google.com/calendar?cid=dDgyZjc2MHRmdXU1c2JiODI2ZGFyZDZrcDhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Add to your calendar
+        </a>
+      </div>
+    </div>
     <div :class="$style.window">
       <div :class="$style.bar">
         <div :class="$style.dots">
-          <div :class="[$style.dot, $style[`dot--small`], $style[`dot--color-pink`]]"/>
-          <div :class="[$style.dot, $style[`dot--small`], $style[`dot--color-yellow`]]"/>
-          <div :class="[$style.dot, $style[`dot--small`], $style[`dot--color-light`]]"/>
+          <div :class="[$style.dot, $style[`dot--small`], $style[`dot--color-pink`]]" />
+          <div :class="[$style.dot, $style[`dot--small`], $style[`dot--color-yellow`]]" />
+          <div :class="[$style.dot, $style[`dot--small`], $style[`dot--color-light`]]" />
         </div>
-        <TextComponent type='body2' color='white' as='span'>
+        <TextComponent type="body2" color="white" as="span">
           <strong>event_schedule.xls</strong>
         </TextComponent>
       </div>
@@ -39,7 +43,7 @@
             as="button"
           >{{ formatDate(eventByDate[date]) }}</TextComponent>
         </div>
-        <Events :eventTypes="eventTypes" :data="eventByDate[selected]"/>
+        <Events :eventTypes="eventTypes" :data="eventByDate[selected]" />
       </div>
     </div>
   </Container>
@@ -50,7 +54,7 @@ import TextComponent from "@hackthe6ix/vue-ui/Text";
 import Button from "@hackthe6ix/vue-ui/Button";
 import Stack from "@hackthe6ix/vue-ui/Stack";
 import { Container } from "@components";
-import { SCHEDULE_PATH  } from '@data';
+import { SCHEDULE_PATH } from "@data";
 import Events from "./Events";
 
 const formatDate = new Intl.DateTimeFormat(`en-US`, {
@@ -84,7 +88,7 @@ export default {
       this.date = date;
     },
     scheduleMe() {
-      window.open(SCHEDULE_PATH, '_blank');
+      window.open(SCHEDULE_PATH, "_blank");
     },
   },
   data() {

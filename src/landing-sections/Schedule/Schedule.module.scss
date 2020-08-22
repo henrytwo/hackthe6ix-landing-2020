@@ -6,8 +6,25 @@
   padding-bottom: 0;
 }
 
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: map-get(variables.$unit, container);
+}
+
+.heading {
+  margin-right: auto;
+}
+
+.text {
+  text-align: end;
+  margin-top: map-get(variables.$unit, component);
+  margin-left: auto;
+}
+
 .items {
-  margin: map-get(variables.$unit, element) 0 map-get(variables.$unit, container);
+  margin: map-get(variables.$unit, container) 0 0;
+  flex-wrap: wrap;
   list-style-type: none;
 }
 
@@ -20,6 +37,7 @@
   height: map-get(variables.$unit, component) * 1.2;
   width: map-get(variables.$unit, component) * 1.2;
   margin-right: map-get(variables.$unit, element);
+  flex-shrink: 0;
   border-radius: 999px;
 
   @each $c in colors.$tags {
