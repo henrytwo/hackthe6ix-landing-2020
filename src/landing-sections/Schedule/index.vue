@@ -48,11 +48,11 @@
 
 <script>
 import TextComponent from "@hackthe6ix/vue-ui/Text";
-import Stack from "@hackthe6ix/vue-ui/Stack";
 import Button from "@hackthe6ix/vue-ui/Button";
+import Stack from "@hackthe6ix/vue-ui/Stack";
 import { Container } from "@components";
-import Events from "./Events";
 import { SCHEDULE_PATH  } from '@data';
+import Events from "./Events";
 
 const formatDate = new Intl.DateTimeFormat(`en-US`, {
   weekday: "long",

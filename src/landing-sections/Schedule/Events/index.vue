@@ -44,13 +44,6 @@ import Stack from "@hackthe6ix/vue-ui/Stack";
 import Modal from '@hackthe6ix/vue-ui/Modal';
 import moment from 'moment';
 
-const formatTime = (d) =>
-  new Intl.DateTimeFormat(`en-US`, {
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-  }).format(new Date(d));
-
 export default {
   name: "ScheduleEvents",
   components: {
@@ -115,7 +108,9 @@ export default {
     },
   },
   methods: {
-    formatTime,
+    formatTime(date) {
+      return moment(date).format(`LT`);
+    },
     bigRipIndex(date) {
       const d = moment(date);
       return (d.hours() * 2) + (d.minutes() ? 1 : 0);
