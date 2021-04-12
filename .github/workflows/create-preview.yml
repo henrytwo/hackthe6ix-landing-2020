@@ -1,0 +1,46 @@
+name: Create Preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Specific container tag from preview container repository'
+        required: true
+      expire:
+        description: 'When to kill the preview (Defaults to 1000 years) (etc. yyyy-mm-dd)'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Check if image exists
+      - name: Precheck
+        run: curl --silent -f -lSL https://hub.docker.com/v2/repositories/hackthe6ix/${REPO}/tags/${TAG} > /dev/null
+        env:
+          REPO: ${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}
+          TAG: ${{ github.event.inputs.tag }}
+
+      # Setup expiry date
+      - name: Get expiry date
+        run: |
+          OWO=$(date -d "+1000 years")
+          echo "EXPIRY_DATE=$OWO" >> $GITHUB_ENV
+        env:
+          EXPIRY_DATE: ${{ github.event.inputs.expire }}
+
+      # Add relevant environmental variables
+      - name: Set build ENV variables
+        env:
+          CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
+          CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
+          GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
+
+      # Create build
+      - name: Run generate preview script
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.SSH_HOST }}
+          script: /scripts/create-preview.sh -t ${{ github.event.inputs.tag }} -e "${{ env.EXPIRY_DATE }}"

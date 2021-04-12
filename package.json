@@ -2,10 +2,15 @@
   "name": "@hackthe6ix/hackthe6ix-landing",
   "private": true,
   "scripts": {
-    "start": "npm run develop",
-    "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "start": "bash run dev",
+    "start:npm": "gridsome develop",
+    "test": "bash run test",
+    "test:npm": "echo 'lol, testing can never be me' && exit 0",
+    "build": "bash run export",
+    "build:npm": "gridsome build",
+    "explore": "gridsome explore",
+    "serve": "bash run serve && exit 0",
+    "clean": "rm -rf src/.temp .cache build.tar"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
