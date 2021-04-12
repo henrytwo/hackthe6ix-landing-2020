@@ -13,8 +13,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      SUBDOMAIN: 2020
     steps:
       # Setup environment
       - uses: actions/checkout@v2
@@ -26,7 +24,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ env.SUBDOMAIN }}
+          key: ${{ runner.os }}-buildx-${{ secrets.DEPLOYMENT_SUBDOMAIN }}
           restore-keys: |
             ${{ runner.os }}-buildx-
 
@@ -53,7 +51,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          tags: hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ env.SUBDOMAIN }}
+          tags: hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }}
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
           cache-from: type=local,src=/tmp/.buildx-cache
           target: deploy
@@ -71,7 +69,7 @@ jobs:
         with:
           github_token: ${{ secrets.GH_ACCESS_TOKEN }}
           workflow_file_name: create-preview.yml
-          inputs: '{ "tag": "${{ env.SUBDOMAIN }}" }'
+          inputs: '{ "tag": "${{ secrets.DEPLOYMENT_SUBDOMAIN }}" }'
           repo: hackthe6ix-landing-2020
           owner: hack-the-6ix
 
@@ -79,7 +77,7 @@ jobs:
       - uses: mshick/add-pr-comment@v1
         with:
           message: |
-            **Preview link:** [https://${{ env.SUBDOMAIN }}.hackthe6ix.com](https://${{ env.SUBDOMAIN }}.hackthe6ix.com)
+            **Preview link:** [https://${{ secrets.DEPLOYMENT_SUBDOMAIN }}.hackthe6ix.com](https://${{ secrets.DEPLOYMENT_SUBDOMAIN }}.hackthe6ix.com)
           allow-repeats: true
           repo-token: ${{ github.token }}
 
