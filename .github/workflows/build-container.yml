@@ -56,7 +56,9 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           target: deploy
           push: true
-
+          CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
+          CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
+          GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
 
       # Clean up cache
       - name: Move cache
