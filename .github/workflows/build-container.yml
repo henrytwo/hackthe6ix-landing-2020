@@ -3,7 +3,11 @@ name: Build container
 on:
   pull_request:
     types: [ opened, reopened, synchronize ]
-    branches: [ main ]
+    branches: [ master ]
+  repository_dispatch:
+    types: [ contentful ]
+  push:
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
