@@ -24,7 +24,7 @@ jobs:
       # Setup expiry date
       - name: Get expiry date
         run: |
-          OWO=$(date -d "+1000 years")
+          if [ $EXPIRY_DATE ]; then OWO=$(date -d $EXPIRY_DATE) ; else OWO=$(date -d "+7 days") ; fi
           echo "EXPIRY_DATE=$OWO" >> $GITHUB_ENV
         env:
           EXPIRY_DATE: ${{ github.event.inputs.expire }}
