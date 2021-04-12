@@ -10,7 +10,9 @@
     <Sponsors />
     <Apply :disableApply="disableApply" :applyButtonMessage="applyButtonMessage" :applyLink="applyLink" />
     <FAQ />
+    <!--
     <Contact />
+    -->
   </Layout>
 </template>
 
