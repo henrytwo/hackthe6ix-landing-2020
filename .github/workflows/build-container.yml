@@ -35,15 +35,14 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: |
-            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }}
-            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:latest
+            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }},hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:latest
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
           cache-from: type=local,src=/tmp/.buildx-cache
           push: true
           build-args: |
-            CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
-            CONTENTFUL_TOKEN: ${{ secrets.CONTENTFUL_TOKEN }}
-            GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
+            CONTENTFUL_SPACE=${{ secrets.CONTENTFUL_SPACE }}
+            CONTENTFUL_TOKEN=${{ secrets.CONTENTFUL_TOKEN }}
+            GOOGLE_ANALYTICS=${{ secrets.GOOGLE_ANALYTICS }}
 
       # Clean up cache
       - name: Move cache
