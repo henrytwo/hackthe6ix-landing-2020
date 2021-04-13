@@ -2,54 +2,40 @@
 FROM ubuntu:bionic as base
 
 # Install required packages
-RUN apt-get update && apt-get install -y -qq apt-utils curl webp
-RUN cd ~ && \
-    curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && \
-    bash nodesource_setup.sh && \
-    apt-get install -y -qq nodejs
+RUN apt-get update
+RUN apt-get install -y -q apt-utils curl webp
+RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && \
+    bash nodesource_setup.sh
 
-# Setup basic fs & user stuff
-WORKDIR /usr/var/app
-RUN useradd -ms /bin/bash owo
-RUN chown -R owo:owo .
-USER owo
+RUN apt-get install -y -q nodejs
 
-# node stuff
-FROM base as node
-COPY package*.json gridsome*.js ./
-RUN npm ci
+# Setup project
+WORKDIR /var/usr/app
+COPY . ./
+RUN npm ci --production
 
-FROM node as testing
-CMD ["npm", "run", "test:npm"]
+# Load arguments
+ARG CONTENTFUL_SPACE
+ARG CONTENTFUL_TOKEN
+ARG GOOGLE_ANALYTICS
 
-# Run as development server
-FROM node as development
-CMD ["npm", "run", "start:npm"]
+# Create bundle
+RUN npm run build
+RUN ls
 
 
-# Build and only get the built files
-FROM node as build
-COPY ./static ./static
-COPY ./src ./src
-USER root
-RUN npm run build:npm
-RUN rm -rf ./src/.temp
-
-
-# For exporting from docker
-FROM scratch as export
-COPY --from=build /usr/var/app/dist ./
-
-
-# For serving production files from container
-FROM nginx:1.18 as deploy
-
-# Get build arguments & environment variables
-ENV SERVER_NAME "_"
+# Export and serve bundle
+FROM nginx:1.19
 ENV ROOT /var/www
+WORKDIR ${ROOT}
+
+COPY --from=base /var/usr/app/dist ./
 ENV uri \$uri
 
-# Let's build this thing (https://manifold.co/blog/building-a-production-grade-container-for-your-static-javascript-application-b2b2eff83fbd)
-COPY --from=build /usr/var/app/dist ${ROOT}
+# Setup runtime variables
+ENV ROOT /var/www
+ENV SERVER_NAME "_"
+
+# Run nginx
 COPY ./template.conf ./
-CMD ["sh", "-c", "envsubst < ./template.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "envsubst < ./template.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"];

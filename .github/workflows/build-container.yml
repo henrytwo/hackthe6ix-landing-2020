@@ -1,9 +1,6 @@
 name: Build container
 
 on:
-  pull_request:
-    types: [ opened, reopened, synchronize ]
-    branches: [ master ]
   repository_dispatch:
     types: [ contentful ]
   push:
@@ -28,20 +25,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      # Do testing
-      #- name: Build testing container
-      #  uses: docker/build-push-action@v2
-      #  with:
-      #    tags: hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:testing
-      #    cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
-      #    cache-from: type=local,src=/tmp/.buildx-cache
-      #    target: testing
-      #    push: false
-      #    load: true
-
-      #- name: Run tests
-      #  run: /usr/bin/docker run -v ${{ github.workspace }}/static:/usr/var/app/static -v ${{ github.workspace }}/src:/usr/var/app/src hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:testing;
-
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
@@ -51,10 +34,11 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          tags: hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }}
+          tags: |
+            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }}
+            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:latest
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
           cache-from: type=local,src=/tmp/.buildx-cache
-          target: deploy
           push: true
           build-args: |
             CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
@@ -66,21 +50,3 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-      # Trigger preview creation
-      - uses: convictional/trigger-workflow-and-wait@v1.3.0
-        with:
-          github_token: ${{ secrets.GH_ACCESS_TOKEN }}
-          workflow_file_name: create-preview.yml
-          inputs: '{ "tag": "${{ secrets.DEPLOYMENT_SUBDOMAIN }}" }'
-          repo: hackthe6ix-landing-2020
-          owner: hack-the-6ix
-
-      # Print preview link
-      - uses: mshick/add-pr-comment@v1
-        with:
-          message: |
-            **Preview link:** [https://${{ secrets.DEPLOYMENT_SUBDOMAIN }}.hackthe6ix.com](https://${{ secrets.DEPLOYMENT_SUBDOMAIN }}.hackthe6ix.com)
-          allow-repeats: true
-          repo-token: ${{ github.token }}
-
