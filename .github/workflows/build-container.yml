@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: |
-            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }},hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:latest
+            hackthe6ix/${{ secrets.DOCKERHUB_PREVIEW_REPOSITORY }}:${{ secrets.DEPLOYMENT_SUBDOMAIN }}
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
           cache-from: type=local,src=/tmp/.buildx-cache
           push: true
