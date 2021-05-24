@@ -1,7 +1,1 @@
-<svg width="473" height="311" viewBox="0 0 473 311" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="4.51483" y="4" width="463.394" height="302.916" rx="20" stroke="#A9DED9" stroke-width="8"/>
-<path d="M471.908 42.751V24C471.908 10.7452 461.163 0 447.908 0H429.36H386.813H368.88H325.739H304.057H260.694H173.968H21.8903C10.085 0 0.514832 9.57014 0.514832 21.3755V42.751H471.908Z" fill="#23B5AF"/>
-<ellipse cx="32.6339" cy="21.3757" rx="6.84483" ry="6.93724" fill="#EC9D89"/>
-<ellipse cx="56.6077" cy="20.6853" rx="6.16338" ry="6.24659" fill="#EDBA4B"/>
-<ellipse cx="81.261" cy="20.6851" rx="6.16338" ry="6.24659" fill="#A9DED9"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="473" height="311" fill="none" viewBox="0 0 473 311"><rect width="463.394" height="302.916" x="4.515" y="4" stroke="#A9DED9" stroke-width="8" rx="20"/><path fill="#23B5AF" d="M471.908 42.751V24C471.908 10.7452 461.163 0 447.908 0H429.36H386.813H368.88H325.739H304.057H260.694H173.968H21.8903C10.085 0 0.514832 9.57014 0.514832 21.3755V42.751H471.908Z"/><ellipse cx="32.634" cy="21.376" fill="#EC9D89" rx="6.845" ry="6.937"/><ellipse cx="56.608" cy="20.685" fill="#EDBA4B" rx="6.163" ry="6.247"/><ellipse cx="81.261" cy="20.685" fill="#A9DED9" rx="6.163" ry="6.247"/></svg>
